@@ -1,0 +1,565 @@
+:root {
+    --blood-red: #DC143C;
+    --pure-white: #FFFFFF;
+    --void-black: #000000;
+    --ash-gray: #1a1a1a;
+    --smoke: #2a2a2a;
+    --warning-red: #FF0000;
+    --glitch-cyan: #00FFFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Splatter';
+    src: url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background: var(--void-black);
+    color: var(--pure-white);
+    overflow-x: hidden;
+    cursor: crosshair;
+}
+
+/* GLITCH EFFECT */
+.glitch {
+    position: relative;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch::before {
+    animation: glitch-1 0.3s infinite;
+    color: var(--blood-red);
+    z-index: -1;
+}
+
+.glitch::after {
+    animation: glitch-2 0.3s infinite;
+    color: var(--glitch-cyan);
+    z-index: -2;
+}
+
+@keyframes glitch-1 {
+    0%, 100% {
+        clip-path: inset(0 0 100% 0);
+        transform: translate(0);
+    }
+    20% {
+        clip-path: inset(40% 0 40% 0);
+        transform: translate(-2px, 2px);
+    }
+    40% {
+        clip-path: inset(20% 0 60% 0);
+        transform: translate(2px, -2px);
+    }
+    60% {
+        clip-path: inset(80% 0 10% 0);
+        transform: translate(1px, 1px);
+    }
+    80% {
+        clip-path: inset(10% 0 80% 0);
+        transform: translate(-1px, -1px);
+    }
+}
+
+@keyframes glitch-2 {
+    0%, 100% {
+        clip-path: inset(0 0 100% 0);
+        transform: translate(0);
+    }
+    20% {
+        clip-path: inset(60% 0 20% 0);
+        transform: translate(2px, -1px);
+    }
+    40% {
+        clip-path: inset(10% 0 80% 0);
+        transform: translate(-2px, 1px);
+    }
+    60% {
+        clip-path: inset(70% 0 20% 0);
+        transform: translate(-1px, 2px);
+    }
+    80% {
+        clip-path: inset(30% 0 50% 0);
+        transform: translate(1px, -2px);
+    }
+}
+
+/* NAVBAR - SURVEILLANCE STYLE */
+.surveillance-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(180deg, var(--void-black) 0%, transparent 100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    z-index: 9999;
+    border-bottom: 2px solid var(--blood-red);
+}
+
+.brand-mark {
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: -2px;
+    color: var(--pure-white);
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.brand-mark:hover {
+    color: var(--blood-red);
+    text-shadow: 0 0 20px var(--blood-red);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 3rem;
+}
+
+.nav-links a {
+    color: var(--pure-white);
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--blood-red);
+    transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* HERO - BIG BROTHER STYLE */
+.hero-dystopia {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: var(--void-black);
+    overflow: hidden;
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 10;
+    position: relative;
+}
+
+.massive-title {
+    font-size: clamp(4rem, 12vw, 10rem);
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    line-height: 0.9;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.splatter-text {
+    background: linear-gradient(180deg, var(--pure-white) 0%, var(--pure-white) 50%, var(--blood-red) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+.splatter-text::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="3" fill="%23DC143C" opacity="0.8"/><circle cx="80" cy="30" r="2" fill="%23DC143C" opacity="0.6"/><circle cx="50" cy="70" r="4" fill="%23DC143C" opacity="0.7"/><circle cx="30" cy="60" r="2.5" fill="%23DC143C" opacity="0.5"/></svg>');
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    animation: splatter 3s infinite;
+}
+
+@keyframes splatter {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+.subtitle-brutal {
+    font-size: 1.2rem;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: var(--blood-red);
+    margin-bottom: 3rem;
+}
+
+/* SURVEILLANCE EYE */
+.surveillance-eye {
+    position: fixed;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    width: 100px;
+    height: 100px;
+    z-index: 100;
+}
+
+.eye-outer {
+    width: 100%;
+    height: 100%;
+    border: 3px solid var(--blood-red);
+    border-radius: 50% 0;
+    position: relative;
+    animation: eye-blink 5s infinite;
+}
+
+.eye-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    background: var(--blood-red);
+    border-radius: 50%;
+    box-shadow: 0 0 30px var(--blood-red);
+}
+
+@keyframes eye-blink {
+    0%, 90%, 100% {
+        transform: scaleY(1);
+    }
+    95% {
+        transform: scaleY(0.1);
+    }
+}
+
+/* CONTENT SECTIONS */
+.section-brutal {
+    padding: 100px 5%;
+    position: relative;
+}
+
+.section-brutal.red-zone {
+    background: linear-gradient(180deg, var(--void-black) 0%, var(--ash-gray) 100%);
+    border-top: 5px solid var(--blood-red);
+    border-bottom: 5px solid var(--blood-red);
+}
+
+.container-cage {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-title-brutal {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title-brutal::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100px;
+    height: 5px;
+    background: var(--blood-red);
+}
+
+/* POETRY DISPLAY */
+.poetry-container {
+    background: var(--ash-gray);
+    border: 2px solid var(--blood-red);
+    padding: 3rem;
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.poetry-container::before {
+    content: 'CLASSIFIED';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: var(--blood-red);
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    opacity: 0.5;
+}
+
+.poetry-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--blood-red);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.poetry-text {
+    font-family: 'Courier New', monospace;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    color: var(--pure-white);
+    font-size: 1.1rem;
+}
+
+/* ESSAY CARDS */
+.essay-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.essay-card {
+    background: var(--ash-gray);
+    border: 2px solid var(--pure-white);
+    padding: 2rem;
+    transition: all 0.3s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.essay-card:hover {
+    border-color: var(--blood-red);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(220, 20, 60, 0.3);
+}
+
+.essay-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--blood-red), transparent);
+    transition: left 0.5s;
+}
+
+.essay-card:hover::before {
+    left: 100%;
+}
+
+.essay-number {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--blood-red);
+    opacity: 0.2;
+}
+
+.essay-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    z-index: 1;
+    position: relative;
+}
+
+.essay-excerpt {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    opacity: 0.8;
+    z-index: 1;
+    position: relative;
+}
+
+/* IMAGE GALLERY - PROPAGANDA STYLE */
+.propaganda-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 0;
+    margin: 3rem 0;
+}
+
+.propaganda-frame {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1;
+    border: 2px solid var(--pure-white);
+}
+
+.propaganda-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(50%) contrast(1.2);
+    transition: all 0.5s;
+}
+
+.propaganda-frame:hover img {
+    filter: grayscale(0%) contrast(1.5) saturate(1.2);
+    transform: scale(1.1);
+}
+
+.propaganda-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(180deg, transparent, var(--void-black));
+    padding: 1.5rem;
+    transform: translateY(100%);
+    transition: transform 0.3s;
+}
+
+.propaganda-frame:hover .propaganda-overlay {
+    transform: translateY(0);
+}
+
+.propaganda-text {
+    color: var(--pure-white);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* CTA BUTTONS - BRUTALIST */
+.btn-brutal {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background: var(--blood-red);
+    color: var(--pure-white);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 900;
+    border: 3px solid var(--blood-red);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-brutal:hover {
+    background: transparent;
+    color: var(--blood-red);
+    box-shadow: 0 0 30px var(--blood-red);
+}
+
+.btn-brutal::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: var(--pure-white);
+    transform: translate(-50%, -50%);
+    transition: all 0.3s;
+}
+
+.btn-brutal:hover::before {
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+}
+
+/* FOOTER - MINIMAL */
+.footer-void {
+    padding: 3rem 5%;
+    text-align: center;
+    border-top: 2px solid var(--blood-red);
+    background: var(--void-black);
+}
+
+.footer-text {
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.5;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .massive-title {
+        font-size: clamp(3rem, 10vw, 6rem);
+    }
+    
+    .essay-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .propaganda-gallery {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* TYPEWRITER EFFECT */
+.typewriter {
+    overflow: hidden;
+    border-right: 3px solid var(--blood-red);
+    white-space: nowrap;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--blood-red) }
+}
+
+/* STATIC NOISE OVERLAY */
+.static-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.03;
+    z-index: 1;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect width="100" height="100" fill="%23000"/><rect x="0" y="0" width="1" height="1" fill="%23fff" opacity="0.5"><animate attributeName="opacity" values="0;1;0" dur="0.1s" repeatCount="indefinite"/></rect></svg>');
+}
