@@ -366,15 +366,6 @@
         }
     });
 
-    // TODO: [CODE QUALITY] Remove console logs in production
-    // Priority: LOW - Debug logs should be wrapped in development check
-    // Console Easter Egg
-    console.log('%c🚀 Studio Farzulla', 
-                'background: linear-gradient(135deg, #4f9eff 0%, #7c3aed 100%); color: #fff; padding: 20px; font-size: 20px; font-weight: bold; border-radius: 8px;');
-    console.log('%cExploring the intersection of finance, technology, and ethics', 
-                'color: #a8a8a8; font-size: 14px; font-style: italic;');
-    console.log('%cBuilt with passion and precision', 
-                'color: #4f9eff; font-size: 12px;');
 
     // Performance optimization
     let ticking = false;
