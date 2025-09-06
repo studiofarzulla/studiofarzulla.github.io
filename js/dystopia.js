@@ -1,5 +1,26 @@
 // DYSTOPIA.JS - Interactive features for the surveillance state
 
+// Configuration constants
+const DYSTOPIA_CONFIG = {
+    EYE_MAX_DISTANCE: 10,        // Maximum eye movement distance
+    EYE_DISTANCE_DIVISOR: 10,    // Eye distance calculation divisor
+    GLITCH_THROTTLE: 150,        // Glitch scroll throttle in ms
+    GLITCH_ANIMATION_TIME: 100,  // Glitch animation duration
+    GLITCH_RESET_TIME: 300,      // Time to reset glitch state
+    GLITCH_MIN_INTERVAL: 3000,   // Minimum glitch interval
+    GLITCH_MAX_INTERVAL: 5000,   // Maximum glitch interval
+    GLITCH_PROBABILITY: 0.7,     // Probability of glitch occurring
+    GLITCH_CHAR_PROBABILITY: 0.9,// Probability of character being preserved
+    AUDIO_FREQUENCY: 200,        // Click sound frequency
+    AUDIO_GAIN: 0.3,             // Click sound volume
+    AUDIO_DURATION: 0.1,         // Click sound duration
+    STATIC_CHECK_INTERVAL: 2000, // Static flicker check interval
+    STATIC_PROBABILITY: 0.95,    // Probability of no static flicker
+    STATIC_OPACITY_HIGH: 0.1,    // High static opacity
+    STATIC_OPACITY_LOW: 0.03,    // Low static opacity
+    STATIC_FLICKER_TIME: 50      // Static flicker duration
+};
+
 // Cursor tracking eye
 document.addEventListener('DOMContentLoaded', () => {
     const eye = document.querySelector('.eye-inner');
@@ -10,7 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const eyeCenterY = eyeRect.top + eyeRect.height / 2;
             
             const angle = Math.atan2(e.clientY - eyeCenterY, e.clientX - eyeCenterX);
-            const distance = Math.min(10, Math.hypot(e.clientX - eyeCenterX, e.clientY - eyeCenterY) / 10);
+            const distance = Math.min(
+                DYSTOPIA_CONFIG.EYE_MAX_DISTANCE, 
+                Math.hypot(e.clientX - eyeCenterX, e.clientY - eyeCenterY) / DYSTOPIA_CONFIG.EYE_DISTANCE_DIVISOR
+            );
             
             const x = Math.cos(angle) * distance;
             const y = Math.sin(angle) * distance;
@@ -19,24 +43,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Glitch effect on scroll
+    // Throttle helper
+    function throttle(func, delay) {
+        let timeoutId;
+        let lastExecTime = 0;
+        return function(...args) {
+            const currentTime = Date.now();
+            if (currentTime - lastExecTime > delay) {
+                func.apply(this, args);
+                lastExecTime = currentTime;
+            }
+        };
+    }
+
+    // Glitch effect on scroll with throttling
     const glitchElements = document.querySelectorAll('.glitch');
     let isGlitching = false;
     
-    window.addEventListener('scroll', () => {
+    const handleGlitchScroll = throttle(() => {
         if (!isGlitching) {
             isGlitching = true;
             glitchElements.forEach(el => {
                 el.style.animation = 'none';
                 setTimeout(() => {
                     el.style.animation = '';
-                }, 100);
+                }, DYSTOPIA_CONFIG.GLITCH_ANIMATION_TIME);
             });
             setTimeout(() => {
                 isGlitching = false;
-            }, 300);
+            }, DYSTOPIA_CONFIG.GLITCH_RESET_TIME);
         }
-    });
+    }, DYSTOPIA_CONFIG.GLITCH_THROTTLE);
+    
+    window.addEventListener('scroll', handleGlitchScroll);
 
     // Random glitch text - Optimized for performance
     const titles = document.querySelectorAll('.massive-title, .section-title-brutal');
@@ -49,12 +88,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const glitchText = () => {
             const now = Date.now();
             // Only glitch every 3-5 seconds instead of every second
-            if (now - lastGlitch > 3000 + Math.random() * 2000) {
-                if (Math.random() > 0.7) {
+            if (now - lastGlitch > DYSTOPIA_CONFIG.GLITCH_MIN_INTERVAL + Math.random() * (DYSTOPIA_CONFIG.GLITCH_MAX_INTERVAL - DYSTOPIA_CONFIG.GLITCH_MIN_INTERVAL)) {
+                if (Math.random() > DYSTOPIA_CONFIG.GLITCH_PROBABILITY) {
                     let glitchedText = '';
                     
                     for (let i = 0; i < originalText.length; i++) {
-                        if (Math.random() > 0.9) {
+                        if (Math.random() > DYSTOPIA_CONFIG.GLITCH_CHAR_PROBABILITY) {
                             glitchedText += glitchChars[Math.floor(Math.random() * glitchChars.length)];
                         } else {
                             glitchedText += originalText[i];
@@ -64,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     title.textContent = glitchedText;
                     setTimeout(() => {
                         title.textContent = originalText;
-                    }, 100);
+                    }, DYSTOPIA_CONFIG.GLITCH_ANIMATION_TIME);
                     lastGlitch = now;
                 }
             }
@@ -91,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (i < text.length) {
                 tw.textContent += text.charAt(i);
                 i++;
-                setTimeout(type, 100);
+                setTimeout(type, DYSTOPIA_CONFIG.GLITCH_ANIMATION_TIME);
             }
         };
         
@@ -127,13 +166,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 oscillator.connect(gainNode);
                 gainNode.connect(audioContext.destination);
                 
-                oscillator.frequency.value = 200;
+                oscillator.frequency.value = DYSTOPIA_CONFIG.AUDIO_FREQUENCY;
                 oscillator.type = 'square';
-                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+                gainNode.gain.setValueAtTime(DYSTOPIA_CONFIG.AUDIO_GAIN, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + DYSTOPIA_CONFIG.AUDIO_DURATION);
                 
                 oscillator.start(audioContext.currentTime);
-                oscillator.stop(audioContext.currentTime + 0.1);
+                oscillator.stop(audioContext.currentTime + DYSTOPIA_CONFIG.AUDIO_DURATION);
                 
                 // Clean up after sound finishes
                 oscillator.onended = () => {
@@ -146,27 +185,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Parallax scrolling for sections
+    // Parallax scrolling for sections with throttling
     const sections = document.querySelectorAll('.section-brutal');
-    window.addEventListener('scroll', () => {
+    const handleParallax = throttle(() => {
         const scrolled = window.pageYOffset;
         sections.forEach((section, index) => {
             const speed = index % 2 === 0 ? 0.5 : 0.3;
             section.style.transform = `translateY(${scrolled * speed * 0.1}px)`;
         });
-    });
+    }, 50); // Throttle to 50ms for smooth parallax
+    
+    window.addEventListener('scroll', handleParallax);
 
     // Random static flicker
     const staticOverlay = document.querySelector('.static-overlay');
     if (staticOverlay) {
         setInterval(() => {
-            if (Math.random() > 0.95) {
-                staticOverlay.style.opacity = '0.1';
+            if (Math.random() > DYSTOPIA_CONFIG.STATIC_PROBABILITY) {
+                staticOverlay.style.opacity = DYSTOPIA_CONFIG.STATIC_OPACITY_HIGH.toString();
                 setTimeout(() => {
-                    staticOverlay.style.opacity = '0.03';
-                }, 50);
+                    staticOverlay.style.opacity = DYSTOPIA_CONFIG.STATIC_OPACITY_LOW.toString();
+                }, DYSTOPIA_CONFIG.STATIC_FLICKER_TIME);
             }
-        }, 2000);
+        }, DYSTOPIA_CONFIG.STATIC_CHECK_INTERVAL);
     }
 
     // Hover effect for poetry

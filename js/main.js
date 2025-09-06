@@ -4,39 +4,73 @@
 (function() {
     'use strict';
 
+    // Configuration constants
+    const PARTICLE_CONFIG = {
+        AREA_DIVISOR: 15000,        // Controls particle density
+        MAX_PARTICLES: 150,         // Maximum particle count
+        MIN_PARTICLES: 20,          // Minimum particle count
+        MOUSE_RADIUS: 150,          // Mouse interaction radius
+        MOUSE_FORCE: 0.03,          // Mouse repulsion force
+        SPEED_RANGE: 0.5,           // Particle speed range
+        SIZE_MAX: 2,                // Maximum particle size
+        OPACITY_MIN: 0.2,           // Minimum particle opacity
+        OPACITY_RANGE: 0.5          // Particle opacity range
+    };
+
     // Dark Theme Particle System (Subtle background effect)
     class ParticleSystem {
         constructor() {
             this.canvas = null;
             this.ctx = null;
             this.particles = [];
-            this.mouse = { x: null, y: null, radius: 150 };
+            this.mouse = { x: null, y: null, radius: PARTICLE_CONFIG.MOUSE_RADIUS };
             this.animationId = null;
             this.resizeHandler = null;
             this.mouseMoveHandler = null;
+            this.resizeTimeoutId = null;
+            this.isDestroyed = false;
             this.init();
         }
 
         init() {
-            // Create canvas for particles
-            this.canvas = document.createElement('canvas');
-            this.canvas.style.position = 'fixed';
-            this.canvas.style.top = '0';
-            this.canvas.style.left = '0';
-            this.canvas.style.width = '100%';
-            this.canvas.style.height = '100%';
-            this.canvas.style.pointerEvents = 'none';
-            this.canvas.style.zIndex = '1';
-            this.canvas.style.opacity = '0.3';
-            document.body.appendChild(this.canvas);
+            if (this.isDestroyed) return;
+            
+            try {
+                // Create canvas for particles
+                this.canvas = document.createElement('canvas');
+                this.canvas.style.position = 'fixed';
+                this.canvas.style.top = '0';
+                this.canvas.style.left = '0';
+                this.canvas.style.width = '100%';
+                this.canvas.style.height = '100%';
+                this.canvas.style.pointerEvents = 'none';
+                this.canvas.style.zIndex = '1';
+                this.canvas.style.opacity = '0.3';
+                document.body.appendChild(this.canvas);
 
-            this.ctx = this.canvas.getContext('2d');
-            this.resize();
-            this.createParticles();
-            this.animate();
+                this.ctx = this.canvas.getContext('2d');
+                if (!this.ctx) {
+                    throw new Error('Unable to get 2D context');
+                }
+                
+                this.resize();
+                this.createParticles();
+                this.animate();
+            } catch (error) {
+                console.warn('Particle system initialization failed:', error.message);
+                this.destroy();
+                return;
+            }
 
             // Store event handlers for cleanup
-            this.resizeHandler = () => this.resize();
+            this.resizeHandler = () => {
+                // Debounce resize to prevent particle recreation spam
+                clearTimeout(this.resizeTimeoutId);
+                this.resizeTimeoutId = setTimeout(() => {
+                    this.resize();
+                    this.adjustParticleCount();
+                }, 250);
+            };
             this.mouseMoveHandler = (e) => {
                 this.mouse.x = e.x;
                 this.mouse.y = e.y;
@@ -52,20 +86,45 @@
         }
 
         createParticles() {
-            const particleCount = Math.floor((window.innerWidth * window.innerHeight) / 15000);
+            const particleCount = Math.min(
+                PARTICLE_CONFIG.MAX_PARTICLES,
+                Math.max(
+                    PARTICLE_CONFIG.MIN_PARTICLES,
+                    Math.floor((window.innerWidth * window.innerHeight) / PARTICLE_CONFIG.AREA_DIVISOR)
+                )
+            );
+            
+            this.particles = []; // Clear existing particles
             for (let i = 0; i < particleCount; i++) {
                 this.particles.push({
                     x: Math.random() * this.canvas.width,
                     y: Math.random() * this.canvas.height,
-                    size: Math.random() * 2,
-                    speedX: Math.random() * 0.5 - 0.25,
-                    speedY: Math.random() * 0.5 - 0.25,
-                    opacity: Math.random() * 0.5 + 0.2
+                    size: Math.random() * PARTICLE_CONFIG.SIZE_MAX,
+                    speedX: Math.random() * PARTICLE_CONFIG.SPEED_RANGE - PARTICLE_CONFIG.SPEED_RANGE / 2,
+                    speedY: Math.random() * PARTICLE_CONFIG.SPEED_RANGE - PARTICLE_CONFIG.SPEED_RANGE / 2,
+                    opacity: Math.random() * PARTICLE_CONFIG.OPACITY_RANGE + PARTICLE_CONFIG.OPACITY_MIN
                 });
             }
         }
 
+        adjustParticleCount() {
+            const targetCount = Math.min(
+                PARTICLE_CONFIG.MAX_PARTICLES,
+                Math.max(
+                    PARTICLE_CONFIG.MIN_PARTICLES,
+                    Math.floor((window.innerWidth * window.innerHeight) / PARTICLE_CONFIG.AREA_DIVISOR)
+                )
+            );
+            
+            const currentCount = this.particles.length;
+            if (Math.abs(targetCount - currentCount) > 10) {
+                this.createParticles();
+            }
+        }
+
         animate() {
+            if (this.isDestroyed) return;
+            
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
             
             this.particles.forEach(particle => {
@@ -86,8 +145,8 @@
                 
                 if (distance < this.mouse.radius) {
                     const force = (this.mouse.radius - distance) / this.mouse.radius;
-                    particle.x -= dx * force * 0.03;
-                    particle.y -= dy * force * 0.03;
+                    particle.x -= dx * force * PARTICLE_CONFIG.MOUSE_FORCE;
+                    particle.y -= dy * force * PARTICLE_CONFIG.MOUSE_FORCE;
                 }
 
                 // Draw particle
@@ -101,23 +160,39 @@
         }
         
         destroy() {
+            this.isDestroyed = true;
+            
             // Cancel animation
             if (this.animationId) {
                 cancelAnimationFrame(this.animationId);
+                this.animationId = null;
+            }
+            
+            // Clear resize timeout
+            if (this.resizeTimeoutId) {
+                clearTimeout(this.resizeTimeoutId);
+                this.resizeTimeoutId = null;
             }
             
             // Remove event listeners
             if (this.resizeHandler) {
                 window.removeEventListener('resize', this.resizeHandler);
+                this.resizeHandler = null;
             }
             if (this.mouseMoveHandler) {
                 window.removeEventListener('mousemove', this.mouseMoveHandler);
+                this.mouseMoveHandler = null;
             }
             
             // Remove canvas
             if (this.canvas && this.canvas.parentNode) {
                 this.canvas.parentNode.removeChild(this.canvas);
+                this.canvas = null;
+                this.ctx = null;
             }
+            
+            // Clear particles array
+            this.particles = [];
         }
     }
 
@@ -134,18 +209,60 @@
         }
     });
 
-    // DOM Elements
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const sections = document.querySelectorAll('.section');
-    const cards = document.querySelectorAll('.card');
-    const navbar = document.querySelector('.navbar');
+    // Cache DOM Elements
+    const domCache = {
+        navToggle: null,
+        navMenu: null,
+        navLinks: null,
+        sections: null,
+        cards: null,
+        navbar: null,
+        heroTitle: null,
+        heroContent: null,
+        buttons: null,
+        
+        init() {
+            this.navToggle = document.querySelector('.nav-toggle');
+            this.navMenu = document.querySelector('.nav-menu');
+            this.navLinks = document.querySelectorAll('.nav-link');
+            this.sections = document.querySelectorAll('.section');
+            this.cards = document.querySelectorAll('.card');
+            this.navbar = document.querySelector('.navbar');
+            this.heroTitle = document.querySelector('.hero-title');
+            this.heroContent = document.querySelector('.hero-content');
+            this.buttons = document.querySelectorAll('.btn');
+        }
+    };
+    
+    // Initialize DOM cache when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => domCache.init());
+    } else {
+        domCache.init();
+    }
+    
+    // Use cached references
+    const { navToggle, navMenu, navLinks, sections, cards, navbar } = domCache;
 
-    // Navbar scroll effect
+    // Throttle function (moved up for reuse)
+    function throttle(func, delay) {
+        let timeoutId;
+        let lastExecTime = 0;
+        return function(...args) {
+            const currentTime = Date.now();
+            if (currentTime - lastExecTime > delay) {
+                func.apply(this, args);
+                lastExecTime = currentTime;
+            }
+        };
+    }
+
+    // Navbar scroll effect with throttling
     let lastScroll = 0;
-    window.addEventListener('scroll', () => {
+    const handleScroll = throttle(() => {
         const currentScroll = window.pageYOffset;
+        
+        if (!navbar) return;
         
         if (currentScroll > 100) {
             navbar.style.background = 'rgba(10, 10, 10, 0.95)';
@@ -162,7 +279,9 @@
             navbar.style.transform = 'translateY(0)';
         }
         lastScroll = currentScroll;
-    });
+    }, 100); // Throttle to 100ms
+    
+    window.addEventListener('scroll', handleScroll);
 
     // Enhanced Mobile Navigation Toggle
     if (navToggle && navMenu) {

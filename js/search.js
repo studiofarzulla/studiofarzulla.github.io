@@ -115,27 +115,53 @@
         displayResults(results, resultsContainer, query);
     };
 
+    // Helper function to escape HTML
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
     // Display search results
     function displayResults(results, container, query) {
-        container.innerHTML = '';
+        // Clear container safely
+        while (container.firstChild) {
+            container.removeChild(container.firstChild);
+        }
 
         if (results.length === 0) {
-            container.innerHTML = `
-                <div class="search-result-item">
-                    <p>No results found for "${query}"</p>
-                </div>
-            `;
+            // Create elements safely without innerHTML
+            const noResultDiv = document.createElement('div');
+            noResultDiv.className = 'search-result-item';
+            const noResultText = document.createElement('p');
+            noResultText.textContent = `No results found for "${query}"`;
+            noResultDiv.appendChild(noResultText);
+            container.appendChild(noResultDiv);
         } else {
             results.forEach(result => {
                 const item = document.createElement('div');
                 item.className = 'search-result-item';
-                item.innerHTML = `
-                    <strong>${result.title}</strong>
-                    <small style="display: block; color: #6b7280; margin-top: 4px;">
-                        ${result.type.charAt(0).toUpperCase() + result.type.slice(1)}
-                    </small>
-                    <p style="margin-top: 8px; font-size: 0.9rem;">${result.content}</p>
-                `;
+                
+                // Create title element
+                const titleElement = document.createElement('strong');
+                titleElement.textContent = result.title;
+                item.appendChild(titleElement);
+                
+                // Create type element
+                const typeElement = document.createElement('small');
+                typeElement.style.display = 'block';
+                typeElement.style.color = '#6b7280';
+                typeElement.style.marginTop = '4px';
+                typeElement.textContent = result.type.charAt(0).toUpperCase() + result.type.slice(1);
+                item.appendChild(typeElement);
+                
+                // Create content element
+                const contentElement = document.createElement('p');
+                contentElement.style.marginTop = '8px';
+                contentElement.style.fontSize = '0.9rem';
+                contentElement.textContent = result.content;
+                item.appendChild(contentElement);
+                
                 item.onclick = () => {
                     window.location.href = result.url;
                 };
