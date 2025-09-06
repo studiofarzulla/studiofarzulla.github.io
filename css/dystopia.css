@@ -14,6 +14,34 @@
     box-sizing: border-box;
 }
 
+/* Skip Link - Accessible but hidden until focused */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--blood-red);
+    color: var(--pure-white);
+    padding: 8px;
+    text-decoration: none;
+    z-index: 100000;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Focus indicators for keyboard navigation */
+*:focus-visible {
+    outline: 2px solid var(--blood-red);
+    outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--blood-red);
+    outline-offset: 4px;
+}
+
 @font-face {
     font-family: 'Splatter';
     src: url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');

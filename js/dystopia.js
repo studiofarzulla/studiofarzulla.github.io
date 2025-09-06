@@ -38,29 +38,46 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Random glitch text
+    // Random glitch text - Optimized for performance
     const titles = document.querySelectorAll('.massive-title, .section-title-brutal');
     titles.forEach(title => {
-        setInterval(() => {
-            if (Math.random() > 0.98) {
-                const originalText = title.textContent;
-                const glitchChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/~`';
-                let glitchedText = '';
-                
-                for (let i = 0; i < originalText.length; i++) {
-                    if (Math.random() > 0.9) {
-                        glitchedText += glitchChars[Math.floor(Math.random() * glitchChars.length)];
-                    } else {
-                        glitchedText += originalText[i];
+        const originalText = title.textContent;
+        const glitchChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/~`';
+        let lastGlitch = 0;
+        
+        // Use requestIdleCallback for better performance
+        const glitchText = () => {
+            const now = Date.now();
+            // Only glitch every 3-5 seconds instead of every second
+            if (now - lastGlitch > 3000 + Math.random() * 2000) {
+                if (Math.random() > 0.7) {
+                    let glitchedText = '';
+                    
+                    for (let i = 0; i < originalText.length; i++) {
+                        if (Math.random() > 0.9) {
+                            glitchedText += glitchChars[Math.floor(Math.random() * glitchChars.length)];
+                        } else {
+                            glitchedText += originalText[i];
+                        }
                     }
+                    
+                    title.textContent = glitchedText;
+                    setTimeout(() => {
+                        title.textContent = originalText;
+                    }, 100);
+                    lastGlitch = now;
                 }
-                
-                title.textContent = glitchedText;
-                setTimeout(() => {
-                    title.textContent = originalText;
-                }, 100);
             }
-        }, 1000);
+            
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(glitchText);
+            } else {
+                setTimeout(glitchText, 4000);
+            }
+        };
+        
+        // Start the glitch effect
+        glitchText();
     });
 
     // Typewriter effect
@@ -95,21 +112,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const buttons = document.querySelectorAll('.btn-brutal');
     buttons.forEach(btn => {
         btn.addEventListener('click', () => {
-            // Create audio context for click sound
-            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            const oscillator = audioContext.createOscillator();
-            const gainNode = audioContext.createGain();
-            
-            oscillator.connect(gainNode);
-            gainNode.connect(audioContext.destination);
-            
-            oscillator.frequency.value = 200;
-            oscillator.type = 'square';
-            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
-            
-            oscillator.start(audioContext.currentTime);
-            oscillator.stop(audioContext.currentTime + 0.1);
+            try {
+                // Create audio context for click sound
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                
+                // Check if AudioContext is in suspended state and resume if needed
+                if (audioContext.state === 'suspended') {
+                    audioContext.resume();
+                }
+                
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.value = 200;
+                oscillator.type = 'square';
+                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+                
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.1);
+                
+                // Clean up after sound finishes
+                oscillator.onended = () => {
+                    audioContext.close();
+                };
+            } catch (error) {
+                // Silently fail if audio is not supported or blocked
+                console.debug('Audio playback failed:', error.message);
+            }
         });
     });
 

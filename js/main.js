@@ -11,6 +11,9 @@
             this.ctx = null;
             this.particles = [];
             this.mouse = { x: null, y: null, radius: 150 };
+            this.animationId = null;
+            this.resizeHandler = null;
+            this.mouseMoveHandler = null;
             this.init();
         }
 
@@ -32,11 +35,15 @@
             this.createParticles();
             this.animate();
 
-            window.addEventListener('resize', () => this.resize());
-            window.addEventListener('mousemove', (e) => {
+            // Store event handlers for cleanup
+            this.resizeHandler = () => this.resize();
+            this.mouseMoveHandler = (e) => {
                 this.mouse.x = e.x;
                 this.mouse.y = e.y;
-            });
+            };
+            
+            window.addEventListener('resize', this.resizeHandler);
+            window.addEventListener('mousemove', this.mouseMoveHandler);
         }
 
         resize() {
@@ -90,14 +97,42 @@
                 this.ctx.fill();
             });
 
-            requestAnimationFrame(() => this.animate());
+            this.animationId = requestAnimationFrame(() => this.animate());
+        }
+        
+        destroy() {
+            // Cancel animation
+            if (this.animationId) {
+                cancelAnimationFrame(this.animationId);
+            }
+            
+            // Remove event listeners
+            if (this.resizeHandler) {
+                window.removeEventListener('resize', this.resizeHandler);
+            }
+            if (this.mouseMoveHandler) {
+                window.removeEventListener('mousemove', this.mouseMoveHandler);
+            }
+            
+            // Remove canvas
+            if (this.canvas && this.canvas.parentNode) {
+                this.canvas.parentNode.removeChild(this.canvas);
+            }
         }
     }
 
     // Initialize particle system only on desktop
+    let particleSystem = null;
     if (window.innerWidth > 768) {
-        new ParticleSystem();
+        particleSystem = new ParticleSystem();
     }
+    
+    // Cleanup on page unload
+    window.addEventListener('beforeunload', () => {
+        if (particleSystem) {
+            particleSystem.destroy();
+        }
+    });
 
     // DOM Elements
     const navToggle = document.querySelector('.nav-toggle');
@@ -331,6 +366,8 @@
         }
     });
 
+    // TODO: [CODE QUALITY] Remove console logs in production
+    // Priority: LOW - Debug logs should be wrapped in development check
     // Console Easter Egg
     console.log('%c🚀 Studio Farzulla', 
                 'background: linear-gradient(135deg, #4f9eff 0%, #7c3aed 100%); color: #fff; padding: 20px; font-size: 20px; font-weight: bold; border-radius: 8px;');

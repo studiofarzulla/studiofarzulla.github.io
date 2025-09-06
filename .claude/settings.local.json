@@ -1,10 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(python:*)",
-      "bash",
-      "webfetch",
-      "all"
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []
