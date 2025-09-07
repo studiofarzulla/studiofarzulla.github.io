@@ -4,7 +4,11 @@
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Bash(node:*)",
-      "Bash(npx prettier:*)"
+      "Bash(npx prettier:*)",
+      "Bash(start index.html)",
+      "Bash(rm:*)",
+      "Bash",
+      "WebFetch"
     ],
     "deny": [],
     "ask": []

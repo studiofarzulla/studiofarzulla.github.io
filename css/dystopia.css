@@ -52,7 +52,7 @@ body {
     background: var(--void-black);
     color: var(--pure-white);
     overflow-x: hidden;
-    cursor: crosshair;
+    cursor: default;
 }
 
 /* GLITCH EFFECT */
