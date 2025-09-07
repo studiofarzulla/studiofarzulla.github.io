@@ -1,0 +1,387 @@
+/* Main Professional Stylesheet for Studio Farzulla */
+
+:root {
+    /* Professional Color Palette */
+    --primary-dark: #0a0a0a;
+    --primary-accent: #2563eb;
+    --secondary-accent: #dc2626;
+    --text-primary: #ffffff;
+    --text-secondary: #a1a1aa;
+    --bg-card: #18181b;
+    --bg-section: #09090b;
+    --border-color: #27272a;
+    
+    /* Legacy Dystopia Colors (for creative sections) */
+    --blood-red: #DC143C;
+    --pure-white: #FFFFFF;
+    --void-black: #000000;
+    --ash-gray: #1a1a1a;
+    --smoke: #2a2a2a;
+    --warning-red: #FF0000;
+    --glitch-cyan: #00FFFF;
+    
+    /* Typography */
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'Courier Prime', 'Courier New', monospace;
+    --font-display: 'Oswald', 'Bebas Neue', sans-serif;
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    background: var(--primary-dark);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Accessibility */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary-accent);
+    color: var(--text-primary);
+    padding: 12px 24px;
+    text-decoration: none;
+    z-index: 100000;
+    border-radius: 0 0 8px 0;
+    font-weight: 500;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+*:focus-visible {
+    outline: 2px solid var(--primary-accent);
+    outline-offset: 2px;
+}
+
+/* Typography Hierarchy */
+h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+h3 {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+/* Navigation - Professional Style */
+.surveillance-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 2rem;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.surveillance-nav .brand-mark {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    transition: color 0.3s ease;
+}
+
+.surveillance-nav .brand-mark:hover {
+    color: var(--primary-accent);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    float: right;
+    margin-top: 0.25rem;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.nav-links a:hover {
+    color: var(--text-primary);
+}
+
+/* Hero Section - Professional */
+.hero-dystopia {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 2rem 4rem;
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--bg-section) 100%);
+    position: relative;
+}
+
+.hero-dystopia::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(220, 38, 38, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 1200px;
+    width: 100%;
+    z-index: 1;
+    position: relative;
+}
+
+.hero-content .massive-title {
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-content .subtitle-brutal {
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+/* Buttons - Professional */
+.btn-brutal {
+    display: inline-block;
+    padding: 0.875rem 2rem;
+    background: var(--primary-accent);
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.btn-brutal:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+}
+
+/* Sections - Professional */
+.section-brutal {
+    padding: 5rem 2rem;
+    background: var(--bg-section);
+    border-top: 1px solid var(--border-color);
+}
+
+.section-brutal.red-zone {
+    background: var(--primary-dark);
+}
+
+.container-cage {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title-brutal {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-transform: none;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+}
+
+/* Cards - Professional */
+.essay-card {
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.essay-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-accent) 0%, var(--secondary-accent) 100%);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.essay-card:hover::before {
+    transform: translateX(0);
+}
+
+.essay-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: var(--primary-accent);
+}
+
+.essay-number {
+    color: var(--primary-accent);
+    font-size: 0.875rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.essay-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    text-transform: none;
+}
+
+.essay-excerpt {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Footer - Professional */
+.footer-void {
+    background: var(--primary-dark);
+    padding: 3rem 2rem;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-text {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.footer-text a {
+    color: var(--primary-accent);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-text a:hover {
+    color: var(--text-primary);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .hero-content {
+        padding: 0 1rem;
+    }
+    
+    .essay-card {
+        margin-bottom: 1.5rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.75rem;
+    }
+}
+
+/* Theme Switcher - Professional */
+.theme-switcher {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 0.5rem;
+    z-index: 10000;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.theme-switcher button {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: 0.25rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.theme-switcher button:hover {
+    transform: scale(1.1);
+}
+
+/* Static Overlay (for Dystopia theme compatibility) */
+.static-overlay {
+    display: none;
+}
+
+/* Surveillance Eye (hidden in professional mode) */
+.surveillance-eye {
+    display: none;
+}
+
+/* Legacy Glitch Effects (disabled in professional mode) */
+.glitch::before,
+.glitch::after {
+    display: none;
+}
+
+.splatter-text {
+    text-transform: none !important;
+}
+
+.typewriter {
+    animation: none !important;
+}

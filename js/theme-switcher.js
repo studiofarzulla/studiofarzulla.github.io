@@ -5,7 +5,7 @@
     // Available themes
     const themes = {
         professional: {
-            css: 'css/professional.css',
+            css: 'css/main.css',
             class: 'professional',
             name: 'Professional'
         },
