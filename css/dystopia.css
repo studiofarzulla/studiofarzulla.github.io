@@ -591,3 +591,494 @@ body {
     z-index: 1;
     background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect width="100" height="100" fill="%23000"/><rect x="0" y="0" width="1" height="1" fill="%23fff" opacity="0.5"><animate attributeName="opacity" values="0;1;0" dur="0.1s" repeatCount="indefinite"/></rect></svg>');
 }
+
+/* ============================================
+   NEW PAGE STYLES - Multi-page Site Support
+   ============================================ */
+
+/* Active Navigation State */
+.nav-links a.active {
+    color: var(--blood-red);
+    font-weight: 900;
+}
+
+.nav-links a.active::after {
+    width: 100%;
+}
+
+/* Content Block - Main container for new pages */
+.content-block {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 5%;
+    min-height: 60vh;
+}
+
+/* Section Styling for New Pages */
+.lab-section,
+.research-section,
+.project-section,
+.library-section,
+.solutions-section {
+    margin: 4rem 0;
+    padding: 3rem 0;
+    border-top: 2px solid var(--smoke);
+}
+
+.section-header {
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+    color: var(--pure-white);
+}
+
+.subsection-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--blood-red);
+    margin-bottom: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* Alert Banners */
+.alert-banner {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    background: var(--ash-gray);
+    border: 2px solid var(--blood-red);
+    border-left: 5px solid var(--blood-red);
+    margin: 1rem 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.alert-banner.alert-warning {
+    border-color: var(--warning-red);
+    border-left-color: var(--warning-red);
+}
+
+.alert-icon {
+    font-size: 1.5rem;
+}
+
+/* Cards - Universal Card System */
+.hardware-card,
+.research-card,
+.project-card,
+.experiment-card,
+.resource-card,
+.solution-card {
+    background: var(--ash-gray);
+    border: 2px solid var(--smoke);
+    padding: 2rem;
+    margin: 2rem 0;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.hardware-card:hover,
+.research-card:hover,
+.project-card:hover,
+.experiment-card:hover,
+.resource-card:hover,
+.solution-card:hover {
+    border-color: var(--blood-red);
+    transform: translateX(5px);
+    box-shadow: -5px 5px 0 var(--blood-red);
+}
+
+.card-header,
+.research-header,
+.experiment-header,
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.card-title,
+.research-title,
+.experiment-title,
+.project-title,
+.solution-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--pure-white);
+    margin-bottom: 0.5rem;
+}
+
+.card-content,
+.research-content,
+.experiment-content,
+.project-content {
+    color: var(--pure-white);
+    line-height: 1.8;
+}
+
+/* Badges */
+.card-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 2px solid;
+}
+
+.badge-attack {
+    color: var(--blood-red);
+    border-color: var(--blood-red);
+    background: rgba(220, 20, 60, 0.1);
+}
+
+.badge-server,
+.badge-target {
+    color: var(--glitch-cyan);
+    border-color: var(--glitch-cyan);
+    background: rgba(0, 255, 255, 0.1);
+}
+
+.badge-fleet {
+    color: var(--pure-white);
+    border-color: var(--pure-white);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.badge-complete {
+    color: #00FF00;
+    border-color: #00FF00;
+    background: rgba(0, 255, 0, 0.1);
+}
+
+.badge-progress {
+    color: #FFA500;
+    border-color: #FFA500;
+    background: rgba(255, 165, 0, 0.1);
+}
+
+.badge-research {
+    color: var(--blood-red);
+    border-color: var(--blood-red);
+    background: rgba(220, 20, 60, 0.1);
+}
+
+/* Grids */
+.hardware-grid,
+.project-grid,
+.resource-grid,
+.solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+/* Spec Lists */
+.spec-list,
+.tech-stack,
+.method-list {
+    list-style: none;
+    margin: 1.5rem 0;
+}
+
+.spec-item,
+.tech-item,
+.method-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--smoke);
+}
+
+.spec-item:last-child,
+.tech-item:last-child,
+.method-list li:last-child {
+    border-bottom: none;
+}
+
+.spec-label,
+.tech-label {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--blood-red);
+}
+
+.spec-value,
+.tech-value {
+    color: var(--pure-white);
+    font-family: 'Courier New', monospace;
+}
+
+/* Bullets */
+.method-bullet,
+.principle-bullet,
+.finding-bullet {
+    color: var(--blood-red);
+    margin-right: 1rem;
+    font-weight: 900;
+}
+
+/* Meta Information */
+.research-meta,
+.experiment-meta,
+.project-meta,
+.card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--pure-white);
+    opacity: 0.8;
+    margin-top: 0.5rem;
+}
+
+.meta-item,
+.meta-tag {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.meta-divider {
+    color: var(--blood-red);
+}
+
+/* Text Blocks */
+.intro-text,
+.research-text,
+.experiment-desc,
+.project-desc,
+.solution-desc {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--pure-white);
+    margin: 1rem 0;
+}
+
+/* Abstract & Special Boxes */
+.abstract-box,
+.methodology-box,
+.ethics-box,
+.findings-box,
+.overview-content,
+.disclaimer-content {
+    background: var(--smoke);
+    border-left: 5px solid var(--blood-red);
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+/* Timeline */
+.journey-timeline,
+.progress-timeline {
+    margin: 2rem 0;
+    padding-left: 2rem;
+    border-left: 3px solid var(--blood-red);
+}
+
+.timeline-item {
+    position: relative;
+    padding: 1.5rem 0 1.5rem 2rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.5rem;
+    top: 2rem;
+    width: 15px;
+    height: 15px;
+    background: var(--blood-red);
+    border: 3px solid var(--void-black);
+    border-radius: 50%;
+}
+
+.timeline-date {
+    font-size: 0.9rem;
+    color: var(--blood-red);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-content {
+    color: var(--pure-white);
+    line-height: 1.6;
+}
+
+/* Stats & Arsenal */
+.arsenal-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+    padding: 2rem;
+    background: var(--ash-gray);
+    border: 2px solid var(--blood-red);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--blood-red);
+    display: block;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--pure-white);
+    opacity: 0.8;
+}
+
+/* Budget/Cost Display */
+.budget-label,
+.cost-label {
+    font-weight: 700;
+    color: var(--blood-red);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.budget-value,
+.cost-value {
+    font-size: 1.2rem;
+    font-family: 'Courier New', monospace;
+    color: var(--pure-white);
+}
+
+/* Lists with Principles/Ethics */
+.ethics-principles,
+.principle-list {
+    list-style: none;
+    margin: 1.5rem 0;
+}
+
+.principle-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 0.75rem 0;
+    gap: 1rem;
+}
+
+/* Category Titles */
+.category-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--blood-red);
+    margin: 3rem 0 1.5rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--blood-red);
+}
+
+/* Footer Variations */
+.footer-surveillance {
+    padding: 3rem 5%;
+    background: var(--ash-gray);
+    border-top: 3px solid var(--blood-red);
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-subtext {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-top: 0.5rem;
+}
+
+/* Card Role */
+.card-role {
+    font-size: 0.9rem;
+    color: var(--blood-red);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+/* Lab Overview Specific */
+.lab-overview {
+    margin-bottom: 4rem;
+}
+
+/* Experiments/Projects Lists */
+.experiments-list,
+.projects-list {
+    margin: 2rem 0;
+}
+
+.experiment-findings,
+.project-features {
+    margin-top: 1.5rem;
+}
+
+/* Disclaimer Text */
+.disclaimer-text {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--pure-white);
+    opacity: 0.9;
+}
+
+/* Hero Variations */
+.research-hero,
+.lab-hero,
+.projects-hero {
+    min-height: 70vh;
+}
+
+/* Responsive Updates */
+@media (max-width: 768px) {
+    .hardware-grid,
+    .project-grid,
+    .resource-grid,
+    .solutions-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card-header,
+    .research-header,
+    .experiment-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .arsenal-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .content-block {
+        padding: 1rem 3%;
+    }
+}
