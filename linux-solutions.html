@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Linux Solutions - Murad Farzulla - Arch Linux Troubleshooting & Quick Fixes" />
+    <meta name="author" content="Murad Farzulla" />
+    <title>Linux Solutions - Murad Farzulla</title>
+    <link rel="stylesheet" href="css/dystopia.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Bebas+Neue&family=Oswald:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="static-overlay"></div>
+    <div class="surveillance-eye">
+      <div class="eye-outer">
+        <div class="eye-inner"></div>
+      </div>
+    </div>
+
+    <nav class="surveillance-nav">
+      <a href="index.html" class="brand-mark">MURAD FARZULLA</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="research-academic.html">Research</a></li>
+        <li><a href="projects-technical.html">Projects</a></li>
+        <li><a href="lab.html">Lab</a></li>
+        <li><a href="library.html">Library</a></li>
+        <li><a href="linux-solutions.html" class="active">Solutions</a></li>
+      </ul>
+    </nav>
+
+    <header class="hero-dystopia">
+      <div class="hero-content">
+        <h1 class="massive-title glitch" data-text="LINUX SOLUTIONS">LINUX SOLUTIONS</h1>
+        <p class="subtitle-brutal">
+          Arch Linux | BlackArch | Troubleshooting | Quick Fixes
+        </p>
+      </div>
+    </header>
+
+    <main class="content-block">
+      <!-- Introduction -->
+      <section class="solutions-intro">
+        <p class="intro-text">
+          Collection of problems encountered and solutions discovered while running Arch/BlackArch Linux
+          across multiple systems. Real issues, real fixes, documented for future reference and community benefit.
+        </p>
+        <div class="system-info">
+          <div class="info-item">
+            <span class="info-label">Primary OS:</span>
+            <span class="info-value">BlackArch Linux</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Desktop Environment:</span>
+            <span class="info-value">Hyprland (Omarchy configuration)</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Systems:</span>
+            <span class="info-value">Main rig, 2700X server, Mac Pro, multiple laptops</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Problems & Solutions -->
+      <section class="solutions-section">
+        <h2 class="section-title glitch" data-text="DOCUMENTED FIXES">DOCUMENTED FIXES</h2>
+
+        <!-- Walker Keybind Issue -->
+        <div class="solution-card">
+          <div class="solution-header">
+            <h3 class="solution-title">Walker Service Not Responding (Super+Space)</h3>
+            <div class="solution-tags">
+              <span class="tag">Hyprland</span>
+              <span class="tag">Omarchy</span>
+              <span class="tag">LM Studio</span>
+            </div>
+          </div>
+
+          <div class="solution-content">
+            <div class="problem-box">
+              <h4 class="subsection-title">PROBLEM</h4>
+              <p class="problem-text">
+                Super+Space keybinding not opening Omarchy menus after LM Studio starts on boot.
+                Walker service becomes unresponsive, keybind capture blocked by Electron app.
+              </p>
+            </div>
+
+            <div class="diagnosis-box">
+              <h4 class="subsection-title">ROOT CAUSE</h4>
+              <p class="diagnosis-text">
+                LM Studio's Electron app registers global shortcuts at startup, blocking walker's
+                keybind handler. Service remains running but cannot capture keyboard events.
+              </p>
+            </div>
+
+            <div class="solution-box">
+              <h4 class="subsection-title">SOLUTION</h4>
+              <pre class="code-block"><code># Quick fix - restart walker service
+killall walker && walker --gapplication-service &
+
+# Permanent alias (add to ~/.bashrc or ~/.zshrc)
+alias fix-walker='killall walker && walker --gapplication-service &'</code></pre>
+            </div>
+
+            <div class="prevention-box">
+              <h4 class="subsection-title">PREVENTION</h4>
+              <p class="prevention-text">
+                Run fix-walker after LM Studio starts, or modify startup order to ensure walker
+                initializes after Electron apps.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tilde Expansion -->
+        <div class="solution-card">
+          <div class="solution-header">
+            <h3 class="solution-title">Tilde (~) Not Expanding in Quoted Paths</h3>
+            <div class="solution-tags">
+              <span class="tag">Bash</span>
+              <span class="tag">Scripting</span>
+            </div>
+          </div>
+
+          <div class="solution-content">
+            <div class="problem-box">
+              <h4 class="subsection-title">PROBLEM</h4>
+              <p class="problem-text">
+                Scripts using "~/path/to/file" in double quotes fail with file not found errors.
+                Tilde expansion doesn't work inside quoted strings.
+              </p>
+            </div>
+
+            <div class="solution-box">
+              <h4 class="subsection-title">SOLUTION</h4>
+              <pre class="code-block"><code># WRONG - tilde doesn't expand in quotes
+echo "File is at ~/documents/file.txt"
+
+# CORRECT - use $HOME instead
+echo "File is at $HOME/documents/file.txt"
+
+# Also correct - unquoted tilde (but breaks with spaces)
+echo File is at ~/documents/file.txt</code></pre>
+            </div>
+
+            <div class="explanation-box">
+              <h4 class="subsection-title">EXPLANATION</h4>
+              <p class="explanation-text">
+                Bash performs tilde expansion before quote processing. Inside quotes, ~ is treated
+                as literal character. Use $HOME variable for reliable path expansion in quotes.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- systemctl edit Terminal Error -->
+        <div class="solution-card">
+          <div class="solution-header">
+            <h3 class="solution-title">systemctl edit Terminal Compatibility (Kitty over SSH)</h3>
+            <div class="solution-tags">
+              <span class="tag">systemd</span>
+              <span class="tag">SSH</span>
+              <span class="tag">Kitty</span>
+            </div>
+          </div>
+
+          <div class="solution-content">
+            <div class="problem-box">
+              <h4 class="subsection-title">PROBLEM</h4>
+              <pre class="code-block"><code>$ sudo systemctl edit ollama.service
+Error opening terminal: xterm-kitty</code></pre>
+            </div>
+
+            <div class="diagnosis-box">
+              <h4 class="subsection-title">ROOT CAUSE</h4>
+              <p class="diagnosis-text">
+                systemctl doesn't recognize kitty's terminal type (xterm-kitty) over SSH. Attempts
+                to launch editor fail due to terminal compatibility issues.
+              </p>
+            </div>
+
+            <div class="solution-box">
+              <h4 class="subsection-title">SOLUTION</h4>
+              <pre class="code-block"><code># Bypass systemctl edit - create override manually
+sudo mkdir -p /etc/systemd/system/ollama.service.d/
+sudo tee /etc/systemd/system/ollama.service.d/override.conf > /dev/null << 'EOF'
+[Service]
+Environment="OLLAMA_HOST=0.0.0.0:11434"
+EOF
+
+# Reload and restart
+sudo systemctl daemon-reload
+sudo systemctl restart ollama.service</code></pre>
+            </div>
+
+            <div class="prevention-box">
+              <h4 class="subsection-title">ALTERNATIVE</h4>
+              <p class="prevention-text">
+                Set TERM=xterm before systemctl edit, or use manual file creation for service overrides.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- GTX 1080 CUDA Incompatibility -->
+        <div class="solution-card">
+          <div class="solution-header">
+            <h3 class="solution-title">PyTorch CUDA Error on GTX 1080</h3>
+            <div class="solution-tags">
+              <span class="tag">CUDA</span>
+              <span class="tag">PyTorch</span>
+              <span class="tag">ML</span>
+            </div>
+          </div>
+
+          <div class="solution-content">
+            <div class="problem-box">
+              <h4 class="subsection-title">PROBLEM</h4>
+              <pre class="code-block"><code>CUDA error: no kernel image is available for execution on device</code></pre>
+            </div>
+
+            <div class="diagnosis-box">
+              <h4 class="subsection-title">ROOT CAUSE</h4>
+              <p class="diagnosis-text">
+                GTX 1080 has CUDA compute capability 6.1. Modern PyTorch requires CUDA 7.0+.
+                Precompiled binaries don't include kernels for older architectures.
+              </p>
+            </div>
+
+            <div class="solution-box">
+              <h4 class="subsection-title">SOLUTION</h4>
+              <pre class="code-block"><code># Force CPU-only execution
+export CUDA_VISIBLE_DEVICES=""
+
+# Or in Python
+import os
+os.environ['CUDA_VISIBLE_DEVICES'] = ''
+
+# For embeddings, CPU is acceptable (80-100 it/s)
+# In .env file
+CUDA_VISIBLE_DEVICES=""</code></pre>
+            </div>
+
+            <div class="explanation-box">
+              <h4 class="subsection-title">PERFORMANCE</h4>
+              <p class="explanation-text">
+                CPU embeddings with sentence-transformers achieve ~80-100 iterations/sec on 2700X.
+                Acceptable for server workloads. GPU acceleration only needed for inference.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bash History Expansion -->
+        <div class="solution-card">
+          <div class="solution-header">
+            <h3 class="solution-title">Bash History Expansion Error (!)</h3>
+            <div class="solution-tags">
+              <span class="tag">Bash</span>
+              <span class="tag">Python</span>
+            </div>
+          </div>
+
+          <div class="solution-content">
+            <div class="problem-box">
+              <h4 class="subsection-title">PROBLEM</h4>
+              <pre class="code-block"><code>$ python -c "print('Hello!')"
+-bash: !': event not found</code></pre>
+            </div>
+
+            <div class="diagnosis-box">
+              <h4 class="subsection-title">ROOT CAUSE</h4>
+              <p class="diagnosis-text">
+                Bash interprets ! as history expansion even inside double quotes. Exclamation
+                followed by quote triggers history substitution attempt.
+              </p>
+            </div>
+
+            <div class="solution-box">
+              <h4 class="subsection-title">SOLUTION</h4>
+              <pre class="code-block"><code># Use single quotes instead
+python -c 'print("Hello!")'
+
+# Or escape the exclamation
+python -c "print('Hello\!')"
+
+# Or disable history expansion temporarily
+set +H
+python -c "print('Hello!')"
+set -H</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sudo L33tspeak Password Issue -->
+        <div class="solution-card">
+          <div class="solution-header">
+            <h3 class="solution-title">Sudo Rejects L33tspeak Password (But Passwd Accepts It)</h3>
+            <div class="solution-tags">
+              <span class="tag">sudo</span>
+              <span class="tag">Authentication</span>
+              <span class="tag">Bizarre</span>
+            </div>
+          </div>
+
+          <div class="solution-content">
+            <div class="problem-box">
+              <h4 class="subsection-title">PROBLEM</h4>
+              <p class="problem-text">
+                User password with l33tspeak (e.g., mast3r) works for su/login but consistently
+                fails for sudo. Running passwd accepts the "old" password that sudo rejects, then
+                allows setting a new one.
+              </p>
+              <pre class="code-block"><code>$ sudo pacman -Syu
+[sudo] password for user: [enters mast3r]
+Sorry, try again.
+
+# But this works:
+$ su -
+Password: [enters mast3r]  # WORKS
+
+# And this also works:
+$ passwd
+Current password: [enters mast3r]  # ACCEPTED
+New password: master
+# Success!</code></pre>
+            </div>
+
+            <div class="diagnosis-box">
+              <h4 class="subsection-title">ROOT CAUSE (THEORIES)</h4>
+              <p class="diagnosis-text">
+                Exact cause unknown, but possibilities include:
+              </p>
+              <ul class="diagnosis-list">
+                <li>PAM authentication cache stuck on old hash</li>
+                <li>Different character encoding between sudo and passwd (UTF-8 vs ASCII handling of '3')</li>
+                <li>Terminal input encoding issues specific to sudo's password prompt</li>
+                <li>Race condition in PAM module loading</li>
+                <li>Keyboard layout switching between commands</li>
+              </ul>
+              <p class="diagnosis-text">
+                <strong>Ironic Note:</strong> User previously documented that selective l33tspeak
+                defeats automated password crackers... turns out it also defeats sudo sometimes.
+              </p>
+            </div>
+
+            <div class="solution-box">
+              <h4 class="subsection-title">SOLUTION</h4>
+              <pre class="code-block"><code># As root (since su - works with the password):
+su -
+
+# Reset user password (even to the same password)
+passwd username
+
+# When prompted for "current password", enter the l33tspeak version
+# It will be ACCEPTED (even though sudo rejected it)
+# Then set new password (plain or l33tspeak, your choice)
+
+# Sudo should now work with the new password</code></pre>
+            </div>
+
+            <div class="workaround-box">
+              <h4 class="subsection-title">PREVENTION</h4>
+              <p class="workaround-text">
+                Consider using plain passwords without l33tspeak for system accounts if this
+                becomes recurring. Save l33tspeak for application-level passwords where PAM
+                isn't involved. Or just... reset it when it breaks 🤷
+              </p>
+            </div>
+
+            <div class="mystery-box">
+              <h4 class="subsection-title">MYSTERY LEVEL: 🔴 HIGH → ✅ SOLVED!</h4>
+              <p class="mystery-text">
+                <strong>UPDATE:</strong> Root cause discovered! The issue wasn't sudo at all - it was
+                <code>echo</code> mangling the password when passed to another process.
+              </p>
+            </div>
+
+            <div class="update-box">
+              <h4 class="subsection-title">ACTUAL ROOT CAUSE (DISCOVERED LATER)</h4>
+              <p class="update-text">
+                The password worked fine when typed directly, but failed when passed via:
+              </p>
+              <pre class="code-block"><code># This breaks l33tspeak passwords:
+echo "mast3r" | sudo -S command
+# or
+PASSWORD="mast3r"
+echo $PASSWORD | ...
+
+# The '3' character gets mangled by echo's interpretation</code></pre>
+
+              <p class="update-text">
+                <strong>Why it happened:</strong> I was passing my password to another Claude Code instance
+                via echo for automation. Echo was interpreting or encoding the l33tspeak characters
+                differently than direct keyboard input.
+              </p>
+
+              <p class="update-text">
+                <strong>Yes, I tell my AI my sudo password. You don't?</strong> 😏
+              </p>
+
+              <h4 class="subsection-title">PROPER SOLUTION FOR SCRIPTING</h4>
+              <pre class="code-block"><code># WRONG - echo mangles passwords
+echo "mast3r" | sudo -S command
+
+# BETTER - printf is more predictable
+printf '%s\n' "mast3r" | sudo -S command
+
+# BEST - don't pass passwords via command line at all
+# Use sudo credential caching or NOPASSWD in /etc/sudoers
+# Or use expect/pexpect for interactive prompts
+
+# Example NOPASSWD setup (use carefully):
+# In /etc/sudoers via visudo:
+# username ALL=(ALL) NOPASSWD: /specific/command</code></pre>
+
+              <p class="update-text">
+                <strong>Lesson learned:</strong> Direct terminal input != piped input. Echo, printf, and
+                shell redirection can all interpret special characters differently. When automating with
+                passwords (which you shouldn't do, but if you must), use printf or proper credential management.
+              </p>
+
+              <p class="update-text">
+                <strong>Security note:</strong> Passing passwords via command line is visible in process
+                lists (<code>ps aux</code>) and shell history. Use environment variables, credential helpers,
+                or proper secret management instead. But for local dev/automation between trusted processes... 🤷
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Login Screen Authentication Failure -->
+        <div class="solution-card">
+          <div class="solution-header">
+            <h3 class="solution-title">Login Screen Refuses Password (Fixed After Reboot + Root Login)</h3>
+            <div class="solution-tags">
+              <span class="tag">Display Manager</span>
+              <span class="tag">Authentication</span>
+              <span class="tag">PAM</span>
+            </div>
+          </div>
+
+          <div class="solution-content">
+            <div class="problem-box">
+              <h4 class="subsection-title">PROBLEM</h4>
+              <p class="problem-text">
+                Display manager (login screen) refuses to accept user password. Repeated attempts
+                fail with "incorrect password" despite password being correct. Occurs seemingly
+                randomly after logout/lock screen.
+              </p>
+            </div>
+
+            <div class="diagnosis-box">
+              <h4 class="subsection-title">ROOT CAUSE (SUSPECTED)</h4>
+              <p class="diagnosis-text">
+                PAM authentication module or display manager state corruption. Possibly related to:
+              </p>
+              <ul class="diagnosis-list">
+                <li>Display manager cache not clearing properly on logout</li>
+                <li>PAM module failing to initialize correctly</li>
+                <li>Keyring daemon state issues</li>
+                <li>Session cleanup incomplete from previous login</li>
+                <li>Race condition in authentication stack initialization</li>
+              </ul>
+            </div>
+
+            <div class="solution-box">
+              <h4 class="subsection-title">SOLUTION</h4>
+              <pre class="code-block"><code># 1. Reboot the system
+sudo reboot
+# OR force reboot if locked out: Ctrl+Alt+F2, login as root, reboot
+
+# 2. At login screen, DON'T use user account yet
+# Switch to TTY (Ctrl+Alt+F2)
+
+# 3. Login as root
+# Username: root
+# Password: [root password]
+
+# 4. Exit root session
+exit
+
+# 5. Switch back to display manager (Ctrl+Alt+F1 or F7)
+
+# 6. NOW try logging in with user password
+# It should work
+
+# 7. Test lock screen to verify:
+# Lock screen, unlock - should work now</code></pre>
+            </div>
+
+            <div class="explanation-box">
+              <h4 class="subsection-title">WHY THIS WORKS</h4>
+              <p class="explanation-text">
+                Logging in as root and back out appears to reset PAM authentication state and
+                clear whatever cache/state was preventing user authentication. The reboot clears
+                display manager state, and the root login cycle resets authentication modules.
+              </p>
+            </div>
+
+            <div class="prevention-box">
+              <h4 class="subsection-title">PREVENTION (UNCONFIRMED)</h4>
+              <p class="prevention-text">
+                Issue appears related to authentication state corruption. Potential prevention:
+              </p>
+              <ul class="prevention-list">
+                <li>Ensure proper logout (not just lock screen) when possible</li>
+                <li>Check PAM configuration for caching issues</li>
+                <li>Monitor display manager logs: <code>journalctl -u display-manager</code></li>
+                <li>Consider switching display managers if persistent</li>
+              </ul>
+            </div>
+
+            <div class="mystery-box">
+              <h4 class="subsection-title">RECURRENCE: ⚠️ OBSERVED MULTIPLE TIMES</h4>
+              <p class="mystery-text">
+                This is a recurring issue (happened at least twice in 2 days). Not critical since
+                workaround exists, but annoying. If you find the actual root cause, please document!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick Reference -->
+      <section class="solutions-section">
+        <h2 class="section-title glitch" data-text="QUICK REFERENCE">QUICK REFERENCE</h2>
+
+        <div class="reference-grid">
+          <div class="reference-card">
+            <h3 class="reference-title">Package Management</h3>
+            <pre class="code-block"><code># Update system
+sudo pacman -Syu
+
+# Install from BlackArch
+sudo pacman -S blackarch/toolname
+
+# Search for package
+pacman -Ss keyword
+
+# List installed from repo
+pacman -Sl blackarch | grep installed</code></pre>
+          </div>
+
+          <div class="reference-card">
+            <h3 class="reference-title">Service Management</h3>
+            <pre class="code-block"><code># Start service
+sudo systemctl start service.service
+
+# Enable on boot
+sudo systemctl enable service.service
+
+# Check status
+systemctl status service.service
+
+# View logs
+journalctl -u service.service -f</code></pre>
+          </div>
+
+          <div class="reference-card">
+            <h3 class="reference-title">Network Debugging</h3>
+            <pre class="code-block"><code># Check listening ports
+sudo ss -tulpn
+
+# Test connectivity
+ping -c 4 host
+curl -v http://host:port
+
+# Check routing
+ip route show
+traceroute host</code></pre>
+          </div>
+
+          <div class="reference-card">
+            <h3 class="reference-title">Useful Aliases</h3>
+            <pre class="code-block"><code># Add to ~/.bashrc or ~/.zshrc
+alias fix-walker='killall walker && walker --gapplication-service &'
+alias update-system='sudo pacman -Syu'
+alias check-services='systemctl list-units --failed'
+alias gpu-stats='watch -n 1 nvidia-smi'  # For NVIDIA
+alias temp-check='sensors'</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contribution Notice -->
+      <section class="solutions-section">
+        <div class="contribution-box">
+          <h2 class="section-title glitch" data-text="CONTRIBUTE">CONTRIBUTE</h2>
+          <p class="contribution-text">
+            Found a solution to an Arch/BlackArch issue? Encountered a problem not listed here?
+            Feel free to share your experiences and solutions.
+          </p>
+          <a href="mailto:murad@farzulla.org?subject=Linux Solution Contribution" class="contact-button">
+            <span class="link-icon">►</span> Share Your Solution
+          </a>
+        </div>
+      </section>
+
+      <!-- Disclaimer -->
+      <section class="solutions-section">
+        <div class="disclaimer-box">
+          <h3 class="disclaimer-title">DISCLAIMER</h3>
+          <p class="disclaimer-text">
+            Solutions documented here worked for my specific hardware and software configurations.
+            Always backup important data before making system changes. Test in non-production
+            environments when possible. Your mileage may vary.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-surveillance">
+      <div class="footer-content">
+        <p class="footer-text">© 2025 MURAD FARZULLA | ALL RIGHTS RESERVED</p>
+        <p class="footer-subtext">PROBLEM • DIAGNOSE • SOLVE</p>
+      </div>
+    </footer>
+
+    <script src="js/dystopia.js"></script>
+  </body>
+</html>

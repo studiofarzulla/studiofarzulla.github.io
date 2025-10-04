@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Home Lab & Cybersecurity Research - Murad Farzulla - BlackArch, Pentesting, Network Security" />
+    <meta name="author" content="Murad Farzulla" />
+    <title>Lab - Murad Farzulla</title>
+    <link rel="stylesheet" href="css/dystopia.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Bebas+Neue&family=Oswald:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="static-overlay"></div>
+    <div class="surveillance-eye">
+      <div class="eye-outer">
+        <div class="eye-inner"></div>
+      </div>
+    </div>
+
+    <nav class="surveillance-nav">
+      <a href="index.html" class="brand-mark">MURAD FARZULLA</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="research-academic.html">Research</a></li>
+        <li><a href="projects-technical.html">Projects</a></li>
+        <li><a href="lab.html" class="active">Lab</a></li>
+        <li><a href="library.html">Library</a></li>
+        <li><a href="linux-solutions.html">Solutions</a></li>
+      </ul>
+    </nav>
+
+    <header class="hero-dystopia">
+      <div class="hero-content">
+        <h1 class="massive-title glitch" data-text="HOME LAB">HOME LAB</h1>
+        <p class="subtitle-brutal">
+          Cybersecurity Research | Network Operations | Offensive Security
+        </p>
+      </div>
+    </header>
+
+    <main class="content-block">
+      <!-- Lab Overview -->
+      <section class="lab-overview">
+        <div class="alert-banner alert-warning">
+          <span class="alert-icon">⚠️</span>
+          <span>ALL ACTIVITIES CONDUCTED IN ISOLATED LAB ENVIRONMENT FOR EDUCATIONAL PURPOSES</span>
+        </div>
+
+        <div class="overview-content">
+          <p class="intro-text">
+            Home laboratory environment for cybersecurity research, penetration testing practice,
+            and offensive security education. All experiments conducted ethically within isolated
+            network segments for learning and skill development.
+          </p>
+        </div>
+      </section>
+
+      <!-- Infrastructure -->
+      <section class="lab-section">
+        <h2 class="section-title glitch" data-text="INFRASTRUCTURE">INFRASTRUCTURE</h2>
+
+        <div class="hardware-grid">
+          <!-- Main Rig -->
+          <div class="hardware-card">
+            <div class="card-header">
+              <h3 class="card-title">MAIN RIG</h3>
+              <span class="card-badge badge-attack">ATTACK</span>
+            </div>
+            <div class="card-content">
+              <div class="spec-list">
+                <div class="spec-item">
+                  <span class="spec-label">OS:</span>
+                  <span class="spec-value">BlackArch Linux</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">DE:</span>
+                  <span class="spec-value">Hyprland (Omarchy)</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">GPU:</span>
+                  <span class="spec-value">AMD (Vulkan)</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">LLM:</span>
+                  <span class="spec-value">qwen2.5-coder-32b-abliterated</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">IP:</span>
+                  <span class="spec-value">192.168.1.84</span>
+                </div>
+              </div>
+              <div class="card-role">
+                <p>Primary attack platform, tool testing, LLM inference</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2700X Server -->
+          <div class="hardware-card">
+            <div class="card-header">
+              <h3 class="card-title">2700X SERVER</h3>
+              <span class="card-badge badge-server">SERVER</span>
+            </div>
+            <div class="card-content">
+              <div class="spec-list">
+                <div class="spec-item">
+                  <span class="spec-label">CPU:</span>
+                  <span class="spec-value">AMD Ryzen 2700X</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">GPU:</span>
+                  <span class="spec-value">GTX 1080 (CUDA 6.1)</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">OS:</span>
+                  <span class="spec-value">BlackArch Linux</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">Services:</span>
+                  <span class="spec-value">MCP, Ollama</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">IP:</span>
+                  <span class="spec-value">192.168.1.181</span>
+                </div>
+              </div>
+              <div class="card-role">
+                <p>MCP semantic search server, document indexing, LLM summarization</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mac Pro Target -->
+          <div class="hardware-card">
+            <div class="card-header">
+              <h3 class="card-title">MAC PRO 2012</h3>
+              <span class="card-badge badge-target">TARGET</span>
+            </div>
+            <div class="card-content">
+              <div class="spec-list">
+                <div class="spec-item">
+                  <span class="spec-label">Model:</span>
+                  <span class="spec-value">Mac Pro Mid-2012</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">OS:</span>
+                  <span class="spec-value">BlackArch Linux</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">Services:</span>
+                  <span class="spec-value">SSH, Apache HTTP</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">Purpose:</span>
+                  <span class="spec-value">Vulnerable Target</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">IP:</span>
+                  <span class="spec-value">192.168.1.105</span>
+                </div>
+              </div>
+              <div class="card-role">
+                <p>Intentionally vulnerable system for pentesting practice and exploitation</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Old Laptops -->
+          <div class="hardware-card">
+            <div class="card-header">
+              <h3 class="card-title">OLD LAPTOPS</h3>
+              <span class="card-badge badge-fleet">FLEET</span>
+            </div>
+            <div class="card-content">
+              <div class="spec-list">
+                <div class="spec-item">
+                  <span class="spec-label">Units:</span>
+                  <span class="spec-value">Multiple refurbished systems</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">OS:</span>
+                  <span class="spec-value">BlackArch Linux</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">Role:</span>
+                  <span class="spec-value">Distributed testing, malware analysis</span>
+                </div>
+              </div>
+              <div class="card-role">
+                <p>Isolated systems for malware research and distributed attack simulations</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Planned Upgrades -->
+        <div class="upgrades-box">
+          <h3 class="subsection-title">PLANNED UPGRADES</h3>
+          <div class="upgrade-list">
+            <div class="upgrade-item">
+              <span class="upgrade-bullet">►</span>
+              <span class="upgrade-text">AMD 9950X3D CPU upgrade</span>
+            </div>
+            <div class="upgrade-item">
+              <span class="upgrade-bullet">►</span>
+              <span class="upgrade-text">Dual GPU: AMD 7800 XT + 7900 XTX</span>
+            </div>
+            <div class="upgrade-item">
+              <span class="upgrade-bullet">►</span>
+              <span class="upgrade-text">96GB DDR5 RAM</span>
+            </div>
+            <div class="upgrade-item">
+              <span class="upgrade-bullet">►</span>
+              <span class="upgrade-text">Router with VLAN support for proper network segmentation</span>
+            </div>
+          </div>
+          <div class="upgrade-budget">
+            <span class="budget-label">Budget:</span>
+            <span class="budget-value">£2,500</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tools & Arsenal -->
+      <section class="lab-section">
+        <h2 class="section-title glitch" data-text="TOOLS & ARSENAL">TOOLS & ARSENAL</h2>
+
+        <div class="tools-categories">
+          <!-- Reconnaissance -->
+          <div class="tool-category">
+            <h3 class="category-title">RECONNAISSANCE</h3>
+            <div class="tool-list">
+              <div class="tool-item">
+                <span class="tool-name">nmap</span>
+                <span class="tool-desc">Network discovery and security auditing</span>
+              </div>
+              <div class="tool-item">
+                <span class="tool-name">masscan</span>
+                <span class="tool-desc">Ultra-fast port scanner (1M+ packets/sec)</span>
+              </div>
+              <div class="tool-item">
+                <span class="tool-name">bettercap</span>
+                <span class="tool-desc">Network attacks and monitoring framework</span>
+              </div>
+              <div class="tool-item">
+                <span class="tool-name">holehe</span>
+                <span class="tool-desc">Email to account discovery</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Exploitation -->
+          <div class="tool-category">
+            <h3 class="category-title">EXPLOITATION</h3>
+            <div class="tool-list">
+              <div class="tool-item">
+                <span class="tool-name">metasploit</span>
+                <span class="tool-desc">Penetration testing framework</span>
+              </div>
+              <div class="tool-item">
+                <span class="tool-name">SET</span>
+                <span class="tool-desc">Social Engineering Toolkit</span>
+              </div>
+              <div class="tool-item">
+                <span class="tool-name">hydra</span>
+                <span class="tool-desc">Network logon cracker</span>
+              </div>
+              <div class="tool-item">
+                <span class="tool-name">simple-ducky</span>
+                <span class="tool-desc">USB Rubber Ducky payload generator</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Network Attacks -->
+          <div class="tool-category">
+            <h3 class="category-title">NETWORK ATTACKS</h3>
+            <div class="tool-list">
+              <div class="tool-item">
+                <span class="tool-name">responder</span>
+                <span class="tool-desc">LLMNR/NBT-NS/mDNS poisoner</span>
+              </div>
+              <div class="tool-item">
+                <span class="tool-name">wifiphisher</span>
+                <span class="tool-desc">Rogue AP with phishing portal</span>
+              </div>
+              <div class="tool-item">
+                <span class="tool-name">mana</span>
+                <span class="tool-desc">Evil AP attacks (Defcon 22)</span>
+              </div>
+              <div class="tool-item">
+                <span class="tool-name">admid-pack</span>
+                <span class="tool-desc">Advanced DNS spoofing toolkit</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Post-Exploitation -->
+          <div class="tool-category">
+            <h3 class="category-title">POST-EXPLOITATION</h3>
+            <div class="tool-list">
+              <div class="tool-item">
+                <span class="tool-name">villain</span>
+                <span class="tool-desc">C2 framework with HoaxShell integration</span>
+              </div>
+              <div class="tool-item">
+                <span class="tool-name">arcane</span>
+                <span class="tool-desc">Encrypted macOS payloads (AV evasion)</span>
+              </div>
+              <div class="tool-item">
+                <span class="tool-name">backdoor-factory</span>
+                <span class="tool-desc">Inject backdoors into legitimate executables</span>
+              </div>
+              <div class="tool-item">
+                <span class="tool-name">avet</span>
+                <span class="tool-desc">AntiVirus Evasion Tool</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- OSINT & Analysis -->
+          <div class="tool-category">
+            <h3 class="category-title">OSINT & ANALYSIS</h3>
+            <div class="tool-list">
+              <div class="tool-item">
+                <span class="tool-name">secretfinder</span>
+                <span class="tool-desc">JavaScript secret/API key extraction</span>
+              </div>
+              <div class="tool-item">
+                <span class="tool-name">cloudmare</span>
+                <span class="tool-desc">CloudFlare bypass via DNS misconfiguration</span>
+              </div>
+              <div class="tool-item">
+                <span class="tool-name">cupp</span>
+                <span class="tool-desc">Common User Passwords Profiler</span>
+              </div>
+              <div class="tool-item">
+                <span class="tool-name">chipsec</span>
+                <span class="tool-desc">Hardware/firmware security analysis</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hardware Hacking -->
+          <div class="tool-category">
+            <h3 class="category-title">HARDWARE HACKING</h3>
+            <div class="tool-list">
+              <div class="tool-item">
+                <span class="tool-name">chameleonmini</span>
+                <span class="tool-desc">NFC/RFID emulation and cloning</span>
+              </div>
+              <div class="tool-item">
+                <span class="tool-name">simple-ducky</span>
+                <span class="tool-desc">Keystroke injection payload creation</span>
+              </div>
+              <div class="tool-item">
+                <span class="tool-name">software-defined radio</span>
+                <span class="tool-desc">Radio frequency analysis and attacks</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="arsenal-stats">
+          <div class="stat-card">
+            <span class="stat-number">5564</span>
+            <span class="stat-label">BlackArch Tools</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">940</span>
+            <span class="stat-label">Indexed Docs</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">~50</span>
+            <span class="stat-label">Active Tools</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experiments & Research -->
+      <section class="lab-section">
+        <h2 class="section-title glitch" data-text="EXPERIMENTS">EXPERIMENTS</h2>
+
+        <div class="experiments-list">
+          <!-- Current Experiments -->
+          <div class="experiment-card">
+            <div class="experiment-header">
+              <h3 class="experiment-title">MCP Semantic Search for Pentesting</h3>
+              <span class="status-badge status-active">ACTIVE</span>
+            </div>
+            <div class="experiment-content">
+              <p class="experiment-desc">
+                Testing hypothesis: Can local LLM with semantic search over BlackArch/HackTricks documentation
+                improve pentesting efficiency and tool discovery? Measuring time-to-exploit, tool selection accuracy,
+                and novel attack vector identification.
+              </p>
+              <div class="experiment-meta">
+                <span class="meta-tag">Status: Indexing Phase</span>
+                <span class="meta-tag">Duration: ~15 hours indexing</span>
+                <span class="meta-tag">Next: A/B testing vs manual research</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="experiment-card">
+            <div class="experiment-header">
+              <h3 class="experiment-title">VPN Metadata Leakage Analysis</h3>
+              <span class="status-badge status-complete">COMPLETE</span>
+            </div>
+            <div class="experiment-content">
+              <p class="experiment-desc">
+                Discovered that local network protocols (mDNS, Bonjour, .local domains) bypass VPN tunneling
+                via split tunneling. Demonstrated with bettercap showing Spotify/AirPlay traffic from phone
+                despite active WireGuard VPN connection.
+              </p>
+              <div class="experiment-findings">
+                <span class="finding-bullet">►</span>
+                <span>Internet traffic encrypted, local discovery protocols exposed</span>
+              </div>
+              <div class="experiment-findings">
+                <span class="finding-bullet">►</span>
+                <span>Device fingerprinting possible through local network metadata</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="experiment-card">
+            <div class="experiment-header">
+              <h3 class="experiment-title">Social Engineering Toolkit Proxy Behavior</h3>
+              <span class="status-badge status-complete">COMPLETE</span>
+            </div>
+            <div class="experiment-content">
+              <p class="experiment-desc">
+                SET doesn't just clone websites - it acts as transparent proxy routing requests to real servers.
+                "Forgot password" links work, tracking cookies captured, full session maintained. More sophisticated
+                than static phishing pages.
+              </p>
+              <div class="experiment-findings">
+                <span class="finding-bullet">►</span>
+                <span>Captures session cookies and tracking data in real-time</span>
+              </div>
+              <div class="experiment-findings">
+                <span class="finding-bullet">►</span>
+                <span>Python 3.13 compatibility bug discovered (cgi.escape removed)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="experiment-card">
+            <div class="experiment-header">
+              <h3 class="experiment-title">Password Generation Pattern Analysis</h3>
+              <span class="status-badge status-complete">COMPLETE</span>
+            </div>
+            <div class="experiment-content">
+              <p class="experiment-desc">
+                Accidentally created strong password (m4cus3r) that defeats automated tools. CUPP generated
+                1451 variations but missed lowercase + selective l33tspeak combination. Demonstrates weakness
+                in template-based password generators.
+              </p>
+              <div class="experiment-findings">
+                <span class="finding-bullet">►</span>
+                <span>Generated M4cUser, M4cU53r (capitalized) but not m4cus3r</span>
+              </div>
+              <div class="experiment-findings">
+                <span class="finding-bullet">►</span>
+                <span>Mutation logic doesn't apply l33tspeak to entire string as single unit</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Learning Journey -->
+      <section class="lab-section">
+        <h2 class="section-title glitch" data-text="LEARNING JOURNEY">LEARNING JOURNEY</h2>
+
+        <div class="journey-timeline">
+          <div class="timeline-item">
+            <span class="timeline-marker">►</span>
+            <div class="timeline-content">
+              <h4 class="timeline-title">Started with Kali on WSL2</h4>
+              <p class="timeline-desc">Windows dual boot, hit compatibility issues</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <span class="timeline-marker">►</span>
+            <div class="timeline-content">
+              <h4 class="timeline-title">Moved to dual-boot Kali on laptop</h4>
+              <p class="timeline-desc">Lacked features: battery management, brightness control via trackpad</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <span class="timeline-marker">►</span>
+            <div class="timeline-content">
+              <h4 class="timeline-title">Fixed old laptops, discovered APT malware</h4>
+              <p class="timeline-desc">Attempted imaging, failed, wiped and installed Arch</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <span class="timeline-marker">►</span>
+            <div class="timeline-content">
+              <h4 class="timeline-title">Fell in love with Arch Linux</h4>
+              <p class="timeline-desc">Migrated all systems to Arch, discovered BlackArch</p>
+            </div>
+          </div>
+
+          <div class="timeline-item timeline-current">
+            <span class="timeline-marker">►</span>
+            <div class="timeline-content">
+              <h4 class="timeline-title">BlackArch everywhere + home lab</h4>
+              <p class="timeline-desc">Running BlackArch on main rig, servers, targets, laptops. Building comprehensive pentesting environment</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ethics & Disclaimer -->
+      <section class="lab-section">
+        <div class="ethics-box">
+          <h2 class="section-title glitch" data-text="ETHICS & DISCLAIMER">ETHICS & DISCLAIMER</h2>
+          <div class="disclaimer-content">
+            <p class="disclaimer-text">
+              All penetration testing, exploitation, and security research activities are conducted exclusively
+              within my own isolated home laboratory environment. No unauthorized access to external systems,
+              networks, or data is performed.
+            </p>
+            <p class="disclaimer-text">
+              This infrastructure exists solely for educational purposes: learning offensive security techniques,
+              understanding vulnerabilities, and developing defensive strategies. All experiments follow ethical
+              hacking principles and responsible disclosure practices.
+            </p>
+            <div class="ethics-principles">
+              <div class="principle-item">
+                <span class="principle-bullet">►</span>
+                <span>Never attack systems without explicit authorization</span>
+              </div>
+              <div class="principle-item">
+                <span class="principle-bullet">►</span>
+                <span>All targets are owned and isolated within private network</span>
+              </div>
+              <div class="principle-item">
+                <span class="principle-bullet">►</span>
+                <span>Knowledge shared for defensive improvement, not malicious use</span>
+              </div>
+              <div class="principle-item">
+                <span class="principle-bullet">►</span>
+                <span>Responsible disclosure of any discovered vulnerabilities</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-surveillance">
+      <div class="footer-content">
+        <p class="footer-text">© 2025 MURAD FARZULLA | ALL RIGHTS RESERVED</p>
+        <p class="footer-subtext">ETHICAL HACKING • RESPONSIBLE DISCLOSURE • EDUCATION</p>
+      </div>
+    </footer>
+
+    <script src="js/dystopia.js"></script>
+  </body>
+</html>
