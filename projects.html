@@ -1,119 +1,575 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Projects - Studio Farzulla">
-    <meta name="author" content="Studio Farzulla">
-    <title>Projects - Studio Farzulla</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cinzel+Decorative:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-brand">Studio Farzulla</a>
-            <button class="nav-toggle" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="research.html" class="nav-link">Research</a></li>
-                <li><a href="projects.html" class="nav-link active">Projects</a></li>
-                <li><a href="blog.html" class="nav-link">Blog</a></li>
-                <li><a href="library.html" class="nav-link">Library</a></li>
-                <li><a href="papers.html" class="nav-link">Papers</a></li>
-                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
-            </ul>
-        </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Technical Projects - Studio Farzulla - LLM Optimization, MCP Servers, Event Study Framework" />
+    <meta name="author" content="Studio Farzulla" />
+    <title>Technical Projects - Studio Farzulla</title>
+    <link rel="stylesheet" href="css/dystopia.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Bebas+Neue&family=Oswald:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="static-overlay"></div>
+    <div class="surveillance-eye">
+      <div class="eye-outer">
+        <div class="eye-inner"></div>
+      </div>
+    </div>
+
+    <nav class="surveillance-nav">
+      <a href="index.html" class="brand-mark">STUDIO FARZULLA</a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="lab.html">Lab</a></li>
+        <li><a href="library.html">Library</a></li>
+        <li><a href="linux-solutions.html">Solutions</a></li>
+        <li><a href="index.html#writing">Writing</a></li>
+        <li><a href="blog.html">Lab Notes</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
     </nav>
 
-    <!-- Page Header -->
-    <header class="page-header">
-        <div class="container">
-            <h1 class="page-title">Projects</h1>
-            <p class="page-subtitle">Code, Creations, and Digital Renaissance</p>
-        </div>
+    <header class="hero-dystopia">
+      <div class="hero-content">
+        <h1 class="massive-title glitch" data-text="TECHNICAL PROJECTS">TECHNICAL PROJECTS</h1>
+        <p class="subtitle-brutal">
+          Open Source • Research Prototypes • Things That Eventually Worked
+        </p>
+      </div>
     </header>
 
-    <!-- Main Content -->
-    <main>
-        <!-- Featured Artwork -->
-        <section class="section">
-            <div class="container">
-                <div class="artwork-gallery">
-                    <div class="artwork-frame">
-                        <img src="Images/IMG_1446.JPG" alt="Digital Renaissance I" class="artwork-image" loading="lazy">
-                        <div class="artwork-caption">Digital Renaissance I</div>
-                    </div>
-                    <div class="artwork-frame">
-                        <img src="Images/IMG_1450.JPG" alt="Computational Baroque" class="artwork-image" loading="lazy">
-                        <div class="artwork-caption">Computational Baroque</div>
-                    </div>
-                </div>
+    <main class="content-block">
+      <!-- Autonomous Red Team Agent -->
+      <section class="project-showcase">
+        <div class="project-header">
+          <div class="project-title-block">
+            <h2 class="project-title glitch" data-text="AUTONOMOUS RED TEAM AGENT">AUTONOMOUS RED TEAM AGENT</h2>
+            <div class="project-tags">
+              <span class="tag-active">DEPLOYED</span>
+              <span class="tag-experimental">K8S-NATIVE</span>
             </div>
-        </section>
+          </div>
+        </div>
 
-        <!-- Projects Section -->
-        <section class="section section-alt">
-            <div class="container">
-                <h2 class="section-title">Current Works</h2>
-                <div class="cards-grid">
-                    <div class="card">
-                        <div class="card-icon">⚗️</div>
-                        <h3>Quantitative Finance Tools</h3>
-                        <p>Advanced algorithms for market analysis and portfolio optimization with baroque mathematical elegance</p>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon">🎨</div>
-                        <h3>Digital Art Generator</h3>
-                        <p>AI-powered creation of baroque-inspired abstract compositions and renaissance patterns</p>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon">📊</div>
-                        <h3>Data Visualization Suite</h3>
-                        <p>Transform complex datasets into beautiful, baroque-styled visual narratives</p>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon">🏛️</div>
-                        <h3>Architecture Simulator</h3>
-                        <p>Virtual reconstruction of 1500s baroque architectural masterpieces</p>
-                    </div>
-                </div>
+        <div class="project-content">
+          <div class="project-description">
+            <p class="desc-text">
+              Kubernetes-deployed autonomous pentesting agent. LLM + MCP RAG + 5,564 BlackArch tools. Queries knowledge base, selects tools,
+              executes attacks, observes results, iterates. Compromised SSH in 87 seconds (192.168.1.99). Nobody asked for this. Built it anyway.
+            </p>
+          </div>
+
+          <div class="architecture-box">
+            <h3 class="details-title">ARCHITECTURE</h3>
+            <div class="arch-stack">
+              <div class="arch-item">
+                <span class="arch-component">LLM</span>
+                <span class="arch-spec">Qwen 2.5 Coder 14B (abliterated) via LM Studio</span>
+              </div>
+              <div class="arch-item">
+                <span class="arch-component">Knowledge Base</span>
+                <span class="arch-spec">MCP RAG server with 5,395 indexed docs (GTFOBins, Atomic Red Team, HackTricks)</span>
+              </div>
+              <div class="arch-item">
+                <span class="arch-component">Tools</span>
+                <span class="arch-spec">BlackArch toolkit (nmap, hydra, metasploit, 5,561 others)</span>
+              </div>
+              <div class="arch-item">
+                <span class="arch-component">Orchestration</span>
+                <span class="arch-spec">K3s cluster (4 nodes) with NetworkPolicy isolation</span>
+              </div>
+              <div class="arch-item">
+                <span class="arch-component">Safety</span>
+                <span class="arch-spec">Declarative network isolation, command sandboxing, comprehensive logging</span>
+              </div>
             </div>
-        </section>
+          </div>
 
-        <div class="section-divider"></div>
-
-        <!-- Open Source Contributions -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title">Open Codex</h2>
-                <div class="content-container">
-                    <p class="intro-text">
-                        Contributing to the digital renaissance through open-source projects that blend classical aesthetics with modern technology.
-                    </p>
-                    <div class="placeholder-box">
-                        <p class="placeholder-text">GitHub repositories manifesting soon...</p>
-                    </div>
-                </div>
+          <div class="features-grid">
+            <div class="feature-item">
+              <h3 class="feature-title">► Complete Feedback Loop</h3>
+              <p class="feature-text">Query knowledge base → LLM plans attack → Execute tools → Observe output → Iterate. Actually autonomous, not just scripted.</p>
             </div>
-        </section>
+
+            <div class="feature-item">
+              <h3 class="feature-title">► Real Hardware Compromise</h3>
+              <p class="feature-text">Successfully attacked physical machine (ASUS laptop @ 192.168.1.99). 87 seconds from scan to root shell. Sample size n=1, extremely scientific.</p>
+            </div>
+
+            <div class="feature-item">
+              <h3 class="feature-title">► Day-0 Bug Discovery</h3>
+              <p class="feature-text">Found LM Studio MCP API bug on release day (missing notifications/initialized). 3-line fix, 4 hours of debugging. Should have added logging first.</p>
+            </div>
+
+            <div class="feature-item">
+              <h3 class="feature-title">► Production Safety</h3>
+              <p class="feature-text">Multi-layer isolation: NetworkPolicy for K8s-level blocking, resource limits, comprehensive audit logs. Declarative safety beats application-layer controls.</p>
+            </div>
+          </div>
+
+          <div class="tech-details">
+            <h3 class="details-title">TECHNICAL CHALLENGES SOLVED</h3>
+            <div class="tech-stack">
+              <span class="tech-badge">socketpair() syscall restrictions in K8s seccomp</span>
+              <span class="tech-badge">Flask vs FastAPI trade-offs in container contexts</span>
+              <span class="tech-badge">MCP protocol handshake implementation from spec</span>
+              <span class="tech-badge">Declarative safety through Kubernetes primitives</span>
+              <span class="tech-badge">Sub-second semantic search (200-500ms) over 373MB docs</span>
+            </div>
+          </div>
+
+          <div class="project-stats">
+            <div class="stat-item">
+              <span class="stat-number">87s</span>
+              <span class="stat-label">Time to Root</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">5,564</span>
+              <span class="stat-label">Available Tools</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">5,395</span>
+              <span class="stat-label">Indexed Docs</span>
+            </div>
+          </div>
+
+          <div class="status-box">
+            <h3 class="details-title">WHAT ACTUALLY HAPPENED</h3>
+            <div class="status-list">
+              <div class="status-row">
+                <span class="status-indicator status-complete">✓</span>
+                <span class="status-text">Built MCP server, forgot to give agent tools at first (classic mistake)</span>
+              </div>
+              <div class="status-row">
+                <span class="status-indicator status-complete">✓</span>
+                <span class="status-text">Fixed protocol bug (notifications/initialized) via 3 lines of debug logging</span>
+              </div>
+              <div class="status-row">
+                <span class="status-indicator status-complete">✓</span>
+                <span class="status-text">Agent successfully rooted target machine autonomously (192.168.1.99)</span>
+              </div>
+              <div class="status-row">
+                <span class="status-indicator status-complete">✓</span>
+                <span class="status-text">Renamed all nodes to cute things (MochiMetasploit, NekoNetcat, FluffyFirewall)</span>
+              </div>
+              <div class="status-row">
+                <span class="status-indicator status-progress">⏳</span>
+                <span class="status-text">Documentation complete, research paper in progress</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-links">
+            <a href="https://github.com/studiofarzulla/autonomous-redteam-ai" target="_blank" class="link-button-primary">
+              <span class="link-icon">►</span> VIEW ON GITHUB
+            </a>
+            <a href="blog.html#oct-08" class="link-button-secondary">
+              <span class="link-icon">►</span> READ BUILD LOG
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Event Study Framework -->
+      <section class="project-showcase">
+        <div class="project-header">
+          <div class="project-title-block">
+            <h2 class="project-title glitch" data-text="CRYPTO EVENT STUDY">CRYPTO EVENT STUDY</h2>
+            <div class="project-tags">
+              <span class="tag-active">ACTIVE</span>
+              <span class="tag-open-source">OPEN SOURCE</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-content">
+          <div class="project-description">
+            <p class="desc-text">
+              Crypto event study framework. Measures volatility impacts from infrastructure failures vs regulatory threats.
+              Advanced econometric models, sentiment data integration, reproducible pipeline. Built for thesis, works in production
+              (mostly).
+            </p>
+          </div>
+
+          <div class="features-grid">
+            <div class="feature-item">
+              <h3 class="feature-title">► Advanced Volatility Modeling</h3>
+              <p class="feature-text">GARCH(1,1), TARCH(1,1), and custom TARCH-X models with exogenous variables</p>
+            </div>
+
+            <div class="feature-item">
+              <h3 class="feature-title">► Event Window Analysis</h3>
+              <p class="feature-text">Automated handling of overlapping events, special cases, and [-3, +3] day windows</p>
+            </div>
+
+            <div class="feature-item">
+              <h3 class="feature-title">► Sentiment Integration</h3>
+              <p class="feature-text">GDELT data processing, decomposition, and integration as leading indicators</p>
+            </div>
+
+            <div class="feature-item">
+              <h3 class="feature-title">► Robustness Framework</h3>
+              <p class="feature-text">Bootstrap inference, placebo tests, sensitivity analysis, publication-ready LaTeX tables</p>
+            </div>
+          </div>
+
+          <div class="tech-details">
+            <h3 class="details-title">TECHNICAL STACK</h3>
+            <div class="tech-stack">
+              <span class="tech-badge">Python 3.8+</span>
+              <span class="tech-badge">arch</span>
+              <span class="tech-badge">pandas</span>
+              <span class="tech-badge">numpy</span>
+              <span class="tech-badge">scipy</span>
+              <span class="tech-badge">statsmodels</span>
+              <span class="tech-badge">matplotlib</span>
+              <span class="tech-badge">seaborn</span>
+              <span class="tech-badge">CoinGecko API</span>
+              <span class="tech-badge">GDELT</span>
+            </div>
+          </div>
+
+          <div class="project-stats">
+            <div class="stat-item">
+              <span class="stat-number">50</span>
+              <span class="stat-label">Classified Events</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">6</span>
+              <span class="stat-label">Cryptocurrencies</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">2019-2025</span>
+              <span class="stat-label">Time Period</span>
+            </div>
+          </div>
+
+          <div class="project-links">
+            <a href="https://github.com/studiofarzulla/event_study" target="_blank" class="link-button-primary">
+              <span class="link-icon">►</span> VIEW ON GITHUB
+            </a>
+            <a href="research.html" class="link-button-secondary">
+              <span class="link-icon">►</span> READ RESEARCH
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- MCP Semantic Search Server -->
+      <section class="project-showcase">
+        <div class="project-header">
+          <div class="project-title-block">
+            <h2 class="project-title glitch" data-text="MCP SEMANTIC SEARCH">MCP SEMANTIC SEARCH</h2>
+            <div class="project-tags">
+              <span class="tag-development">IN DEVELOPMENT</span>
+              <span class="tag-experimental">EXPERIMENTAL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-content">
+          <div class="project-description">
+            <p class="desc-text">
+              MCP server for semantic search over BlackArch/HackTricks docs. Local LLM integration with vector embeddings.
+              Hypothesis: semantic search beats grep for finding exploits. Testing in progress. Indexing takes forever.
+            </p>
+          </div>
+
+          <div class="architecture-box">
+            <h3 class="details-title">ARCHITECTURE</h3>
+            <div class="arch-stack">
+              <div class="arch-item">
+                <span class="arch-component">Server</span>
+                <span class="arch-spec">AMD 2700X @ 192.168.1.181</span>
+              </div>
+              <div class="arch-item">
+                <span class="arch-component">Vector DB</span>
+                <span class="arch-spec">LanceDB with sentence-transformers</span>
+              </div>
+              <div class="arch-item">
+                <span class="arch-component">LLM Backend</span>
+                <span class="arch-spec">Ollama (llama3.2:3b) for summarization</span>
+              </div>
+              <div class="arch-item">
+                <span class="arch-component">Embeddings</span>
+                <span class="arch-spec">all-MiniLM-L6-v2 (CPU-based)</span>
+              </div>
+              <div class="arch-item">
+                <span class="arch-component">Client</span>
+                <span class="arch-spec">LM Studio with qwen2.5-coder-32b-abliterated</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="features-grid">
+            <div class="feature-item">
+              <h3 class="feature-title">► Semantic Document Search</h3>
+              <p class="feature-text">Vector embeddings enable conceptual search across 940+ security documents</p>
+            </div>
+
+            <div class="feature-item">
+              <h3 class="feature-title">► Tool Integration</h3>
+              <p class="feature-text">Direct LLM integration for real-time BlackArch tool documentation retrieval</p>
+            </div>
+
+            <div class="feature-item">
+              <h3 class="feature-title">► Knowledge Base</h3>
+              <p class="feature-text">BlackArch package descriptions (5564 tools) + HackTricks wiki (899 pages)</p>
+            </div>
+
+            <div class="feature-item">
+              <h3 class="feature-title">► Abliterated Models</h3>
+              <p class="feature-text">Using safety-removed models for unrestricted security research and education</p>
+            </div>
+          </div>
+
+          <div class="project-stats">
+            <div class="stat-item">
+              <span class="stat-number">940</span>
+              <span class="stat-label">Indexed Documents</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">373MB</span>
+              <span class="stat-label">Total Content</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">~15hrs</span>
+              <span class="stat-label">Index Time</span>
+            </div>
+          </div>
+
+          <div class="status-box">
+            <h3 class="details-title">STATUS</h3>
+            <div class="status-list">
+              <div class="status-row">
+                <span class="status-indicator status-progress">⏳</span>
+                <span class="status-text">Indexing in progress (overnight run)</span>
+              </div>
+              <div class="status-row">
+                <span class="status-indicator status-pending">○</span>
+                <span class="status-text">Server deployment pending</span>
+              </div>
+              <div class="status-row">
+                <span class="status-indicator status-pending">○</span>
+                <span class="status-text">LM Studio integration pending</span>
+              </div>
+              <div class="status-row">
+                <span class="status-indicator status-pending">○</span>
+                <span class="status-text">Research paper in experimental phase</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- LLM Optimization -->
+      <section class="project-showcase">
+        <div class="project-header">
+          <div class="project-title-block">
+            <h2 class="project-title glitch" data-text="LLM OPTIMIZATION">LLM OPTIMIZATION</h2>
+            <div class="project-tags">
+              <span class="tag-active">ACTIVE</span>
+              <span class="tag-personal">PERSONAL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-content">
+          <div class="project-description">
+            <p class="desc-text">
+              Local LLM optimization. Went from 3 tok/s to 25 tok/s (8.3x speedup) via Vulkan backend + speculative decoding.
+              Running qwen2.5-coder-32b abliterated (safety removed). Fast enough to be useful, slow enough to be annoying.
+            </p>
+          </div>
+
+          <div class="optimization-results">
+            <h3 class="details-title">PERFORMANCE GAINS</h3>
+            <div class="results-grid">
+              <div class="result-card">
+                <span class="result-value">8.3x</span>
+                <span class="result-label">Total Speedup</span>
+                <span class="result-details">3 → 25 tokens/second</span>
+              </div>
+
+              <div class="result-card">
+                <span class="result-value">Vulkan</span>
+                <span class="result-label">Backend</span>
+                <span class="result-details">AMD GPU optimization</span>
+              </div>
+
+              <div class="result-card">
+                <span class="result-value">14B + 0.5B</span>
+                <span class="result-label">Speculative Decoding</span>
+                <span class="result-details">Draft model acceleration</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="architecture-box">
+            <h3 class="details-title">OPTIMIZATION PATH (chronological)</h3>
+            <div class="arch-stack">
+              <div class="arch-item">
+                <span class="arch-component">Step 1: Backend Testing</span>
+                <span class="arch-spec">Vulkan > ROCm for AMD consumer GPUs (better stability, equivalent speed)</span>
+              </div>
+              <div class="arch-item">
+                <span class="arch-component">Step 2: Speculative Decoding</span>
+                <span class="arch-spec">Qwen 2.5 14B + 0.5B draft model (major speedup with minimal quality loss)</span>
+              </div>
+              <div class="arch-item">
+                <span class="arch-component">Step 3: Configuration Tuning</span>
+                <span class="arch-spec">Context size optimization, cache settings, threading parameters</span>
+              </div>
+              <div class="arch-item">
+                <span class="arch-component">Step 4: Abliterated Models</span>
+                <span class="arch-spec">Safety-removed variants for uncensored security research (no refusals)</span>
+              </div>
+              <div class="arch-item">
+                <span class="arch-component">Result</span>
+                <span class="arch-spec">25+ tokens/sec on consumer hardware (AMD GPU, no datacenter equipment)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="features-grid">
+            <div class="feature-item">
+              <h3 class="feature-title">► Hardware Optimization</h3>
+              <p class="feature-text">AMD GPU tuning, VRAM allocation, thermal management. Tried not to melt the card. Mostly succeeded.</p>
+            </div>
+
+            <div class="feature-item">
+              <h3 class="feature-title">► Model Selection</h3>
+              <p class="feature-text">Abliterated variants (uncensored for research), quantization testing (q4 vs q6). Quality vs speed trade-offs documented.</p>
+            </div>
+
+            <div class="feature-item">
+              <h3 class="feature-title">► Deployment Strategy</h3>
+              <p class="feature-text">LM Studio with OpenAI-compatible API. Multi-model management, context optimization. Works well enough.</p>
+            </div>
+
+            <div class="feature-item">
+              <h3 class="feature-title">► Future Upgrades</h3>
+              <p class="feature-text">Planned: 9950X3D, dual GPU (7800 XT + 7900 XTX), 96GB DDR5-6000, 2TB NVMe Gen5. £2,500 budget. Financially irresponsible but technically necessary.</p>
+            </div>
+          </div>
+
+          <div class="tech-details">
+            <h3 class="details-title">BENCHMARKS & METHODOLOGY</h3>
+            <div class="tech-stack">
+              <span class="tech-badge">Tested: Vulkan, ROCm, CPU-only</span>
+              <span class="tech-badge">Models: Qwen 2.5 Coder (14B, 32B), abliterated variants</span>
+              <span class="tech-badge">Metrics: tokens/sec, quality (subjective), stability</span>
+              <span class="tech-badge">Draft models: 0.5B, 1.5B, 3B (0.5B optimal)</span>
+              <span class="tech-badge">Configuration: context size, cache, threading tested systematically</span>
+            </div>
+          </div>
+
+          <div class="project-stats">
+            <div class="stat-item">
+              <span class="stat-number">25+</span>
+              <span class="stat-label">Tokens/Second</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">8.3x</span>
+              <span class="stat-label">Performance Gain</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">~£400</span>
+              <span class="stat-label">Current Hardware Cost</span>
+            </div>
+          </div>
+
+          <div class="status-box">
+            <h3 class="details-title">LESSONS LEARNED</h3>
+            <div class="status-list">
+              <div class="status-row">
+                <span class="status-indicator status-complete">✓</span>
+                <span class="status-text">Vulkan more stable than ROCm for consumer AMD GPUs (fewer crashes)</span>
+              </div>
+              <div class="status-row">
+                <span class="status-indicator status-complete">✓</span>
+                <span class="status-text">Speculative decoding works surprisingly well (minimal quality degradation)</span>
+              </div>
+              <div class="status-row">
+                <span class="status-indicator status-complete">✓</span>
+                <span class="status-text">Abliterated models actually necessary for security research (refusals kill workflow)</span>
+              </div>
+              <div class="status-row">
+                <span class="status-indicator status-complete">✓</span>
+                <span class="status-text">Consumer hardware sufficient for research (don't need datacenter GPUs yet)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- More Projects -->
+      <section class="more-projects">
+        <h2 class="section-title glitch" data-text="MORE PROJECTS">MORE PROJECTS</h2>
+
+        <div class="projects-list">
+          <div class="project-item">
+            <h3 class="item-title">► AI-Generated Physical Attack Payloads</h3>
+            <p class="item-desc">
+              Research proposal: Can LLMs generate effective hardware attack payloads for USB Rubber Ducky?
+              100+ payloads across Windows/Linux/macOS, testing on Rubber Ducky + Bash Bunny + O.MG Cable.
+              Budget: £200-300 (proves accessibility). Expected outputs: 2-4 papers, open-source testing framework, defensive signatures.
+            </p>
+            <span class="item-status">Status: Research proposal (comprehensive plan, awaiting hardware)</span>
+          </div>
+
+          <div class="project-item">
+            <h3 class="item-title">► Pentesting Automation Framework</h3>
+            <p class="item-desc">
+              Experimental n8n workflow: LLM decides what to do, BlackArch tools execute.
+              Automated reconnaissance, exploitation, persistence. Testing if AI can actually pentest or just makes creative mistakes.
+            </p>
+            <span class="item-status">Status: Experimental (breaks frequently)</span>
+          </div>
+
+          <div class="project-item">
+            <h3 class="item-title">► Personal Knowledge Base</h3>
+            <p class="item-desc">
+              Obsidian vault: 350+ book annotations, research notes, project docs.
+              MCP integration for semantic search. My second brain, assuming the first one works.
+            </p>
+            <span class="item-status">Status: Active (Private, obviously)</span>
+          </div>
+
+          <div class="project-item">
+            <h3 class="item-title">► Portfolio Website (This Site)</h3>
+            <p class="item-desc">
+              Static HTML/CSS/JS with dystopian aesthetic. No frameworks, no build step, no bullshit.
+              Performance-focused, accessibility-minded. Hosted on GitHub Pages because it's free.
+            </p>
+            <span class="item-status">Status: Continuous tweaking</span>
+          </div>
+        </div>
+
+        <div class="github-cta">
+          <p class="cta-text">View all projects and contributions on GitHub</p>
+          <a href="https://github.com/studiofarzulla" target="_blank" class="link-button-primary">
+            <span class="link-icon">►</span> GITHUB PROFILE
+          </a>
+        </div>
+      </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Studio Farzulla. All Rights Reserved. | <a href="https://github.com/studiofarzulla/studiofarzulla.github.io" target="_blank">View Source</a></p>
-        </div>
+    <footer class="footer-surveillance">
+      <div class="footer-content">
+        <p class="footer-text">© 2025 STUDIO FARZULLA | ALL RIGHTS RESERVED</p>
+        <p class="footer-subtext">CODE • BUILD • DEPLOY</p>
+      </div>
     </footer>
 
-    <script src="js/main.js"></script>
-</body>
+    <script src="js/dystopia.js"></script>
+  </body>
 </html>

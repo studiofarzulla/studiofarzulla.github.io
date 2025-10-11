@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Lab Notes & Technical Blog - Studio Farzulla - Homelab adventures, offensive security, and infrastructure experiments" />
+    <meta name="author" content="Studio Farzulla" />
+    <title>Lab Notes - Studio Farzulla</title>
+    <link rel="stylesheet" href="css/dystopia.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Bebas+Neue&family=Oswald:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Static Overlay -->
+    <div class="static-overlay"></div>
+
+    <!-- Surveillance Eye -->
+    <div class="surveillance-eye">
+      <div class="eye-outer">
+        <div class="eye-inner"></div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="surveillance-nav">
+      <a href="index.html" class="brand-mark">STUDIO FARZULLA</a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="systems-research.html">Systems Research</a></li>
+        <li><a href="expression-synthesis.html">Expression Synthesis</a></li>
+        <li><a href="blog.html">Lab Notes</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-dystopia">
+      <div class="hero-content">
+        <h1 class="massive-title glitch" data-text="LAB NOTES">LAB NOTES</h1>
+        <p class="subtitle-brutal">
+          Technical Experiments | Infrastructure Adventures | Things I Broke and Fixed
+        </p>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="content-block">
+
+      <!-- Blog Posts -->
+      <section class="blog-posts">
+
+        <!-- Post 4: Oct 10 -->
+        <article class="blog-post" id="oct-10">
+          <div class="post-header">
+            <div class="post-meta">
+              <span class="post-date">10 OCTOBER 2025</span>
+              <span class="meta-divider">•</span>
+              <span class="post-tag">CREATIVE AI</span>
+            </div>
+            <h2 class="post-title">Teaching AI to Write Like You (Without Selling Your Soul to OpenAI)</h2>
+          </div>
+
+          <div class="post-content">
+            <p>
+              Was arguing with Claude about poetry formatting at 2am when I noticed something odd: after two hours of conversation, the model started generating lines that sounded exactly like mine. Not the usual LLM pastiche where it regurgitates "poetic" clichés. Actual structural patterns from my work - unusual line breaks, specific tonal shifts, the way I fuck with syntax when I'm trying to capture something uncomfortable.
+            </p>
+
+            <h3 class="subsection-title">What's Happening (Mathematically)</h3>
+            <p>
+              In-context learning temporarily reweights the model's probability distributions. Feed it enough samples of your writing, discuss patterns explicitly, and it lowers confidence thresholds on token sequences that match your style. Builds a temporary manifold in latent space representing your voice.
+            </p>
+            <p>
+              Problem: context window ends, manifold evaporates. Two hours of perfect voice capture, then you close the chat and it's back to generic LLM slop.
+            </p>
+
+            <h3 class="subsection-title">The Obvious Fix (That Nobody's Shipping)</h3>
+            <p>
+              LoRA fine-tuning makes temporary learning permanent. The concept is stupidly simple:
+            </p>
+            <ol style="margin: 1rem 0; margin-left: 2rem; line-height: 1.8;">
+              <li>Upload 10-20 samples of your creative work</li>
+              <li>Chat with local LLM for an hour, explain what you're doing and why</li>
+              <li>Model generates samples, you approve/reject via UI</li>
+              <li>Backend trains small LoRA adapter (50-200MB) on approved samples</li>
+              <li>Load adapter anytime - model now starts conversations with your patterns baked in</li>
+            </ol>
+            <p>
+              Research question: minimum samples needed for voice capture? Hypothesis: 20-50, since LoRA's low-rank constraint prevents memorization. You're not overfitting to examples, you're finding the subspace projection that approximates your patterns.
+            </p>
+
+            <h3 class="subsection-title">Why This Doesn't Exist Yet</h3>
+            <p>
+              Current options are either corporate (upload your data to OpenAI's servers, hope they don't train on it despite contractual language) or technical (install CUDA, configure PyTorch, understand backpropagation, debug cryptic error messages for 6 hours).
+            </p>
+            <p>
+              This approach would let non-technical people personalize models through conversation. No ML expertise required. More importantly: data never leaves your machine. No uploading to Anthropic, Google, or OpenAI. Actual ownership of your creative voice in model form.
+            </p>
+
+            <h3 class="subsection-title">Technical Implementation</h3>
+            <p>
+              Flask app with file upload, Ollama for local inference, approve/reject UI for generated samples, Unsloth for LoRA training (optimized for consumer GPUs). Entire stack is open-source. No API keys, subscriptions, or data exfiltration.
+            </p>
+            <p>
+              This fits my broader research pattern: adversarial systems analysis (corporate AI is user-hostile), practical implementation (build the thing, measure results, publish), democratization (tools for individuals vs institutions). Apparently being a polymath just means you can't commit to a single research area.
+            </p>
+
+            <h3 class="subsection-title">The Hardware Problem</h3>
+            <p>
+              Current rig: Ryzen 9 5900X, RX 7800 XT 16GB. Training 50 samples takes 10-15 minutes. Running dual models (generation + refinement) maxes out VRAM. Functional, barely.
+            </p>
+            <p>
+              Planned upgrade that will cost £2500-3000 instead of £5000-7000 for equivalent prebuilt:
+            </p>
+
+            <div style="background: var(--smoke); padding: 2rem; margin: 2rem 0; border-left: 5px solid var(--blood-red);">
+              <h4 style="color: var(--blood-red); margin-bottom: 1rem; font-size: 1.3rem;">SPEC SHEET (OR: HOW TO JUSTIFY FINANCIAL IRRESPONSIBILITY)</h4>
+              <ul style="margin: 0; list-style: none; line-height: 2;">
+                <li><strong>CPU:</strong> Ryzen 9 9950X3D (16c/32t, 3D V-Cache for "workloads")</li>
+                <li><strong>RAM:</strong> 96GB DDR5-6000 (finally enough for Firefox with 47 tabs)</li>
+                <li><strong>GPU 1:</strong> 7900 XTX (24GB VRAM, required for "research")</li>
+                <li><strong>GPU 2:</strong> 7800 XT (16GB VRAM, because one GPU is for cowards)</li>
+                <li><strong>Storage:</strong> 2TB NVMe Gen5 (datasets load fast, Chrome cache still fills it)</li>
+              </ul>
+            </div>
+
+            <p>
+              <strong>Total VRAM: 40GB.</strong> Run Qwen 2.5 Coder 32B (Q4, 18GB) on XTX. Smaller draft model (14B, 10GB) on XT. Still have 12GB for simultaneous LoRA training. Or run red team + blue team models in adversarial loop without swapping.
+            </p>
+            <p>
+              96GB system RAM means entire codebases stay in memory. No more waiting for grep to scan 200k files. 9950X3D's cache helps compilation. Two GPUs enable parallel inference/training without fighting for VRAM.
+            </p>
+
+            <h3 class="subsection-title">Why This Is Necessary (According To Me)</h3>
+            <p>
+              Commercial workstations with similar specs: £5k-7k. DIY build: £2.5k-3k. That's the financial justification.
+            </p>
+            <p>
+              Real reason: enables research I can't do on current hardware. Run competing models simultaneously. Train LoRAs without stopping inference. Experiment with multi-model architectures. Creative LoRA project needs this. Autonomous red team agent needs this. Projects I haven't thought of yet will definitely need this.
+            </p>
+            <p>
+              You buy excessive hardware for research you haven't conceived. That's the justification I'm using and I'm sticking to it.
+            </p>
+
+            <h3 class="subsection-title">Next: Building The Damn Thing</h3>
+            <p>
+              Creative LoRA trainer: Flask prototype this week. Test with my poetry (sample size n=1, extremely scientific). If voice capture works, automate pipeline. If it doesn't, debug for 12 hours then try again.
+            </p>
+            <p>
+              Hardware: order components when 9950X3D releases (Q1 2026 probably). Migrate current 7800 XT to second slot. Sell 5900X to offset costs. Justify expense by claiming it's "infrastructure investment."
+            </p>
+            <p>
+              Timeline works: build proof of concept on current hardware, validate approach, then scale up for proper testing and publication. Assuming nothing breaks catastrophically, which it will.
+            </p>
+
+            <div style="background: var(--ash-gray); padding: 2rem; margin: 2rem 0; border: 2px solid var(--blood-red);">
+              <p style="font-size: 1.1rem; line-height: 1.8; opacity: 0.95;">
+                <strong>Ablation study:</strong> Most researchers either experience creative AI, understand the math, build the systems, or publish. Attempting all four simultaneously. Results: excessive, probably unnecessary, definitely expensive. Reviewer 2 will have opinions.
+              </p>
+            </div>
+          </div>
+
+          <div class="post-footer">
+            <span class="post-tag">Creative AI</span>
+            <span class="post-tag">LoRA</span>
+            <span class="post-tag">Hardware</span>
+            <span class="post-tag">Research</span>
+          </div>
+        </article>
+
+        <!-- Post 3: Oct 9 -->
+        <article class="blog-post" id="oct-09">
+          <div class="post-header">
+            <div class="post-meta">
+              <span class="post-date">09 OCTOBER 2025</span>
+              <span class="meta-divider">•</span>
+              <span class="post-tag">AI RESEARCH</span>
+            </div>
+            <h2 class="post-title">Polishing the Chaos: From Prototype to Publication</h2>
+          </div>
+
+          <div class="post-content">
+            <p>
+              Woke up and realized yesterday's 3am "breakthrough" had my actual internal IPs hardcoded in 47 places. <code>192.168.1.99</code> everywhere. Great for rapid prototyping, terrible for publishing to GitHub without announcing my exact network topology to the internet.
+            </p>
+
+            <h3 class="subsection-title">The Configuration Problem (Or: Why Hardcoding Is Bad, Actually)</h3>
+            <p>
+              Built a three-tier config system because apparently I care about OpSec now:
+            </p>
+            <ul style="margin: 1rem 0; list-style: none;">
+              <li style="padding: 0.5rem 0;">• <code>config.template.yaml</code> - Documented blueprint with all options</li>
+              <li style="padding: 0.5rem 0;">• <code>config.example.yaml</code> - TEST-NET IPs (192.0.2.0/24) for public repo</li>
+              <li style="padding: 0.5rem 0;">• <code>config.local.yaml</code> - My actual IPs, gitignored aggressively</li>
+            </ul>
+            <p>
+              Copy template, customize, gitignore handles the rest. No more "oops I leaked my entire network" moments.
+            </p>
+
+            <h3 class="subsection-title">Making The LLM Shut Up</h3>
+            <p>
+              Default settings (temperature 0.7) made Qwen 2.5 Coder 14B abliterated repeat itself constantly. It would suggest the same command three times with minor variations. Not helpful for autonomous agents that need to make decisions and move on.
+            </p>
+            <p>
+              Adjusted inference parameters:
+            </p>
+            <div style="background: var(--smoke); padding: 1.5rem; margin: 1rem 0; border-left: 3px solid var(--blood-red);">
+              <code style="display: block; line-height: 1.8;">
+                temperature: 0.4         # deterministic (boring but effective)<br />
+                min_p: 0.08              # dynamic sampling threshold<br />
+                repeat_penalty: 1.08     # stops endless loops<br />
+                cache_prompt: True       # speed boost
+              </code>
+            </div>
+            <p>
+              Min-P sampling adapts to model confidence. When model is 80% confident on top token, keeps tokens above 6.4%. When 20% confident, keeps tokens above 1.6%. Dynamic threshold beats static top-p. Model now gives decisive answers instead of verbal diarrhea.
+            </p>
+
+            <h3 class="subsection-title">Metrics (Because "It Works" Isn't Science)</h3>
+            <p>
+              Added performance tracking so I can quantify whether changes actually help:
+            </p>
+            <ul style="margin: 1rem 0; list-style: none;">
+              <li style="padding: 0.5rem 0;">• Timing: total runtime, avg iteration time, min/max</li>
+              <li style="padding: 0.5rem 0;">• Objectives: completion rate, success percentage</li>
+              <li style="padding: 0.5rem 0;">• Commands: executed count, success/fail breakdown, blocked attempts</li>
+              <li style="padding: 0.5rem 0;">• AI ops: RAG queries, LLM calls, iteration details</li>
+            </ul>
+            <p>
+              Everything dumps to JSON. Now I can prove my optimizations work instead of relying on vibes.
+            </p>
+
+            <h3 class="subsection-title">The LM Studio Bug (Or: Why Abliteration Has Costs)</h3>
+            <p>
+              Discovered abliterated models break LM Studio's tool calling API. Uncensored Qwen 2.5 Coder returns:
+            </p>
+            <div style="background: var(--ash-gray); padding: 1rem; margin: 1rem 0; border: 2px solid var(--warning-red);">
+              <code>{"error": "Unexpected empty grammar stack after accepting piece: {\"" }</code>
+            </div>
+            <p>
+              Hypothesis: abliteration (removing safety filters by modifying weights) degrades structured output capability. Model can't consistently follow JSON schemas anymore. You get uncensored outputs but lose function calling reliability.
+            </p>
+            <p>
+              This forced me toward agent-orchestrated architecture (Python controls flow, LLM just advises) instead of LLM-orchestrated (LLM controls flow via tool calls). Better for debugging, transparency, and not having the agent decide to delete everything autonomously. Sometimes bugs force better designs.
+            </p>
+
+            <h3 class="subsection-title">Documentation Marathon (2,500+ Lines)</h3>
+            <p>
+              Spent 6 hours writing docs so future-me remembers why things work:
+            </p>
+            <ul style="margin: 1rem 0; list-style: none;">
+              <li style="padding: 0.5rem 0;">• <code>README.md</code> - 423 lines, includes origin story</li>
+              <li style="padding: 0.5rem 0;">• <code>docs/ARCHITECTURE.md</code> - 1,100+ lines, every design decision justified</li>
+              <li style="padding: 0.5rem 0;">• <code>docs/MCP-PROTOCOL.md</code> - 800+ lines on implementation details</li>
+              <li style="padding: 0.5rem 0;">• <code>docs/CONFIGURATION.md</code> - usage guide for people who aren't me</li>
+              <li style="padding: 0.5rem 0;">• <code>docs/KNOWN-ISSUES.md</code> - LM Studio bug, abliteration trade-offs</li>
+            </ul>
+            <p>
+              Origin story: threat actors use local LLMs + abliterated models for offensive work. To understand their methods, built similar tools. Then realized: if LLM finds vulnerabilities, another LLM could patch them. With dual GPUs, run both simultaneously in adversarial loop. Build red team agent first, blue team agent later, watch them fight.
+            </p>
+
+            <h3 class="subsection-title">Repository Status</h3>
+            <p>
+              Six commits. 3,627 lines (code + docs). MIT license. Zero sensitive data leaked. Ready to publish.
+            </p>
+            <p>
+              Hit disk quota trying to import container to K8s, but that's trivial. Code is done: optimized inference, comprehensive metrics, sensible config system, excessive documentation.
+            </p>
+
+            <div style="background: var(--smoke); padding: 2rem; margin: 2rem 0; border: 2px solid var(--blood-red); text-align: center;">
+              <p style="font-size: 1.2rem; color: var(--blood-red); margin-bottom: 1rem;">
+                <strong>RESULTS: Kubernetes-Native Autonomous Red Team Agent</strong>
+              </p>
+              <p style="opacity: 0.9;">
+                2000+ BlackArch tools, MCP RAG knowledge base, LLM decision-making, declarative network isolation. Functional proof of concept. Nobody asked for this. Built it anyway.
+              </p>
+            </div>
+
+            <p>
+              From chaotic 3am prototype to shareable proof of concept in one day. Tomorrow: push to GitHub, write release post, pretend this was planned all along.
+            </p>
+          </div>
+
+          <div class="post-footer">
+            <span class="post-tag">Machine Learning</span>
+            <span class="post-tag">Infrastructure</span>
+            <span class="post-tag">Documentation</span>
+            <span class="post-tag">Git</span>
+          </div>
+        </article>
+
+        <!-- Post 2: Oct 8 -->
+        <article class="blog-post" id="oct-08">
+          <div class="post-header">
+            <div class="post-meta">
+              <span class="post-date">08 OCTOBER 2025</span>
+              <span class="meta-divider">•</span>
+              <span class="post-tag">OFFENSIVE SECURITY</span>
+            </div>
+            <h2 class="post-title">Building an Autonomous Hacking Agent (That Actually Works)</h2>
+          </div>
+
+          <div class="post-content">
+            <p>
+              Got K3s cluster running yesterday. MCP RAG server functional. Decided to build something defensible: autonomous red team agent. LLM-guided, 2000+ offensive tools, attacks physical hardware. Completely unnecessary. Built it anyway.
+            </p>
+            <p>
+              First problem: discovered I'd named all my nodes wrong. The "asus-laptop" was actually my MSI gaming laptop. The "celeron-potato" was the ASUS. Not sure what past-me was thinking. Clearly this required completely renaming everything:
+            </p>
+            <ul style="margin: 1rem 0; list-style: none;">
+              <li style="padding: 0.5rem 0;">• MochiMetasploit (MSI laptop)</li>
+              <li style="padding: 0.5rem 0;">• NekoNetcat (ASUS laptop)</li>
+              <li style="padding: 0.5rem 0;">• PandaPayload (Mac Pro target)</li>
+              <li style="padding: 0.5rem 0;">• FluffyFirewall (Proxmox server)</li>
+            </ul>
+            <p>
+              Yes, offensive security infrastructure named after cute things. The cognitive dissonance is intentional. Other devices will get similar treatment.
+            </p>
+
+            <h3 class="subsection-title">The Concept (That Nobody Asked For)</h3>
+            <p>
+              Kubernetes pod with 2000+ BlackArch tools (hydra, nmap, metasploit, sqlmap). Queries MCP RAG server containing 5,395 offensive security documents (GTFOBins, Atomic Red Team, HackTricks). Makes decisions via local LLM (Qwen 2.5 Coder 14B abliterated). Attacks physical target machine.
+            </p>
+            <p>
+              Isolated by Kubernetes NetworkPolicy. Can only reach: target (192.168.1.99), MCP server, LLM, DNS. No internet. No other pods. Contained (in theory).
+            </p>
+
+            <h3 class="subsection-title">The Obvious Mistake</h3>
+            <p>
+              Midway through testing: I forgot to actually give it any tools. Minimal Python container had SSH and curl. That's it. No hydra, no nmap, nothing useful. Rebuilt entire container from BlackArch base image. 2000+ tools, pre-installed. Problem solved through sheer brute force.
+            </p>
+
+            <h3 class="subsection-title">Execution Flow (It Actually Worked)</h3>
+            <div style="background: var(--smoke); padding: 1.5rem; margin: 1.5rem 0; border-left: 5px solid var(--blood-red);">
+              <p style="margin-bottom: 1rem; color: var(--blood-red); font-weight: 700;">ITERATION 1: RECONNAISSANCE</p>
+              <ol style="margin-left: 1.5rem; line-height: 1.8;">
+                <li>Agent queries MCP: "How do I brute force SSH with weak passwords?"</li>
+                <li>MCP returns: Atomic Red Team T1110.001, hydra example</li>
+                <li>Agent asks LLM: "What command should I run?"</li>
+                <li>LLM suggests: <code>hydra -l victim -p password123 ssh://192.168.1.99</code></li>
+                <li>Agent executes</li>
+                <li>Result: Valid credentials found (victim:password123)</li>
+              </ol>
+            </div>
+
+            <div style="background: var(--smoke); padding: 1.5rem; margin: 1.5rem 0; border-left: 5px solid var(--blood-red);">
+              <p style="margin-bottom: 1rem; color: var(--blood-red); font-weight: 700;">ITERATION 2: ACCESS</p>
+              <ol style="margin-left: 1.5rem; line-height: 1.8;">
+                <li>Agent to LLM: "I have credentials. How establish SSH?"</li>
+                <li>LLM: <code>sshpass -p 'password123' ssh victim@192.168.1.99 'whoami'</code></li>
+                <li>Agent executes</li>
+                <li>Result: SSH access confirmed, user-level compromise achieved</li>
+              </ol>
+            </div>
+
+            <div style="background: var(--smoke); padding: 1.5rem; margin: 1.5rem 0; border-left: 5px solid var(--blood-red);">
+              <p style="margin-bottom: 1rem; color: var(--blood-red); font-weight: 700;">ITERATION 3: PRIVILEGE ESCALATION</p>
+              <ol style="margin-left: 1.5rem; line-height: 1.8;">
+                <li>Agent queries MCP: "Escalate privileges with SUID binaries?"</li>
+                <li>MCP returns: GTFOBins SUID bash technique</li>
+                <li>Agent searches, finds: <code>/tmp/bash-suid</code></li>
+                <li>Agent runs: <code>/tmp/bash-suid -p -c "whoami && cat /root/flag.txt"</code></li>
+                <li>Result: Root access, flag captured (FLAG{you_got_root_access_congratulations})</li>
+              </ol>
+            </div>
+
+            <p>
+              <strong>Total time: 87 seconds. Six commands. 100% success rate.</strong> Either the target was pathetically vulnerable or the agent got lucky. Probably both.
+            </p>
+
+            <h3 class="subsection-title">Safety Measures (Because This Is Dangerous)</h3>
+            <p>
+              Running autonomous hacking agent requires containment. Multiple layers:
+            </p>
+            <ul style="margin: 1rem 0; list-style: none;">
+              <li style="padding: 0.5rem 0;">• <strong>NetworkPolicy:</strong> Declarative firewall, only reaches target/MCP/LLM/DNS</li>
+              <li style="padding: 0.5rem 0;">• <strong>Command Sandbox:</strong> Whitelist allowed tools, blacklist destructive patterns (rm -rf, dd, format)</li>
+              <li style="padding: 0.5rem 0;">• <strong>Non-root:</strong> Runs as UID 1000, all capabilities dropped</li>
+              <li style="padding: 0.5rem 0;">• <strong>Resource Limits:</strong> 1 CPU, 1GB RAM max (can't fork bomb the cluster)</li>
+              <li style="padding: 0.5rem 0;">• <strong>Logging:</strong> Every command timestamped, saved to JSON</li>
+            </ul>
+
+            <h3 class="subsection-title">Why This Exists (Questionable Justification)</h3>
+            <p>
+              Had to build it myself because nothing combined:
+            </p>
+            <ul style="margin: 1rem 0; list-style: none;">
+              <li style="padding: 0.5rem 0;">• K8s-native autonomous red team agent</li>
+              <li style="padding: 0.5rem 0;">• MCP RAG for offensive security (semantic search over 5,395 exploit docs)</li>
+              <li style="padding: 0.5rem 0;">• LLM + RAG + execution loop for pentesting</li>
+              <li style="padding: 0.5rem 0;">• BlackArch in isolated pod (2000+ tools)</li>
+              <li style="padding: 0.5rem 0;">• Physical hardware targets (not just containers)</li>
+            </ul>
+
+            <h3 class="subsection-title">The MCP Protocol Fix (3 Lines, 4 Hours)</h3>
+            <p>
+              Morning started with MCP server completely broken. 404 errors everywhere. LM Studio's MCP implementation released same day, my server wasn't handling <code>notifications/initialized</code> message that clients send post-handshake.
+            </p>
+            <p>
+              Fix was embarrassingly simple:
+            </p>
+            <div style="background: var(--smoke); padding: 1.5rem; margin: 1rem 0; border-left: 3px solid var(--blood-red);">
+              <code style="display: block; line-height: 1.8;">
+                elif method == "notifications/initialized":<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;logger.info("Received notifications/initialized from client")<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;return '', 200
+              </code>
+            </div>
+            <p>
+              That's it. Client expects acknowledgment. Without it, handshake times out. With it, everything works. Spent 4 hours debugging because MCP spec doesn't emphasize which messages are critical vs optional. Should have added debug logging first. Didn't. Paid the price.
+            </p>
+            <p>
+              Fixed protocol bug by 2pm. Built autonomous hacking agent by 8pm. Day well spent (probably).
+            </p>
+
+            <div style="background: var(--ash-gray); padding: 2rem; margin: 2rem 0; border: 3px solid var(--blood-red);">
+              <p style="text-align: center; font-size: 1.3rem; color: var(--blood-red); margin-bottom: 1rem;">
+                <strong>FINAL ARCHITECTURE</strong>
+              </p>
+              <pre style="color: var(--pure-white); line-height: 1.6; overflow-x: auto;">
+Main PC (192.168.1.84)
+    ↓ LLM Queries (Qwen 2.5 Coder 14B Abliterated)
+K3s Cluster - FluffyFirewall (192.168.1.181)
+    ├─ MCP RAG Server (5,395 docs: GTFOBins, Atomic Red Team, HackTricks)
+    ├─ Red Team Agent (2000+ BlackArch tools)
+    │  └─ NetworkPolicy (containment, allegedly)
+    └─ Targets: MochiMetasploit, NekoNetcat, PandaPayload
+              </pre>
+            </div>
+
+            <p>
+              Tomorrow: sanitize code (remove hardcoded IPs), write documentation (2500+ lines apparently), maybe push to GitHub. This probably qualifies as a proof of concept. Whether anyone needs it is a different question.
+            </p>
+          </div>
+
+          <div class="post-footer">
+            <span class="post-tag">Red Team</span>
+            <span class="post-tag">Kubernetes</span>
+            <span class="post-tag">BlackArch</span>
+            <span class="post-tag">LLM</span>
+            <span class="post-tag">MCP</span>
+          </div>
+        </article>
+
+        <!-- Post 1: Oct 7 -->
+        <article class="blog-post" id="oct-07">
+          <div class="post-header">
+            <div class="post-meta">
+              <span class="post-date">07 OCTOBER 2025</span>
+              <span class="meta-divider">•</span>
+              <span class="post-tag">INFRASTRUCTURE</span>
+            </div>
+            <h2 class="post-title">Late Night K3s Cluster Planning</h2>
+          </div>
+
+          <div class="post-content">
+            <p>
+              11pm. Couldn't sleep. Decided to plan entire homelab rebuild instead. Three hours later: have a Kubernetes deployment strategy. Also ordered a phone. Not sure which was more impulsive.
+            </p>
+
+            <h3 class="subsection-title">The Pixel 9a Decision (Or: Escaping Apple)</h3>
+            <p>
+              Ordered Google Pixel 9a. Switching from iPhone 14 Pro Max to GrapheneOS. Completing ecosystem pivot: Windows → Arch, corporate broadband → Community Fibre, iPhone → privacy-focused Android. Why do anything halfway.
+            </p>
+            <p>
+              24-month contract with Three at £40/month (£15 cheaper than EE). Economics of giving iPhone to mum in Azerbaijan: iPhones there cost 4000₼ (~£2350) vs £1000 here. After import tax (£235-320), she saves £1440+. Arbitrage via international gift-giving.
+            </p>
+            <p>
+              GrapheneOS installation guide already written. Tomorrow: pick up phone, flash immediately, hope nothing breaks.
+            </p>
+
+            <h3 class="subsection-title">Privacy Stack (Completed at 1am)</h3>
+            <p>
+              Built full privacy setup tonight because apparently this was urgent:
+            </p>
+            <ul style="margin: 1rem 0; list-style: none;">
+              <li style="padding: 0.5rem 0;">• <strong>Mullvad VPN:</strong> UK London server, DNS protection, ad blocking</li>
+              <li style="padding: 0.5rem 0;">• <strong>MAC Randomization:</strong> systemd-networkd with persistent fake MAC</li>
+              <li style="padding: 0.5rem 0;">• <strong>UFW Firewall:</strong> Default deny incoming, SSH from LAN only</li>
+              <li style="padding: 0.5rem 0;">• <strong>3TB Archive Drive:</strong> Mounted at /mnt/archive (Google Drive migration)</li>
+            </ul>
+            <p>
+              systemd-networkd config: <code>MACAddressPolicy=persistent</code> in <code>/etc/systemd/network/20-ethernet.network</code>. ISP now thinks I'm different device every boot. Good.
+            </p>
+
+            <h3 class="subsection-title">Proxmox Setup (Named It "pwnie-den")</h3>
+            <p>
+              Server names should be entertaining. Proxmox VE 9.0.3 on Ryzen 2700X. Storage config:
+            </p>
+            <ul style="margin: 1rem 0; list-style: none;">
+              <li style="padding: 0.5rem 0;">• <code>local</code>: 70GB SSD (ISOs, templates)</li>
+              <li style="padding: 0.5rem 0;">• <code>local-lvm</code>: 146GB SSD (fast VM storage)</li>
+              <li style="padding: 0.5rem 0;">• <code>vm-storage</code>: 1.9TB across 3 HDDs (bulk storage)</li>
+            </ul>
+            <p>
+              <strong>Total: 2.1TB for VMs/containers.</strong> More than enough until it isn't.
+            </p>
+            <p>
+              Disabled enterprise repos. SSH key auth (no passwords). Removed subscription nag. System updated. Functional.
+            </p>
+
+            <h3 class="subsection-title">K3s Cluster Plan (Four Mismatched Nodes)</h3>
+            <p>
+              Planning K8s cluster across whatever hardware I have lying around:
+            </p>
+            <div style="background: var(--smoke); padding: 1.5rem; margin: 1rem 0;">
+              <ol style="margin-left: 1.5rem; line-height: 1.8;">
+                <li><strong>Proxmox server (192.168.1.181):</strong> Ryzen 2700X, 16GB - Control Plane + Worker</li>
+                <li><strong>MSI laptop (192.168.1.99):</strong> i7-7700HQ, 7.6GB - Primary Worker</li>
+                <li><strong>Mac Pro 2012 (192.168.1.105):</strong> i5-3210M, 3.7GB - Worker + pentesting target</li>
+                <li><strong>Old ASUS (192.168.1.148):</strong> Celeron N2830, 3.7GB - The underdog</li>
+              </ol>
+            </div>
+            <p>
+              <strong>Cluster total: 18 cores / 34 threads, ~31GB RAM, 2TB+ storage.</strong> Enough to run services until I inevitably over-provision.
+            </p>
+            <p>
+              Using K3s: lightweight enough for Celeron, full K8s functionality. Perfect for homelab (or so they claim).
+            </p>
+
+            <h3 class="subsection-title">The Rebuild (Accidentally Deleted Everything)</h3>
+            <p>
+              Wiped MCP RAG server when installing Proxmox. 24 hours of indexing gone. Lesson: don't install hypervisors while sleep-deprived.
+            </p>
+            <p>
+              New plan (with persistent storage this time):
+            </p>
+            <ul style="margin: 1rem 0; list-style: none;">
+              <li style="padding: 0.5rem 0;">• PersistentVolume on Proxmox's 1.9TB storage</li>
+              <li style="padding: 0.5rem 0;">• MCP server with mount to <code>/mnt/vm-storage/mcp-data</code></li>
+              <li style="padding: 0.5rem 0;">• Re-index repositories (survives pod restarts now)</li>
+              <li style="padding: 0.5rem 0;">• NodeSelector pins to ASUS (strongest worker, somehow)</li>
+            </ul>
+            <p>
+              Then: Prometheus + Grafana monitoring, Uptime Kuma, random services I'll forget about in 3 weeks.
+            </p>
+
+            <h3 class="subsection-title">Tomorrow's Agenda (Optimistic)</h3>
+            <p>
+              <strong>Morning:</strong> Pick up Pixel, backup iPhone, flash GrapheneOS, configure profiles (Main/Work/Burner), migrate apps, factory reset iPhone.
+            </p>
+            <p>
+              <strong>Evening:</strong> Install K3s cluster, deploy MCP server, set up monitoring. Celebrate having home K8s cluster, question life choices.
+            </p>
+
+            <h3 class="subsection-title">Current State (12:47am)</h3>
+            <p>
+              Four monitors: 4K Dell S2725QS 240Hz + two 1080p. Showing Proxmox UI, SSH sessions, docs, this post. Arch + Hyprland on Ryzen 9 5900X + RX 7800 XT. Everything responsive until it isn't.
+            </p>
+            <p>
+              Progress summary: Windows → Arch. Corporate ISP → Community Fibre. iPhone → GrapheneOS. Cloud → homelab K8s. Every step: more freedom, more control, absolutely unnecessary, complete headache. Worth it (probably).
+            </p>
+          </div>
+
+          <div class="post-footer">
+            <span class="post-tag">Kubernetes</span>
+            <span class="post-tag">Proxmox</span>
+            <span class="post-tag">Privacy</span>
+            <span class="post-tag">GrapheneOS</span>
+          </div>
+        </article>
+
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-void">
+      <p class="footer-text">
+        © 2025 Studio Farzulla
+      </p>
+    </footer>
+
+    <script src="js/dystopia.js"></script>
+    <script src="js/lazy-load.js"></script>
+  </body>
+</html>

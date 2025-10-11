@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Murad Farzulla - MSc Finance Analytics student at King's College London, researcher, writer, and artist" />
-    <meta name="author" content="Murad Farzulla" />
-    <meta property="og:title" content="Murad Farzulla" />
-    <meta property="og:description" content="Finance Analytics student, researcher, and writer" />
+    <meta name="description" content="Studio Farzulla - Adversarial Systems Researcher. Breaking things to understand how they work. Finance, security, AI research documented at 3am." />
+    <meta name="author" content="Studio Farzulla" />
+    <meta property="og:title" content="Studio Farzulla" />
+    <meta property="og:description" content="Adversarial researcher documenting experiments across finance, security, and AI. Lab notes from 3am chaos." />
     <meta property="og:type" content="website" />
-    <title>Murad Farzulla</title>
+    <title>Studio Farzulla</title>
     <link rel="stylesheet" href="css/dystopia.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -30,15 +30,12 @@
 
     <!-- Navigation -->
     <nav class="surveillance-nav">
-      <a href="index.html" class="brand-mark">MURAD FARZULLA</a>
+      <a href="index.html" class="brand-mark">STUDIO FARZULLA</a>
       <ul class="nav-links">
         <li><a href="index.html#about">About</a></li>
-        <li><a href="research-academic.html">Research</a></li>
-        <li><a href="projects-technical.html">Projects</a></li>
-        <li><a href="lab.html">Lab</a></li>
-        <li><a href="library.html">Library</a></li>
-        <li><a href="linux-solutions.html">Solutions</a></li>
-        <li><a href="index.html#writing">Writing</a></li>
+        <li><a href="systems-research.html">Systems Research</a></li>
+        <li><a href="expression-synthesis.html">Expression Synthesis</a></li>
+        <li><a href="blog.html">Lab Notes</a></li>
         <li><a href="index.html#contact">Contact</a></li>
       </ul>
     </nav>
@@ -46,10 +43,10 @@
     <!-- Hero Section -->
     <header class="hero-dystopia" id="home">
       <div class="hero-content">
-        <h1 class="massive-title">MURAD<br />FARZULLA</h1>
+        <h1 class="massive-title">STUDIO<br />FARZULLA</h1>
         <p class="subtitle-brutal">
-          MSc Finance Analytics student at King's College London<br />
-          Researcher. Writer. Artist.
+          Adversarial Systems Researcher<br />
+          Breaking things to understand how they work
         </p>
       </div>
     </header>
@@ -62,13 +59,21 @@
           <h2 class="section-title-brutal">ABOUT</h2>
           <div style="max-width: 800px; margin: 0 auto">
             <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem">
-              I'm a Finance Analytics student at King's College London, exploring the intersection of quantitative finance, technology, and creative expression. My background is in Accounting and Finance from SOAS University of London.
+              Independent researcher working across finance, security, and AI. MSc Finance Analytics from King's College London.
+              Pattern: find interesting system → research until I understand it → break it → document why it broke → build something unnecessary → repeat at 3am.
             </p>
             <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem">
-              My research interests span financial modeling, data analysis, and the philosophical implications of modern economic systems. I write about absurdism, social dynamics, and the human condition.
+              Currently: dual-LLM adversarial security agents (red team vs blue team, separate knowledge bases, watching them fight).
+              Previously: crypto volatility event studies (infrastructure failures hit harder than regulations, measured it).
+              Also: autonomous pentesting in Kubernetes, local LLM optimization, trying to teach AI to write poetry like me (sample size n=1, extremely scientific).
+            </p>
+            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem">
+              Write essays about absurdism and surveillance capitalism when not debugging why MCP handshake failed again.
+              Build home labs from scavenged hardware. Name servers after cute things (MochiMetasploit, NekoNetcat). Document everything compulsively.
             </p>
             <p style="font-size: 1.1rem; line-height: 1.8">
-              This space serves as a collection of my thoughts, creative works, and ongoing projects.
+              This site: lab notes, research docs, technical chaos, creative work. Not a portfolio—a running log of what breaks and why.
+              If you're here for polished case studies, wrong address. If you're here for 2500-line documentation about socketpair() syscall restrictions in K3s, welcome.
             </p>
           </div>
         </div>
@@ -84,22 +89,60 @@
               <p class="essay-excerpt">
                 Explorations of philosophy, absurdism, and social commentary. Published on Medium and various platforms.
               </p>
-              <a href="essays.html" style="color: var(--blood-red); text-decoration: none; font-weight: bold">Read Essays →</a>
+              <a href="expression-synthesis.html#philosophy" style="color: var(--blood-red); text-decoration: none; font-weight: bold">Read Essays →</a>
             </div>
             <div class="essay-card">
               <h3 class="essay-title">Poetry</h3>
               <p class="essay-excerpt">
                 Fragments of thought captured in verse. Observations on existence, emotion, and the spaces between.
               </p>
-              <a href="poetry.html" style="color: var(--blood-red); text-decoration: none; font-weight: bold">View Poetry →</a>
+              <a href="expression-synthesis.html#poetry" style="color: var(--blood-red); text-decoration: none; font-weight: bold">View Poetry →</a>
             </div>
             <div class="essay-card">
               <h3 class="essay-title">Technical</h3>
               <p class="essay-excerpt">
                 Research projects, cybersecurity lab, technical documentation, and open source contributions.
               </p>
-              <a href="research-academic.html" style="color: var(--blood-red); text-decoration: none; font-weight: bold">View Technical Work →</a>
+              <a href="systems-research.html" style="color: var(--blood-red); text-decoration: none; font-weight: bold">View Technical Work →</a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recent Lab Notes -->
+      <section class="section-brutal" id="lab-notes">
+        <div class="container-cage">
+          <h2 class="section-title-brutal">RECENT LAB NOTES</h2>
+          <div class="recent-posts-grid">
+            <a href="blog.html#oct-10" class="recent-post-card">
+              <div class="recent-post-date">10 OCTOBER 2025</div>
+              <h3 class="recent-post-title">Teaching AI to Write Like You (Without Selling Your Soul to OpenAI)</h3>
+              <p class="recent-post-excerpt">
+                Was arguing with Claude at 2am when I noticed it started writing like me. In-context learning temporarily captures voice, LoRA makes it permanent. Also planned £2500 workstation with 40GB VRAM. Sample size n=1, extremely scientific.
+              </p>
+              <span class="recent-post-link">READ MORE →</span>
+            </a>
+
+            <a href="blog.html#oct-09" class="recent-post-card">
+              <div class="recent-post-date">09 OCTOBER 2025</div>
+              <h3 class="recent-post-title">Polishing the Chaos: From Prototype to Publication</h3>
+              <p class="recent-post-excerpt">
+                Woke up and realized yesterday's prototype had my actual IPs hardcoded in 47 places. Built config system, optimized LLM to stop repeating itself, added metrics, wrote 2,500+ lines of docs. From 3am chaos to shareable proof of concept in one day.
+              </p>
+              <span class="recent-post-link">READ MORE →</span>
+            </a>
+
+            <a href="blog.html#oct-08" class="recent-post-card">
+              <div class="recent-post-date">08 OCTOBER 2025</div>
+              <h3 class="recent-post-title">Building an Autonomous Hacking Agent (That Actually Works)</h3>
+              <p class="recent-post-excerpt">
+                Built autonomous red team agent in K8s. 2000+ BlackArch tools, MCP RAG, LLM-guided decisions. Forgot to give it tools at first. Fixed MCP protocol bug (3 lines, 4 hours). Named nodes after cute things: MochiMetasploit, NekoNetcat, FluffyFirewall. 87 seconds to root.
+              </p>
+              <span class="recent-post-link">READ MORE →</span>
+            </a>
+          </div>
+          <div style="text-align: center; margin-top: 2rem;">
+            <a href="blog.html" class="btn-brutal">VIEW ALL POSTS</a>
           </div>
         </div>
       </section>
@@ -155,7 +198,7 @@
           <h2 class="section-title-brutal">CONTACT</h2>
           <div style="max-width: 600px; margin: 0 auto; text-align: center">
             <p style="font-size: 1.2rem; margin-bottom: 2rem">
-              Feel free to reach out for collaborations, discussions, or just to connect.
+              Questions about research? Want to discuss why your K3s cluster is also cursed? Collaboration ideas? Email works.
             </p>
             <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap">
               <a href="mailto:murad@farzulla.org" class="btn-brutal">Email</a>
@@ -171,7 +214,7 @@
     <!-- Footer -->
     <footer class="footer-void">
       <p class="footer-text">
-        © 2025 Murad Farzulla
+        © 2025 Studio Farzulla
       </p>
     </footer>
 
