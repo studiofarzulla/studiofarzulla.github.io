@@ -152,11 +152,29 @@ body {
     color: var(--pure-white);
     text-decoration: none;
     transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 .brand-mark:hover {
     color: var(--blood-red);
     text-shadow: 0 0 20px var(--blood-red);
+}
+
+.nav-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid var(--blood-red);
+    background: var(--void-black);
+    transition: all 0.3s ease;
+}
+
+.brand-mark:hover .nav-logo {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px var(--blood-red);
+    filter: drop-shadow(0 0 10px var(--blood-red));
 }
 
 .nav-links {
@@ -205,6 +223,35 @@ body {
     text-align: center;
     z-index: 10;
     position: relative;
+}
+
+.hero-logo-wrapper {
+    width: 350px;
+    height: 350px;
+    margin: 0 auto 3rem;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+}
+
+.hero-logo {
+    width: 650px;
+    height: 650px;
+    display: block;
+}
+
+@keyframes pulse-glow {
+    0% {
+        filter: drop-shadow(0 0 20px var(--blood-red));
+        transform: scale(1);
+    }
+    100% {
+        filter: drop-shadow(0 0 40px var(--blood-red));
+        transform: scale(1.05);
+    }
 }
 
 .massive-title {
