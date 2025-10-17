@@ -10,6 +10,18 @@ Personal portfolio site for **Murad Farzulla** - Adversarial Systems Researcher.
 
 **Design System:** Dystopian surveillance aesthetic - blood red accents, brutal typography, glitch effects, cursor-tracking eye.
 
+### Brand Architecture
+
+**Studio Farzulla** (farzulla.com) - THIS SITE:
+- Personal creative + technical brand
+- Portfolio showcasing projects, poetry, essays, lab infrastructure
+- Casual technical voice with 3am lab notes aesthetic
+
+**Farzulla Research** (farzulla.org) - SEPARATE SITE:
+- Academic research organization
+- Formal research outputs, working papers, preprints
+- Principal Investigator framing
+
 ## Core Philosophy
 
 **Brand Positioning:** Adversarial Systems Researcher
