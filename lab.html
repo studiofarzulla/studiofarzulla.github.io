@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Home Lab & Cybersecurity Research - Studio Farzulla - BlackArch, Pentesting, Network Security" />
+    <meta name="description" content="Home Lab - Studio Farzulla - Distributed systems, privacy infrastructure, K3s cluster from scavenged hardware" />
     <meta name="author" content="Studio Farzulla" />
     <title>Lab - Studio Farzulla</title>
     <link rel="stylesheet" href="css/dystopia.css" />
@@ -36,8 +36,8 @@
     <header class="hero-dystopia">
       <div class="hero-content">
         <h1 class="massive-title glitch" data-text="HOME LAB">HOME LAB</h1>
-        <p class="subtitle-brutal">
-          Cybersecurity Research | Network Operations | Offensive Security
+        <p class="subtitle-brutal typewriter">
+          Distributed Systems | Privacy Infrastructure | Scavenged Hardware
         </p>
       </div>
     </header>
@@ -45,16 +45,11 @@
     <main class="content-block">
       <!-- Lab Overview -->
       <section class="lab-overview">
-        <div class="alert-banner alert-warning">
-          <span class="alert-icon">⚠️</span>
-          <span>ALL ACTIVITIES CONDUCTED IN ISOLATED LAB ENVIRONMENT FOR EDUCATIONAL PURPOSES</span>
-        </div>
-
         <div class="overview-content">
           <p class="intro-text">
-            Home lab for breaking things in controlled environments. Pentesting practice, offensive security experiments,
-            questionable 3am infrastructure decisions. Everything isolated on local network because attacking production systems
-            is both illegal and stupid.
+            Home infrastructure for distributed systems research and privacy experimentation. K3s cluster built from
+            scavenged laptops with cute names, routers running OpenWrt, phone running GrapheneOS. Everything documented
+            because forgetting your own network topology at 3am is embarrassing.
           </p>
         </div>
       </section>
@@ -64,222 +59,123 @@
         <h2 class="section-title glitch" data-text="INFRASTRUCTURE">INFRASTRUCTURE</h2>
 
         <div class="hardware-grid">
-          <!-- Main Rig -->
+          <!-- PurrPower -->
           <div class="hardware-card">
             <div class="card-header">
-              <h3 class="card-title">MAIN RIG</h3>
-              <span class="card-badge badge-attack">ATTACK</span>
-            </div>
-            <div class="card-content">
-              <div class="spec-list">
-                <div class="spec-item">
-                  <span class="spec-label">OS:</span>
-                  <span class="spec-value">BlackArch Linux</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">DE:</span>
-                  <span class="spec-value">Hyprland (Omarchy)</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">GPU:</span>
-                  <span class="spec-value">AMD (Vulkan)</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">LLM:</span>
-                  <span class="spec-value">qwen2.5-coder-32b-abliterated</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">IP:</span>
-                  <span class="spec-value">192.168.1.84</span>
-                </div>
-              </div>
-              <div class="card-role">
-                <p>Main rig. Runs BlackArch, hosts LLMs, tests exploits. Works until it doesn't.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- 2700X Server -->
-          <div class="hardware-card">
-            <div class="card-header">
-              <h3 class="card-title">2700X SERVER</h3>
-              <span class="card-badge badge-server">SERVER</span>
+              <h3 class="card-title">PurrPower</h3>
+              <span class="card-badge badge-attack">BEAST MACHINE</span>
             </div>
             <div class="card-content">
               <div class="spec-list">
                 <div class="spec-item">
                   <span class="spec-label">CPU:</span>
-                  <span class="spec-value">AMD Ryzen 2700X</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">GPU:</span>
-                  <span class="spec-value">GTX 1080 (CUDA 6.1)</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">OS:</span>
-                  <span class="spec-value">BlackArch Linux</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">Services:</span>
-                  <span class="spec-value">MCP, Ollama</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">IP:</span>
-                  <span class="spec-value">192.168.1.181</span>
-                </div>
-              </div>
-              <div class="card-role">
-                <p>MCP server. Indexes docs overnight, serves semantic search, occasionally corrupts database.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Mac Pro Target -->
-          <div class="hardware-card">
-            <div class="card-header">
-              <h3 class="card-title">MAC PRO 2012</h3>
-              <span class="card-badge badge-target">TARGET</span>
-            </div>
-            <div class="card-content">
-              <div class="spec-list">
-                <div class="spec-item">
-                  <span class="spec-label">Model:</span>
-                  <span class="spec-value">Mac Pro Mid-2012</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">OS:</span>
-                  <span class="spec-value">BlackArch Linux</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">Services:</span>
-                  <span class="spec-value">SSH, Apache HTTP</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">Purpose:</span>
-                  <span class="spec-value">Vulnerable Target</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">IP:</span>
-                  <span class="spec-value">192.168.1.105</span>
-                </div>
-              </div>
-              <div class="card-role">
-                <p>Intentionally vulnerable target. Gets rooted regularly. That's the point.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Old Laptops -->
-          <div class="hardware-card">
-            <div class="card-header">
-              <h3 class="card-title">OLD LAPTOPS</h3>
-              <span class="card-badge badge-fleet">FLEET</span>
-            </div>
-            <div class="card-content">
-              <div class="spec-list">
-                <div class="spec-item">
-                  <span class="spec-label">Units:</span>
-                  <span class="spec-value">Multiple refurbished systems</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">OS:</span>
-                  <span class="spec-value">BlackArch Linux</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">Role:</span>
-                  <span class="spec-value">Distributed testing, malware analysis</span>
-                </div>
-              </div>
-              <div class="card-role">
-                <p>Old laptops that should probably be recycled. Running BlackArch, isolated for malware analysis. Don't care if they brick.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Planned Upgrades -->
-        <div class="upgrades-box">
-          <h3 class="subsection-title">PLANNED UPGRADES</h3>
-          <div class="upgrade-list">
-            <div class="upgrade-item">
-              <span class="upgrade-bullet">►</span>
-              <span class="upgrade-text">AMD 9950X3D CPU upgrade</span>
-            </div>
-            <div class="upgrade-item">
-              <span class="upgrade-bullet">►</span>
-              <span class="upgrade-text">Dual GPU: AMD 7800 XT + 7900 XTX</span>
-            </div>
-            <div class="upgrade-item">
-              <span class="upgrade-bullet">►</span>
-              <span class="upgrade-text">96GB DDR5 RAM</span>
-            </div>
-            <div class="upgrade-item">
-              <span class="upgrade-bullet">►</span>
-              <span class="upgrade-text">Router with VLAN support (because proper network segmentation is apparently important)</span>
-            </div>
-          </div>
-          <div class="upgrade-budget">
-            <span class="budget-label">Budget:</span>
-            <span class="budget-value">£2,500 (financial irresponsibility)</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- K3s Cluster -->
-      <section class="lab-section">
-        <h2 class="section-title glitch" data-text="K3S CLUSTER">K3S CLUSTER</h2>
-
-        <div class="overview-content" style="margin-bottom: 2rem;">
-          <p class="intro-text">
-            Lightweight Kubernetes for offensive security research. Deployed MCP RAG server, runs autonomous pentesting experiments,
-            occasionally falls over. Turns out orchestrating attacks is easier than orchestrating containers.
-          </p>
-        </div>
-
-        <div class="hardware-grid">
-          <!-- Control Plane -->
-          <div class="hardware-card">
-            <div class="card-header">
-              <h3 class="card-title">PWNIE-DEN (Control Plane)</h3>
-              <span class="card-badge badge-server">CONTROL</span>
-            </div>
-            <div class="card-content">
-              <div class="spec-list">
-                <div class="spec-item">
-                  <span class="spec-label">CPU:</span>
-                  <span class="spec-value">AMD Ryzen 2700X</span>
+                  <span class="spec-value">AMD Ryzen 9 9900X (12C Zen 5)</span>
                 </div>
                 <div class="spec-item">
                   <span class="spec-label">RAM:</span>
-                  <span class="spec-value">16GB</span>
+                  <span class="spec-value">128GB DDR5 5600MHz CL46</span>
                 </div>
                 <div class="spec-item">
-                  <span class="spec-label">OS:</span>
-                  <span class="spec-value">Proxmox VE / Arch Linux</span>
+                  <span class="spec-label">GPU:</span>
+                  <span class="spec-value">AMD 7900 XTX + 7800 XT (dual)</span>
                 </div>
                 <div class="spec-item">
                   <span class="spec-label">Storage:</span>
-                  <span class="spec-value">/mnt/vm-storage/mcp-data/</span>
+                  <span class="spec-value">2TB Gen5 NVMe</span>
                 </div>
                 <div class="spec-item">
-                  <span class="spec-label">IP:</span>
-                  <span class="spec-value">192.168.1.181</span>
+                  <span class="spec-label">OS:</span>
+                  <span class="spec-value">Arch Linux (OmArchy)</span>
                 </div>
               </div>
               <div class="card-role">
-                <p>K3s control plane + main worker. Hosts MCP RAG server (NodePort 30800). Where things get deployed, sometimes successfully.</p>
+                <p>Main workstation. Dual GPU for LLM inference and compute. K3s worker node (tainted). The beast that runs everything fast.</p>
               </div>
             </div>
           </div>
 
-          <!-- Worker 1 -->
+          <!-- SudoSenpai -->
           <div class="hardware-card">
             <div class="card-header">
-              <h3 class="card-title">ASUS-LAPTOP (Worker)</h3>
-              <span class="card-badge badge-target">VULNERABLE</span>
+              <h3 class="card-title">SudoSenpai</h3>
+              <span class="card-badge badge-server">CONTROL PLANE</span>
             </div>
             <div class="card-content">
               <div class="spec-list">
+                <div class="spec-item">
+                  <span class="spec-label">CPU:</span>
+                  <span class="spec-value">AMD Ryzen 9 5900X</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">RAM:</span>
+                  <span class="spec-value">32GB</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">Storage:</span>
+                  <span class="spec-value">~5.5TB (1TB NVMe + 3TB HDD + 1.5TB harvested)</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">OS:</span>
+                  <span class="spec-value">Arch Linux</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">Role:</span>
+                  <span class="spec-value">K3s control plane + storage server</span>
+                </div>
+              </div>
+              <div class="card-role">
+                <p>K3s control plane with massive storage. Hosts all persistent volumes, MCP RAG server (NodePort 30800). Headless with minimal DE for emergency access.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- KawaiiKali -->
+          <div class="hardware-card">
+            <div class="card-header">
+              <h3 class="card-title">KawaiiKali</h3>
+              <span class="card-badge badge-server">WORKER</span>
+            </div>
+            <div class="card-content">
+              <div class="spec-list">
+                <div class="spec-item">
+                  <span class="spec-label">Hardware:</span>
+                  <span class="spec-value">ASUS Zenbook S16</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">CPU:</span>
+                  <span class="spec-value">AMD Ryzen AI 9 HX 370 (12C/24T, up to 5.1 GHz)</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">GPU:</span>
+                  <span class="spec-value">AMD Radeon 890M (integrated)</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">NPU:</span>
+                  <span class="spec-value">XDNA 2 NPU (dedicated AI acceleration)</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">OS:</span>
+                  <span class="spec-value">Arch Linux (OmArchy)</span>
+                </div>
+              </div>
+              <div class="card-role">
+                <p>K3s worker node. Sleek ultrabook with dedicated AI hardware (flex reasons). Runs full Arch with OmArchy configs.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- WolfWhoami -->
+          <div class="hardware-card">
+            <div class="card-header">
+              <h3 class="card-title">WolfWhoami</h3>
+              <span class="card-badge badge-server">WORKER</span>
+            </div>
+            <div class="card-content">
+              <div class="spec-list">
+                <div class="spec-item">
+                  <span class="spec-label">Hardware:</span>
+                  <span class="spec-value">MSI GL72 7QF gaming laptop</span>
+                </div>
                 <div class="spec-item">
                   <span class="spec-label">CPU:</span>
                   <span class="spec-value">i7-7700HQ (8 cores)</span>
@@ -293,24 +189,28 @@
                   <span class="spec-value">Arch Linux</span>
                 </div>
                 <div class="spec-item">
-                  <span class="spec-label">IP:</span>
-                  <span class="spec-value">192.168.1.99</span>
+                  <span class="spec-label">Storage:</span>
+                  <span class="spec-value">128GB SATA M.2</span>
                 </div>
               </div>
               <div class="card-role">
-                <p>Primary vulnerable target machine. Gets compromised autonomously in 87 seconds. That's the entire point.</p>
+                <p>K3s worker node. Solid performer. Handles pod workloads reliably until thermal throttling kicks in.</p>
               </div>
             </div>
           </div>
 
-          <!-- Worker 2 -->
+          <!-- NekoNetcat -->
           <div class="hardware-card">
             <div class="card-header">
-              <h3 class="card-title">MAC-PRO (Worker)</h3>
+              <h3 class="card-title">NekoNetcat</h3>
               <span class="card-badge badge-server">WORKER</span>
             </div>
             <div class="card-content">
               <div class="spec-list">
+                <div class="spec-item">
+                  <span class="spec-label">Hardware:</span>
+                  <span class="spec-value">MacBook Pro 9,2</span>
+                </div>
                 <div class="spec-item">
                   <span class="spec-label">CPU:</span>
                   <span class="spec-value">i5-3210M (4 cores)</span>
@@ -324,8 +224,8 @@
                   <span class="spec-value">Arch Linux</span>
                 </div>
                 <div class="spec-item">
-                  <span class="spec-label">IP:</span>
-                  <span class="spec-value">192.168.1.105</span>
+                  <span class="spec-label">Storage:</span>
+                  <span class="spec-value">64GB Flash drive</span>
                 </div>
               </div>
               <div class="card-role">
@@ -334,36 +234,184 @@
             </div>
           </div>
 
-          <!-- Worker 3 -->
+          <!-- VeryVuln -->
           <div class="hardware-card">
             <div class="card-header">
-              <h3 class="card-title">CELERON-POTATO (Worker)</h3>
-              <span class="card-badge badge-fleet">TAINTED</span>
+              <h3 class="card-title">VeryVuln</h3>
+              <span class="card-badge badge-target">VULNERABLE</span>
             </div>
             <div class="card-content">
               <div class="spec-list">
+                <div class="spec-item">
+                  <span class="spec-label">Hardware:</span>
+                  <span class="spec-value">ASUS X553MA laptop</span>
+                </div>
                 <div class="spec-item">
                   <span class="spec-label">CPU:</span>
                   <span class="spec-value">Celeron N2830</span>
                 </div>
                 <div class="spec-item">
+                  <span class="spec-label">RAM:</span>
+                  <span class="spec-value">Limited</span>
+                </div>
+                <div class="spec-item">
                   <span class="spec-label">OS:</span>
-                  <span class="spec-value">Minimal Arch Linux kernel</span>
+                  <span class="spec-value">Minimal Arch Linux</span>
                 </div>
                 <div class="spec-item">
-                  <span class="spec-label">Taint:</span>
-                  <span class="spec-value">kernel=minimal:NoSchedule</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">IP:</span>
-                  <span class="spec-value">192.168.1.148</span>
+                  <span class="spec-label">Storage:</span>
+                  <span class="spec-value">64GB Flash drive</span>
                 </div>
               </div>
               <div class="card-role">
-                <p>Tainted worker node. Required fuse-overlayfs just to run K3s agent. Name is accurate.</p>
+                <p>Intentionally vulnerable K3s worker. Gets compromised autonomously. That's the point. Required fuse-overlayfs just to run K3s agent.</p>
               </div>
             </div>
           </div>
+
+          <!-- BittyBash -->
+          <div class="hardware-card">
+            <div class="card-header">
+              <h3 class="card-title">BittyBash</h3>
+              <span class="card-badge badge-server">WORKER</span>
+            </div>
+            <div class="card-content">
+              <div class="spec-list">
+                <div class="spec-item">
+                  <span class="spec-label">Hardware:</span>
+                  <span class="spec-value">Huawei Matebook Pro 2019</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">CPU:</span>
+                  <span class="spec-value">Intel i5-8250U</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">RAM:</span>
+                  <span class="spec-value">8GB</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">Storage:</span>
+                  <span class="spec-value">256GB</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">OS:</span>
+                  <span class="spec-value">Arch Linux</span>
+                </div>
+              </div>
+              <div class="card-role">
+                <p>K3s worker node. Another laptop scavenged for the cluster. Expands distributed compute capacity.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Network Infrastructure -->
+      <section class="lab-section">
+        <h2 class="section-title glitch" data-text="NETWORK">NETWORK</h2>
+
+        <div class="hardware-grid">
+          <!-- GLinet Flint 2 -->
+          <div class="hardware-card">
+            <div class="card-header">
+              <h3 class="card-title">GLinet Flint 2</h3>
+              <span class="card-badge badge-server">PRIMARY ROUTER</span>
+            </div>
+            <div class="card-content">
+              <div class="spec-list">
+                <div class="spec-item">
+                  <span class="spec-label">OS:</span>
+                  <span class="spec-value">OpenWrt</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">Features:</span>
+                  <span class="spec-value">VLAN support, WireGuard, custom routing</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">Role:</span>
+                  <span class="spec-value">Main network gateway</span>
+                </div>
+              </div>
+              <div class="card-role">
+                <p>Primary router running OpenWrt. Proper network segmentation, VPN routing, configurable everything. Because consumer firmware is garbage.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- GLinet Beryl AX -->
+          <div class="hardware-card">
+            <div class="card-header">
+              <h3 class="card-title">GLinet Beryl AX</h3>
+              <span class="card-badge badge-fleet">TRAVEL ROUTER</span>
+            </div>
+            <div class="card-content">
+              <div class="spec-list">
+                <div class="spec-item">
+                  <span class="spec-label">OS:</span>
+                  <span class="spec-value">OpenWrt</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">Features:</span>
+                  <span class="spec-value">Portable, WireGuard client, WiFi repeater</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">Role:</span>
+                  <span class="spec-value">Mobile VPN gateway</span>
+                </div>
+              </div>
+              <div class="card-role">
+                <p>Travel router. Creates trusted network wherever. Hotel WiFi → VPN tunnel → home network. Portable privacy.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Mobile & Privacy -->
+      <section class="lab-section" id="privacy">
+        <h2 class="section-title glitch" data-text="MOBILE & PRIVACY">MOBILE & PRIVACY</h2>
+
+        <div class="hardware-grid">
+          <!-- Pixel 9a -->
+          <div class="hardware-card">
+            <div class="card-header">
+              <h3 class="card-title">Pixel 9a</h3>
+              <span class="card-badge badge-attack">GRAPHENE OS</span>
+            </div>
+            <div class="card-content">
+              <div class="spec-list">
+                <div class="spec-item">
+                  <span class="spec-label">OS:</span>
+                  <span class="spec-value">GrapheneOS</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">Security:</span>
+                  <span class="spec-value">Hardened kernel, sandboxed Play Services</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">Apps:</span>
+                  <span class="spec-value">F-Droid (FOSS), Aurora Store (anonymous Play)</span>
+                </div>
+              </div>
+              <div class="card-role">
+                <p>De-Googled Android with hardened malloc, MAC randomization, sandboxed Google Play if needed. Daily driver for privacy-conscious mobile computing.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- K3s Cluster -->
+      <section class="lab-section">
+        <h2 class="section-title glitch" data-text="K3S CLUSTER">K3S CLUSTER</h2>
+
+        <div class="overview-content" style="margin-bottom: 2rem;">
+          <p class="intro-text">
+            Lightweight Kubernetes cluster for distributed systems research. MCP RAG server deployment,
+            autonomous agent orchestration, learning how distributed systems fail in practice. Turns out
+            managing containers is harder than managing code.
+          </p>
         </div>
 
         <div class="upgrades-box">
@@ -379,21 +427,21 @@
             </div>
             <div class="upgrade-item">
               <span class="upgrade-bullet">►</span>
-              <span class="upgrade-text">Vulnerable target environments (SSH with weak creds, Apache misconfigs)</span>
+              <span class="upgrade-text">LanceDB vector database (CPU-based semantic search)</span>
             </div>
             <div class="upgrade-item">
               <span class="upgrade-bullet">►</span>
-              <span class="upgrade-text">LanceDB vector database (CPU-based, slower than I'd like)</span>
+              <span class="upgrade-text">Vulnerable target environments for research</span>
             </div>
           </div>
         </div>
 
         <div class="upgrades-box" style="margin-top: 2rem;">
-          <h3 class="subsection-title">TECHNICAL ACHIEVEMENTS (read: things that eventually worked)</h3>
+          <h3 class="subsection-title">TECHNICAL ACHIEVEMENTS</h3>
           <div class="upgrade-list">
             <div class="upgrade-item">
               <span class="upgrade-bullet">►</span>
-              <span class="upgrade-text">Overcame socketpair() syscall restrictions in K8s seccomp profiles (Flask > FastAPI for containers)</span>
+              <span class="upgrade-text">Overcame socketpair() syscall restrictions (Flask > FastAPI for K8s containers)</span>
             </div>
             <div class="upgrade-item">
               <span class="upgrade-bullet">►</span>
@@ -401,437 +449,15 @@
             </div>
             <div class="upgrade-item">
               <span class="upgrade-bullet">►</span>
-              <span class="upgrade-text">Declarative safety via NetworkPolicy instead of application-layer controls</span>
+              <span class="upgrade-text">Declarative safety via NetworkPolicy (infrastructure-level controls)</span>
             </div>
             <div class="upgrade-item">
               <span class="upgrade-bullet">►</span>
               <span class="upgrade-text">Sub-second semantic search (200-500ms) across exploit documentation</span>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Tools & Arsenal -->
-      <section class="lab-section">
-        <h2 class="section-title glitch" data-text="TOOLS & ARSENAL">TOOLS & ARSENAL</h2>
-
-        <div class="tools-categories">
-          <!-- Reconnaissance -->
-          <div class="tool-category">
-            <h3 class="category-title">RECONNAISSANCE</h3>
-            <div class="tool-list">
-              <div class="tool-item">
-                <span class="tool-name">nmap</span>
-                <span class="tool-desc">Network discovery and security auditing</span>
-              </div>
-              <div class="tool-item">
-                <span class="tool-name">masscan</span>
-                <span class="tool-desc">Ultra-fast port scanner (1M+ packets/sec)</span>
-              </div>
-              <div class="tool-item">
-                <span class="tool-name">bettercap</span>
-                <span class="tool-desc">Network attacks and monitoring framework</span>
-              </div>
-              <div class="tool-item">
-                <span class="tool-name">holehe</span>
-                <span class="tool-desc">Email to account discovery</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Exploitation -->
-          <div class="tool-category">
-            <h3 class="category-title">EXPLOITATION</h3>
-            <div class="tool-list">
-              <div class="tool-item">
-                <span class="tool-name">metasploit</span>
-                <span class="tool-desc">Penetration testing framework</span>
-              </div>
-              <div class="tool-item">
-                <span class="tool-name">SET</span>
-                <span class="tool-desc">Social Engineering Toolkit</span>
-              </div>
-              <div class="tool-item">
-                <span class="tool-name">hydra</span>
-                <span class="tool-desc">Network logon cracker</span>
-              </div>
-              <div class="tool-item">
-                <span class="tool-name">simple-ducky</span>
-                <span class="tool-desc">USB Rubber Ducky payload generator</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Network Attacks -->
-          <div class="tool-category">
-            <h3 class="category-title">NETWORK ATTACKS</h3>
-            <div class="tool-list">
-              <div class="tool-item">
-                <span class="tool-name">responder</span>
-                <span class="tool-desc">LLMNR/NBT-NS/mDNS poisoner</span>
-              </div>
-              <div class="tool-item">
-                <span class="tool-name">wifiphisher</span>
-                <span class="tool-desc">Rogue AP with phishing portal</span>
-              </div>
-              <div class="tool-item">
-                <span class="tool-name">mana</span>
-                <span class="tool-desc">Evil AP attacks (Defcon 22)</span>
-              </div>
-              <div class="tool-item">
-                <span class="tool-name">admid-pack</span>
-                <span class="tool-desc">Advanced DNS spoofing toolkit</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Post-Exploitation -->
-          <div class="tool-category">
-            <h3 class="category-title">POST-EXPLOITATION</h3>
-            <div class="tool-list">
-              <div class="tool-item">
-                <span class="tool-name">villain</span>
-                <span class="tool-desc">C2 framework with HoaxShell integration</span>
-              </div>
-              <div class="tool-item">
-                <span class="tool-name">arcane</span>
-                <span class="tool-desc">Encrypted macOS payloads (AV evasion)</span>
-              </div>
-              <div class="tool-item">
-                <span class="tool-name">backdoor-factory</span>
-                <span class="tool-desc">Inject backdoors into legitimate executables</span>
-              </div>
-              <div class="tool-item">
-                <span class="tool-name">avet</span>
-                <span class="tool-desc">AntiVirus Evasion Tool</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- OSINT & Analysis -->
-          <div class="tool-category">
-            <h3 class="category-title">OSINT & ANALYSIS</h3>
-            <div class="tool-list">
-              <div class="tool-item">
-                <span class="tool-name">secretfinder</span>
-                <span class="tool-desc">JavaScript secret/API key extraction</span>
-              </div>
-              <div class="tool-item">
-                <span class="tool-name">cloudmare</span>
-                <span class="tool-desc">CloudFlare bypass via DNS misconfiguration</span>
-              </div>
-              <div class="tool-item">
-                <span class="tool-name">cupp</span>
-                <span class="tool-desc">Common User Passwords Profiler</span>
-              </div>
-              <div class="tool-item">
-                <span class="tool-name">chipsec</span>
-                <span class="tool-desc">Hardware/firmware security analysis</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Hardware Hacking -->
-          <div class="tool-category">
-            <h3 class="category-title">HARDWARE HACKING</h3>
-            <div class="tool-list">
-              <div class="tool-item">
-                <span class="tool-name">chameleonmini</span>
-                <span class="tool-desc">NFC/RFID emulation and cloning</span>
-              </div>
-              <div class="tool-item">
-                <span class="tool-name">simple-ducky</span>
-                <span class="tool-desc">Keystroke injection payload creation</span>
-              </div>
-              <div class="tool-item">
-                <span class="tool-name">software-defined radio</span>
-                <span class="tool-desc">Radio frequency analysis and attacks</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="arsenal-stats">
-          <div class="stat-card">
-            <span class="stat-number">5564</span>
-            <span class="stat-label">BlackArch Tools</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-number">940</span>
-            <span class="stat-label">Indexed Docs</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-number">~50</span>
-            <span class="stat-label">Active Tools</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- Experiments & Research -->
-      <section class="lab-section">
-        <h2 class="section-title glitch" data-text="EXPERIMENTS">EXPERIMENTS</h2>
-
-        <div class="experiments-list">
-          <!-- Current Experiments -->
-          <div class="experiment-card">
-            <div class="experiment-header">
-              <h3 class="experiment-title">MCP Semantic Search for Pentesting</h3>
-              <span class="status-badge status-active">ACTIVE</span>
-            </div>
-            <div class="experiment-content">
-              <p class="experiment-desc">
-                Testing hypothesis: Does LLM + semantic search over exploit docs make pentesting faster, or just make me feel clever?
-                Measuring time-to-exploit, tool selection accuracy, whether this is actually useful or just overcomplicated grep.
-              </p>
-              <div class="experiment-meta">
-                <span class="meta-tag">Status: Indexing overnight (again)</span>
-                <span class="meta-tag">Duration: ~15 hours (watching progress bars)</span>
-                <span class="meta-tag">Next: A/B test vs just reading the docs</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="experiment-card">
-            <div class="experiment-header">
-              <h3 class="experiment-title">VPN Metadata Leakage Analysis</h3>
-              <span class="status-badge status-complete">COMPLETE</span>
-            </div>
-            <div class="experiment-content">
-              <p class="experiment-desc">
-                Discovered VPN doesn't actually encrypt everything. Local network protocols (mDNS, Bonjour) bypass tunnel via split tunneling.
-                Ran bettercap, saw Spotify/AirPlay traffic from phone despite "secure" WireGuard connection. Oops.
-              </p>
-              <div class="experiment-findings">
-                <span class="finding-bullet">►</span>
-                <span>Internet traffic encrypted. Local discovery protocols? Not so much.</span>
-              </div>
-              <div class="experiment-findings">
-                <span class="finding-bullet">►</span>
-                <span>Device fingerprinting via local metadata. Privacy theater at its finest.</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="experiment-card">
-            <div class="experiment-header">
-              <h3 class="experiment-title">Social Engineering Toolkit Proxy Behavior</h3>
-              <span class="status-badge status-complete">COMPLETE</span>
-            </div>
-            <div class="experiment-content">
-              <p class="experiment-desc">
-                SET doesn't clone websites. It proxies them. "Forgot password" links work, cookies captured, full session maintained.
-                Way more sophisticated than I expected. Also broke on Python 3.13 because cgi.escape was removed. Classic.
-              </p>
-              <div class="experiment-findings">
-                <span class="finding-bullet">►</span>
-                <span>Real-time session hijacking, not static phishing</span>
-              </div>
-              <div class="experiment-findings">
-                <span class="finding-bullet">►</span>
-                <span>Python 3.13 broke it immediately (deprecated imports)</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="experiment-card">
-            <div class="experiment-header">
-              <h3 class="experiment-title">Password Generation Pattern Analysis</h3>
-              <span class="status-badge status-complete">COMPLETE</span>
-            </div>
-            <div class="experiment-content">
-              <p class="experiment-desc">
-                Accidentally created password (m4cus3r) that broke CUPP. Generated 1451 variations, missed the obvious one.
-                Got M4cUser and M4cU53r (capitalized) but not lowercase + selective l33tspeak. Template-based generators have gaps.
-              </p>
-              <div class="experiment-findings">
-                <span class="finding-bullet">►</span>
-                <span>CUPP doesn't apply l33tspeak consistently across case variations</span>
-              </div>
-              <div class="experiment-findings">
-                <span class="finding-bullet">►</span>
-                <span>Lesson: random inconsistency defeats pattern-based cracking</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Learning Journey -->
-      <section class="lab-section">
-        <h2 class="section-title glitch" data-text="LEARNING JOURNEY">LEARNING JOURNEY</h2>
-
-        <div class="journey-timeline">
-          <div class="timeline-item">
-            <span class="timeline-marker">►</span>
-            <div class="timeline-content">
-              <h4 class="timeline-title">Started with Kali on WSL2</h4>
-              <p class="timeline-desc">Windows dual boot. Compatibility issues immediately.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <span class="timeline-marker">►</span>
-            <div class="timeline-content">
-              <h4 class="timeline-title">Moved to dual-boot Kali</h4>
-              <p class="timeline-desc">Battery management broken. Brightness control via trackpad? Nope.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <span class="timeline-marker">►</span>
-            <div class="timeline-content">
-              <h4 class="timeline-title">Fixed old laptops, found APT malware</h4>
-              <p class="timeline-desc">Attempted forensic imaging. Failed. Wiped, installed Arch.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <span class="timeline-marker">►</span>
-            <div class="timeline-content">
-              <h4 class="timeline-title">Fell in love with Arch</h4>
-              <p class="timeline-desc">Migrated everything. Discovered BlackArch. No going back.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item timeline-current">
-            <span class="timeline-marker">►</span>
-            <div class="timeline-content">
-              <h4 class="timeline-title">BlackArch everywhere</h4>
-              <p class="timeline-desc">Main rig, servers, targets, laptops. If it runs Linux, it runs BlackArch.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Privacy & OpSec -->
-      <section class="lab-section">
-        <h2 class="section-title glitch" data-text="PRIVACY & OPSEC">PRIVACY & OPSEC</h2>
-
-        <div class="overview-content" style="margin-bottom: 2rem;">
-          <p class="intro-text">
-            Comprehensive privacy setup because researching offensive security while leaking metadata is embarrassing.
-            Open-source tools, reproducible configuration, trade-offs documented. Not paranoia if they're actually watching.
-          </p>
-        </div>
-
-        <div class="experiments-list">
-          <!-- Network Security -->
-          <div class="experiment-card">
-            <div class="experiment-header">
-              <h3 class="experiment-title">Network Security</h3>
-              <span class="status-badge status-active">DEPLOYED</span>
-            </div>
-            <div class="experiment-content">
-              <div class="upgrade-list">
-                <div class="upgrade-item">
-                  <span class="upgrade-bullet">►</span>
-                  <span class="upgrade-text">Mullvad VPN with WireGuard protocol (no logs, accepts crypto, Swedish jurisdiction)</span>
-                </div>
-                <div class="upgrade-item">
-                  <span class="upgrade-bullet">►</span>
-                  <span class="upgrade-text">MAC randomization on all network interfaces (NetworkManager config)</span>
-                </div>
-                <div class="upgrade-item">
-                  <span class="upgrade-bullet">►</span>
-                  <span class="upgrade-text">UFW firewall with strict deny-by-default rules</span>
-                </div>
-                <div class="upgrade-item">
-                  <span class="upgrade-bullet">►</span>
-                  <span class="upgrade-text">VLAN isolation planned (waiting on router upgrade)</span>
-                </div>
-              </div>
-              <div class="experiment-meta" style="margin-top: 1rem;">
-                <span class="meta-tag">Cost: ~£5/month</span>
-                <span class="meta-tag">Trade-off: Speed vs privacy (worth it)</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Email Privacy -->
-          <div class="experiment-card">
-            <div class="experiment-header">
-              <h3 class="experiment-title">Email Privacy</h3>
-              <span class="status-badge status-active">DEPLOYED</span>
-            </div>
-            <div class="experiment-content">
-              <div class="upgrade-list">
-                <div class="upgrade-item">
-                  <span class="upgrade-bullet">►</span>
-                  <span class="upgrade-text">Cloudflare catch-all email routing (infinite aliases, single inbox)</span>
-                </div>
-                <div class="upgrade-item">
-                  <span class="upgrade-bullet">►</span>
-                  <span class="upgrade-text">Site-specific aliases (amazon@, github@, linkedin@) for tracking leaks</span>
-                </div>
-                <div class="upgrade-item">
-                  <span class="upgrade-bullet">►</span>
-                  <span class="upgrade-text">Custom domain (farzulla.org) for professional communication</span>
-                </div>
-              </div>
-              <div class="experiment-meta" style="margin-top: 1rem;">
-                <span class="meta-tag">Cost: Free (Cloudflare)</span>
-                <span class="meta-tag">Benefit: Instant breach detection</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Mobile Security -->
-          <div class="experiment-card">
-            <div class="experiment-header">
-              <h3 class="experiment-title">Mobile Security (GrapheneOS)</h3>
-              <span class="status-badge status-pending">PLANNED</span>
-            </div>
-            <div class="experiment-content">
-              <p class="experiment-desc">
-                GrapheneOS installation on Pixel 9a. De-Googled Android with hardened kernel, sandboxed Google Play if needed.
-                Waiting on phone delivery. Will document installation process, app compatibility issues, whether this is actually usable daily.
-              </p>
-              <div class="upgrade-list">
-                <div class="upgrade-item">
-                  <span class="upgrade-bullet">►</span>
-                  <span class="upgrade-text">Hardware: Pixel 9a (official GrapheneOS support)</span>
-                </div>
-                <div class="upgrade-item">
-                  <span class="upgrade-bullet">►</span>
-                  <span class="upgrade-text">Features: Hardened malloc, MAC randomization, sandboxed Play Services</span>
-                </div>
-                <div class="upgrade-item">
-                  <span class="upgrade-bullet">►</span>
-                  <span class="upgrade-text">Apps: F-Droid for FOSS, Aurora Store for Play apps anonymously</span>
-                </div>
-              </div>
-              <div class="experiment-meta" style="margin-top: 1rem;">
-                <span class="meta-tag">Cost: £499 (Pixel) + time (priceless frustration)</span>
-                <span class="meta-tag">Status: Arriving soon</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- OPSEC Practices -->
-          <div class="experiment-card">
-            <div class="experiment-header">
-              <h3 class="experiment-title">Operational Security</h3>
-              <span class="status-badge status-active">ONGOING</span>
-            </div>
-            <div class="experiment-content">
-              <div class="upgrade-list">
-                <div class="upgrade-item">
-                  <span class="upgrade-bullet">►</span>
-                  <span class="upgrade-text">Air-gapped machines for sensitive research (old laptops, no network)</span>
-                </div>
-                <div class="upgrade-item">
-                  <span class="upgrade-bullet">►</span>
-                  <span class="upgrade-text">Separate identity for offensive security (studiofarzulla vs personal)</span>
-                </div>
-                <div class="upgrade-item">
-                  <span class="upgrade-bullet">►</span>
-                  <span class="upgrade-text">Never test on production systems (illegal and stupid)</span>
-                </div>
-                <div class="upgrade-item">
-                  <span class="upgrade-bullet">►</span>
-                  <span class="upgrade-text">Documentation sanitized (no real IPs, network topology redacted)</span>
-                </div>
-              </div>
+            <div class="upgrade-item">
+              <span class="upgrade-bullet">►</span>
+              <span class="upgrade-text">Created pwnie-storage StorageClass (prevents flash drive death from default provisioner)</span>
             </div>
           </div>
         </div>
@@ -841,53 +467,55 @@
           <div class="upgrade-list">
             <div class="upgrade-item">
               <span class="upgrade-bullet">►</span>
-              <span class="upgrade-text">VPNs don't encrypt local network protocols (mDNS, Bonjour leak everything)</span>
+              <span class="upgrade-text">K8s seccomp profiles block more syscalls than expected (async frameworks struggle)</span>
             </div>
             <div class="upgrade-item">
               <span class="upgrade-bullet">►</span>
-              <span class="upgrade-text">Split tunneling is default on most VPNs (internet encrypted, LAN exposed)</span>
+              <span class="upgrade-text">Storage policy matters (default provisioner killed flash drives before dedicated StorageClass)</span>
             </div>
             <div class="upgrade-item">
               <span class="upgrade-bullet">►</span>
-              <span class="upgrade-text">Device fingerprinting works even through VPN (MAC addresses, local metadata)</span>
+              <span class="upgrade-text">Node naming convention prevents catastrophic mistakes (KittyKernel != PandaPayload)</span>
             </div>
             <div class="upgrade-item">
               <span class="upgrade-bullet">►</span>
-              <span class="upgrade-text">Perfect privacy doesn't exist, only layers of inconvenience for adversaries</span>
+              <span class="upgrade-text">Frankencluster teaches resource heterogeneity better than cloud abstractions</span>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Ethics & Disclaimer -->
+      <!-- Research Philosophy -->
       <section class="lab-section">
         <div class="ethics-box">
-          <h2 class="section-title glitch" data-text="ETHICS & DISCLAIMER">ETHICS & DISCLAIMER</h2>
+          <h2 class="section-title glitch" data-text="RESEARCH PHILOSOPHY">RESEARCH PHILOSOPHY</h2>
           <div class="disclaimer-content">
             <p class="disclaimer-text">
-              All pentesting, exploitation, and security experiments happen exclusively on my own isolated home lab.
-              No unauthorized access to external systems. Attacking things you don't own is illegal and I'm not interested in jail.
+              This lab exists to understand how distributed systems, security mechanisms, and privacy tools work in practice.
+              All experiments run on isolated infrastructure I own. Breaking your own things to learn how they work is education.
+              Breaking other people's things is crime.
             </p>
             <p class="disclaimer-text">
-              This exists for learning: understanding vulnerabilities, testing exploits, building defensive knowledge.
-              Ethical hacking principles, responsible disclosure, the usual disclaimers that lawyers insist on.
+              Focus: adversarial systems research, distributed computing patterns, privacy-preserving technology.
+              Documenting failures because that's where the learning happens. Building proof-of-concepts for novel
+              applications nobody asked for but might be useful.
             </p>
             <div class="ethics-principles">
               <div class="principle-item">
                 <span class="principle-bullet">►</span>
-                <span>Never attack systems without explicit authorization</span>
+                <span>All targets are owned hardware within isolated network</span>
               </div>
               <div class="principle-item">
                 <span class="principle-bullet">►</span>
-                <span>All targets are owned and isolated within private network</span>
+                <span>Open-source tools preferred for reproducibility</span>
               </div>
               <div class="principle-item">
                 <span class="principle-bullet">►</span>
-                <span>Knowledge shared for defensive improvement, not malicious use</span>
+                <span>Documentation published for educational benefit</span>
               </div>
               <div class="principle-item">
                 <span class="principle-bullet">►</span>
-                <span>Responsible disclosure of any discovered vulnerabilities</span>
+                <span>Research conducted for defense improvement, not attack development</span>
               </div>
             </div>
           </div>
@@ -897,8 +525,7 @@
 
     <footer class="footer-surveillance">
       <div class="footer-content">
-        <p class="footer-text">© 2025 STUDIO FARZULLA | ALL RIGHTS RESERVED</p>
-        <p class="footer-subtext">ETHICAL HACKING • RESPONSIBLE DISCLOSURE • EDUCATION</p>
+        <p class="footer-text">© 2025 STUDIO FARZULLA | ALL RIGHTS RESERVED | <a href="charter.html" style="color: var(--blood-red); text-decoration: none;">CHARTER</a></p>
       </div>
     </footer>
 

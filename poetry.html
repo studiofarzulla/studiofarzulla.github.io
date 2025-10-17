@@ -8,11 +8,54 @@
     <title>POETRY | STUDIO FARZULLA</title>
     <link rel="stylesheet" href="css/dystopia.css">
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Bebas+Neue&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <style>
+        .poem-card {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .poem-card:hover {
+            border-color: var(--blood-red);
+            transform: translateY(-2px);
+        }
+        .poem-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            margin-top: 0;
+        }
+        .poem-content.expanded {
+            max-height: 5000px;
+            margin-top: 1.5rem;
+        }
+        .poem-text {
+            white-space: pre-line;
+            font-family: 'Courier Prime', monospace;
+            line-height: 1.8;
+            color: var(--pure-white);
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-left: 3px solid var(--blood-red);
+        }
+        .expand-indicator {
+            color: var(--blood-red);
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+        .content-warning {
+            background: var(--blood-red);
+            color: var(--void-black);
+            padding: 1.5rem;
+            margin-bottom: 3rem;
+            border: 3px solid var(--blood-red);
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <!-- Static Overlay -->
     <div class="static-overlay"></div>
-    
+
     <!-- Navigation -->
     <nav class="surveillance-nav">
         <a href="index.html" class="brand-mark glitch" data-text="FARZULLA">FARZULLA</a>
@@ -37,187 +80,1534 @@
     <main>
         <section class="section-brutal red-zone">
             <div class="container-cage">
-                <div style="display: grid; gap: 3rem;">
-                    <!-- Featured Collections -->
-                    <div class="poetry-container">
-                        <h3 class="poetry-title">DIGITAL ECHOES COLLECTION</h3>
-                        <p style="color: var(--blood-red); margin-bottom: 1rem;">Explorations at the intersection of technology and human consciousness</p>
-                    </div>
-
-                    <!-- Philosophical Series -->
-                    <div class="poetry-container">
-                        <h3 class="poetry-title">METAPHYSICAL INVESTIGATIONS</h3>
-                        <p style="color: var(--blood-red); margin-bottom: 1rem;">Six movements exploring existence, identity, and modern alienation</p>
-                    </div>
-
-                    <!-- Individual Poems Grid -->
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                        <div class="essay-card" style="cursor: pointer;">
-                            <h3>A BENEDICTION OF HER UNDOING</h3>
-                        </div>
-                        <div class="essay-card" style="cursor: pointer;">
-                            <h3>THE CRUCIFIXION OF REASON</h3>
-                        </div>
-                        <div class="essay-card" style="cursor: pointer;">
-                            <h3>CATHEDRAL OF THE UNMADE</h3>
-                        </div>
-                        <div class="essay-card" style="cursor: pointer;">
-                            <h3>COMMUNION OF THE UNHOLY</h3>
-                        </div>
-                        <div class="essay-card" style="cursor: pointer;">
-                            <h3>GOSPEL OF THE HALF-HUNG</h3>
-                        </div>
-                        <div class="essay-card" style="cursor: pointer;">
-                            <h3>LITANY FOR THE FALLEN SON</h3>
-                        </div>
-                        <div class="essay-card" style="cursor: pointer;">
-                            <h3>MASS FOR THE MALADJUSTED</h3>
-                        </div>
-                        <div class="essay-card" style="cursor: pointer;">
-                            <h3>PSALM OF THE UNOWNED</h3>
-                        </div>
-                        <div class="essay-card" style="cursor: pointer;">
-                            <h3>TESTAMENT OF THE UNCHOSEN</h3>
-                        </div>
-                        <div class="essay-card" style="cursor: pointer;">
-                            <h3>THE VELVET SLAUGHTER OF WANT</h3>
-                        </div>
-                        <div class="essay-card" style="cursor: pointer;">
-                            <h3>ELEGY FOR A MISMATCHED ORBIT</h3>
-                        </div>
-                        <div class="essay-card" style="cursor: pointer;">
-                            <h3>ODE TO THE BEAUTIFUL APOCALYPSE</h3>
-                        </div>
-                        <div class="essay-card" style="cursor: pointer;">
-                            <h3>BALLAD FOR THE ALCHEMIST AND THE ABYSS</h3>
-                        </div>
-                        <div class="essay-card" style="cursor: pointer;">
-                            <h3>CONFESSION OF THE VELVET BEAST</h3>
-                        </div>
-                        <div class="essay-card" style="cursor: pointer;">
-                            <h3>GUTTER GOSPEL</h3>
-                        </div>
-                        <div class="essay-card" style="cursor: pointer;">
-                            <h3>SPIRAL GOSPEL</h3>
-                        </div>
-                        <div class="essay-card" style="cursor: pointer;">
-                            <h3>THE GOSPEL ACCORDING TO MADNESS</h3>
-                        </div>
-                        <div class="essay-card" style="cursor: pointer;">
-                            <h3>AN AUTOBIOGRAPHY IN SPIRALS</h3>
-                        </div>
-                        <div class="essay-card" style="cursor: pointer;">
-                            <h3>PORTRAITS IN DUST AND WANT</h3>
-                        </div>
-                        <div class="essay-card" style="cursor: pointer;">
-                            <h3>THIS IS NOT THE ELEGY I WANTED</h3>
-                        </div>
-                        <div class="essay-card" style="cursor: pointer;">
-                            <h3>TO THE ANGEL WHO FELL FACE FIRST INTO A MIRROR</h3>
-                        </div>
-                        <div class="essay-card" style="cursor: pointer;">
-                            <h3>WHAT THE SILENCE SERVES</h3>
-                        </div>
-                        <div class="essay-card" style="cursor: pointer;">
-                            <h3>THE ILL HOUR</h3>
-                        </div>
-                        <div class="essay-card" style="cursor: pointer;">
-                            <h3>THE VISITOR</h3>
-                        </div>
-                        <div class="essay-card" style="cursor: pointer;">
-                            <h3>NIGHT OF CAIN</h3>
-                        </div>
-                        <div class="essay-card" style="cursor: pointer;">
-                            <h3>CAIN'S TOAST</h3>
-                        </div>
-                        <div class="essay-card" style="cursor: pointer;">
-                            <h3>ALTAR EYES</h3>
-                        </div>
-                        <div class="essay-card" style="cursor: pointer;">
-                            <h3>THE FAMILY HOME</h3>
-                        </div>
-                        <div class="essay-card" style="cursor: pointer;">
-                            <h3>THE BED BENEATH THE BED</h3>
-                        </div>
-                        <div class="essay-card" style="cursor: pointer;">
-                            <h3>A GENTLE DEATH FOR A FILTHY THING</h3>
-                        </div>
-                        <div class="essay-card" style="cursor: pointer;">
-                            <h3>AFTERNOON TEA WITH THE END</h3>
-                        </div>
-                        <div class="essay-card" style="cursor: pointer;">
-                            <h3>FINALE IN SILENCE</h3>
-                        </div>
-                    </div>
-
-                    <!-- Contemporary Collection -->
-                    <div class="poetry-container" style="border-color: var(--warning-red);">
-                        <h3 class="poetry-title">URBAN LANDSCAPES</h3>
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 2rem;">
-                            <div class="essay-card">
-                                <h3>CITY LIGHTS AT 3AM</h3>
-                            </div>
-                            <div class="essay-card">
-                                <h3>CONCRETE DREAMS</h3>
-                            </div>
-                            <div class="essay-card">
-                                <h3>DIGITAL ISOLATION</h3>
-                            </div>
-                            <div class="essay-card">
-                                <h3>MODERN MYTHOLOGY</h3>
-                            </div>
-                            <div class="essay-card">
-                                <h3>ALGORITHMIC LOVE</h3>
-                            </div>
-                            <div class="essay-card">
-                                <h3>SILICON VALLEY BLUES</h3>
-                            </div>
-                            <div class="essay-card">
-                                <h3>NETWORK THEORY</h3>
-                            </div>
-                            <div class="essay-card">
-                                <h3>QUANTUM UNCERTAINTY</h3>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Featured Poem -->
-                    <div class="poetry-container" style="background: var(--void-black); border: 3px solid var(--blood-red);">
-                        <h3 class="poetry-title">DIGITAL RENAISSANCE</h3>
-                        <div class="poetry-text" style="color: var(--blood-red);">
-In circuits deep where data flows like dreams,
-Where consciousness and code converge in streams,
-I found my voice in binary sublime,
-Where art and algorithm perfectly align.
-                        </div>
-                    </div>
+                <!-- Content Warning -->
+                <div class="content-warning">
+                    ⚠️ CONTENT WARNING: The following collection explores disturbing themes including violence, death, substance use, and existential crisis. Some readers may find this content offensive or distressing.
                 </div>
-            </div>
-        </section>
 
-        <!-- Gallery Section -->
-        <section class="section-brutal">
-            <div class="container-cage">
-                <h2 class="section-title-brutal">VISUAL VOID</h2>
-                <div class="propaganda-gallery">
-                    <div class="propaganda-frame">
-                        <img src="Images/IMG_1497.JPG" alt="Poetry Visual I" loading="lazy">
-                        <div class="propaganda-overlay">
-                            <p class="propaganda-text">WORDS BLEED</p>
+                <div style="display: grid; gap: 3rem;">
+                    <!-- Confessional Verse Section -->
+                    <div class="poetry-container">
+                        <h3 class="poetry-title">CONFESSIONAL VERSE</h3>
+                        <p style="color: var(--blood-red); margin-bottom: 2rem;">Raw explorations of identity, collapse, and reconstruction</p>
+
+                        <div style="display: grid; gap: 1.5rem;">
+                            <!-- Spiral Gospel -->
+                            <div class="essay-card poem-card" onclick="togglePoem(this)">
+                                <h3>SPIRAL GOSPEL</h3>
+                                <p class="expand-indicator">▼ Click to expand</p>
+                                <div class="poem-content">
+                                    <div class="poem-text">I lose myself best when the night feels like glass,
+When money burns fast and the saints let me pass.
+I drink like redemption's been bottled and sold,
+And whisper my truths into hands that feel cold.
+
+They know me in clubs by my smile and my sway,
+I enter like thunder—then vanish by day.
+I spend like a prince, I speak like a god,
+Then wake up with wounds I don't even applaud.
+
+There's blood on the floor, but it's never mine,
+There's laughter and stabbings and suits soaked in wine.
+My name's in their mouth but it's not really me—
+Just the myth I perform to be briefly set free.
+
+A face in a bathroom, a line on the glass,
+A promise, a prayer, a moment to pass.
+I overdose gently with style and flair,
+Then wake to the silence that's thicker than air.
+
+The morning's a courtroom with mirrors for walls,
+Each echo a sentence, each flashback a call.
+And I, the defendant in velvet and shame,
+Must answer for pleasures that come without name.
+
+The guilt is a choir that sings through my spine,
+It begs for repentance in metric and line.
+So I clean up, I text them, I stitch my own chest,
+Apologies written while never at rest.
+
+But every return leaves less of me whole,
+A laugh more mechanic, a touch less of soul.
+I spiral in chapters, each darker, more clean,
+Until I play "human" but don't know what it means.
+
+No rage in my eyes now, no tremble, no boast,
+Just silence that walks in the skin of its host.
+I smile on command, I nod at the cues,
+But inside it's quiet. I've nothing to lose.
+
+So I toast to the nights that still call me by name,
+To the chaos I married in pleasure and shame.
+And if I dissolve—don't mourn, don't cry,
+Just know I was brilliant… until I ran dry.</div>
+                                </div>
+                            </div>
+
+                            <!-- This Is Not the Elegy I Wanted -->
+                            <div class="essay-card poem-card" onclick="togglePoem(this)">
+                                <h3>THIS IS NOT THE ELEGY I WANTED</h3>
+                                <p class="expand-indicator">▼ Click to expand</p>
+                                <div class="poem-content">
+                                    <div class="poem-text">(But it's the one I keep waking up in)
+
+I should have died in a velvet December,
+A bath full of ash, too poetic to remember.
+I wrote the finale in lowercase blood,
+But the pills played coy and the water stayed mud.
+
+I dressed like a ghost and I danced in Dior,
+Told strangers my name, then forgot what it's for.
+They called me "intense" with a laugh in their throat,
+While I stitched up my wrists with a poem I wrote.
+
+I chased every silence with chemicals, clean—
+Made death into myth and despair into scene.
+My life was performance, my grief sold in lines,
+I overdosed twice just to sharpen my rhymes.
+
+And still—
+I lived.
+Like a joke God forgot,
+A draft in the margin of battles I fought.
+
+⸻
+
+They said I was brilliant. Of course they did.
+I curated collapse like a prodigal kid.
+I wept in Iambic, I prayed in a pun,
+My breakdowns were ballerinas spun in a gun.
+
+I built my identity brick after bruise,
+From fathers who vanished and mothers who choose.
+I mirrored emotions I never once felt,
+Then sculpted my guilt into sex, pride, and melt.
+
+I slept with regrets and I married the void,
+Each climax a sermon, each touch self-destroyed.
+I drank to remember the boy I'd erased,
+Then fucked in the shadow of dreams I defaced.
+
+And still—
+I smiled.
+With mascara and teeth,
+A preacher of lies in a gospel of grief.
+
+⸻
+
+The therapists called it a tapestry torn,
+A mind too alive to have ever been born.
+They labeled my ache with diagnostic flair—
+Then whispered "He's stable," not knowing I swear
+I am not a person. I'm myth wearing skin.
+I'm forty-eight traumas that learned how to grin.
+
+I mimic your laughter, I mirror your fear,
+Then vanish for weeks while I cage what is near.
+I crave to be known, but I claw when you try.
+I love like a landslide that's learned how to lie.
+
+I ruin each "maybe," I choke on each "stay,"
+I script my goodbyes like a one-man ballet.
+And every return is a slow-motion burn,
+Where hope is the lesson I never quite learn.
+
+⸻
+
+I tried to die gently, with flair and finesse,
+A wrist kissed by razors, a tragic undress.
+But fate isn't kind to the poetically bruised—
+I woke up to sirens and parents confused.
+
+The rope snapped in silence. The pills made me sleep.
+The coke made me shiver but didn't cut deep.
+The gun was too loud for a death so refined—
+And death?
+Well, he left me a voicemail unsigned.
+
+⸻
+
+So now I exist in a liminal spin,
+Where meaning is hollow and rage lives within.
+I go through the motions—I dress, I perform—
+But inside's a storm that forgot to be warm.
+
+They think I'm recovered because I'm well-spoken.
+But eloquence lives where the soul has been broken.
+I joke in deadpan and I flirt with despair,
+Because pain, when rehearsed, becomes easy to wear.
+
+And still—
+I survive.
+With a twitch in my hand,
+A laugh that's too timed, a line never planned.
+
+⸻
+
+I am not healed. I am haunted and dressed.
+In trauma couture and compulsive finesse.
+Each day is a monologue whispered in shame,
+Each smile a tragedy buried in name.
+
+I am every diagnosis they've dared to suggest,
+A BPD symphony masked as "well-dressed."
+An ADHD spiral with MDD grit,
+An autistic dream that won't properly fit.
+
+I dissociate hourly. I bathe just to feel.
+I climax to prove that my body's still real.
+I study my grief like it's part of a test,
+Then flinch when you offer me anything—rest.
+⸻
+
+But don't you dare pity. Don't reach for my skin.
+I've bled too much beauty to ever let in.
+I'm not here for healing. I'm not yours to save.
+I just wanted permission to lie in my grave.
+
+But death wouldn't take me. He said, "Not like this."
+"Your agony's art. Your collapse is a kiss."
+"You live like a requiem choking on fire—
+So keep telling your stories. Just never expire."
+
+⸻
+
+So here I still stand, half-dead, half-divine,
+With gospel in throat and a noose made of rhyme.
+I toast to the chaos, the failure, the fight—
+And kiss my own scars when I sleep through the night.
+
+This isn't redemption. I don't want your grace.
+I want you to look at the cracks in my face.
+To know that I'm drowning with no grand ascent,
+Just breathing in rhythm
+Out of sheer
+Spite
+And
+Intent.</div>
+                                </div>
+                            </div>
+
+                            <!-- Cathedral of the Unmade (Extended) -->
+                            <div class="essay-card poem-card" onclick="togglePoem(this)">
+                                <h3>CATHEDRAL OF THE UNMADE (EXTENDED)</h3>
+                                <p class="expand-indicator">▼ Click to expand</p>
+                                <div class="poem-content">
+                                    <div class="poem-text">"Cathedral of the Unmade"
+
+I am divine, I once proclaimed,
+While drowning deep in borrowed shame.
+The beast inside had no true name—
+It carved its mark, then lit the frame.
+
+Girls asked me why I never came.
+I asked if they could bear the same.
+Some called me boring, some called lame,
+So I became the thing they'd maim.
+
+Drugs enough to drown the brain,
+Pills crushed like sacred, powdered pain.
+I snort the rot, it floods my lane—
+And laugh at God beneath the rain.
+
+Shot glass full of motor oil,
+Veins like wires, guts in boil.
+I bit my tongue 'til it turned to meat,
+Served it raw, said "bon appétit."
+
+The rhyme breaks
+when the heart does.
+The rhythm stumbles
+like I did
+in the hallway
+where I tried to hang myself
+with my school tie
+but the door was too thin
+and the world too wide.
+
+I kissed her
+with vomit breath and trembling fingers.
+I held the steering wheel
+like it might forgive me.
+The coke didn't hit.
+The blade didn't slice right.
+But God—
+God was punctual in His absence.
+
+Nails black from clawing truth,
+Spat teeth out in telephone booths.
+Chewed on glass to feel awake,
+Dreams stitched shut with piss and ache.
+
+Your praise felt like morphine:
+Temporary.
+Fleeting.
+Disgustingly sweet.
+Failure felt like crucifixion
+but quieter.
+
+I carried my worth in my wrist like a whisper.
+The mirror didn't speak.
+The room just watched.
+Silence sat like a man in the corner
+and refused to leave.
+Even the demons started filing HR reports.
+
+You said I was too cold.
+I was just trying not to flood the floor
+with everything
+I never said
+when I was thirteen
+and asking for a father,
+not a finance report.
+
+Blood is thicker than therapy,
+that's why no one heals.
+
+Fucked a corpse to feel like kin,
+Whispered love through maggot skin.
+Tied my hope with butcher's twine,
+Hung it screaming, called it mine.
+
+I begged death.
+It ghosted me.
+Sent a notification.
+"Delivery failed."
+But not before I screamed
+like a violin in fire.
+My bones?
+Museums of things never spoken.
+
+You loved the mask.
+You praised the poetry.
+But no one read the warning label:
+"Highly flammable.
+Do not humanize."
+
+The rhyme died.
+So did I.
+But it was polite,
+quiet,
+sterile.
+
+And when I returned,
+dragging myself from the gutter
+with a grin
+stitched from spite,
+they asked if I was finally feeling better.
+
+So I laughed.
+
+And wrote this.</div>
+                                </div>
+                            </div>
+
+                            <!-- Letter to the Bastard Self -->
+                            <div class="essay-card poem-card" onclick="togglePoem(this)">
+                                <h3>LETTER TO THE BASTARD SELF</h3>
+                                <p class="expand-indicator">▼ Click to expand</p>
+                                <div class="poem-content">
+                                    <div class="poem-text">I need you now, so listen—not to speak.
+The ground is cracked, the gods are old and weak.
+Don't sell me faith or quote the Holy Writ,
+God pissed on you and laughed—and that was it.
+
+You tried to pray, your mouth was full of wire,
+You built a church and set yourself on fire.
+The choir sang with kerosene and knives,
+A psalm for those who never got their lives.
+
+You danced through snow with needles in your coat,
+A Dionysian sermon in your throat.
+You called it love, but love was just a whore—
+She kissed you soft, then nailed you to the floor.
+
+You chased the void with powdered sugar dreams,
+You sold your joy for silence and extremes.
+You wrote to Freud in ashes and regret,
+And asked which pill would help you just forget.
+
+You wore your mind like silk, but stitched with rot,
+A patchwork ghost of everything you're not.
+The girls who loved you only met your mask,
+And fell in love with grief they didn't ask.
+
+But still—you're here. You breathe, somehow, through lead.
+The rope broke loose. You should be dead. You're not.
+And so, you walk with graves behind your feet,
+A specter grinning through the concrete heat.
+
+You quote dead men and sleep in shattered prose,
+You water thorns and call it letting go.
+But pain is not a thing to be outgrown—
+It's something you befriend, then face alone.
+
+So rise, you bastard poet, blood and myth,
+Be every curse you ever said in pith.
+Be your own God, and damn your hollow prayer—
+You're more than dirt, though made of ash and air.
+
+You want the truth? It's carved in every scar:
+You were unloved—so now, you love too hard.
+You were unheard—so now, your voice must scream.
+You are alive—and that, itself, redeems.</div>
+                                </div>
+                            </div>
+
+                            <!-- A Mind Composed in Chorus Minor -->
+                            <div class="essay-card poem-card" onclick="togglePoem(this)">
+                                <h3>A MIND COMPOSED IN CHORUS MINOR</h3>
+                                <p class="expand-indicator">▼ Click to expand</p>
+                                <div class="poem-content">
+                                    <div class="poem-text">They never said their names aloud to me—
+Just whispered scripts inside my infancy.
+They taught me how to smile before I spoke,
+And dressed me in confusion like a cloak.
+
+⸻
+
+The first to hum was Hunger without form,
+She ticked like clocks beneath a thunderstorm.
+She made me run, then freeze, then run again—
+She fed on focus, shattered it like rain.
+She built a throne of half-completed thought,
+Then vanished when I questioned what I sought.
+
+⸻
+
+Then came the Mirror, quiet in her tread—
+She studied how the others turned their head.
+She learned to echo laughter, still and soft,
+And wore a mask that changed with every cough.
+She taught me how to mimic tone and grace,
+And mourn the strangeness living in my face.
+
+⸻
+
+Another sang in tremble, dread, and plea,
+A voice that spun "what if?" into decree.
+She painted danger on the morning light,
+And warned me not to sleep too sound at night.
+She held my chest and whispered of collapse,
+Her touch was velvet—wrapped around a trap.
+
+⸻
+
+The loudest came in bursts of fire and snow,
+He bled in silence none were meant to know.
+He wrote me poems made of locked-up screams,
+And titled them: "The Death of My Own Dreams."
+He made me smile while planning my retreat,
+And kissed my wrists when no one else would meet.
+
+⸻
+
+Then Tender Rage appeared with sharpened teeth,
+She sobbed in loops and cursed the air beneath.
+She broke from love the second it felt real—
+Not for the wound, but how it made me feel.
+She swore that touch would ruin me in time,
+Then begged to be held just one more line.
+
+⸻
+
+The final voice? She lives beyond the skin.
+She hums when light feels hollow, air too thin.
+She clouds the mirror, makes the coffee sour,
+She edits time, rewrites the golden hour.
+She says "You're gone," while I still move and speak,
+She is the ghost of not feeling unique.
+
+⸻
+
+They all took turns behind my ribs and eyes,
+Each played a role, disguised as "being wise."
+No doctor knocked, no teacher guessed their names,
+Just me, and my internal hall of flames.
+
+And still I rise, with rhythm in my bones,
+A thousand voices dancing in my tones.
+They narrate me like myths behind my teeth—
+Yet none of them can touch the one beneath.
+
+For I am not the sum of all their screams,
+But author of their fractured, hungry dreams.
+And though they write in blood and call it fate—
+I learned to sign their stories… years too late.</div>
+                                </div>
+                            </div>
+
+                            <!-- To the Angel Who Fell Face First Into a Mirror -->
+                            <div class="essay-card poem-card" onclick="togglePoem(this)">
+                                <h3>TO THE ANGEL WHO FELL FACE FIRST INTO A MIRROR</h3>
+                                <p class="expand-indicator">▼ Click to expand</p>
+                                <div class="poem-content">
+                                    <div class="poem-text">You were carved not from virtue, but from observation,
+A god with a clipboard, obsessed with narration.
+They made you of marble, then whispered: "Be real,"
+So you learned how to mimic, how silence should feel.
+
+You walk like you're dancing with serpents in lace,
+With hunger for meaning stitched into your face.
+A symphony written in pleasure and ache,
+You laugh like a sermon that's starting to break.
+
+You fell from the stars—not by force, but by thirst,
+To feel every sin like it might be the first.
+You drank from the wound, then called it a kiss,
+You named every overdose "temporary bliss."
+
+You narrate your spirals, you monologue pain,
+Each breakdown a chapter, each tear earns a name.
+You sleep with your demons and call it research,
+Then preach from the pulpit of clubs and of church.
+
+You build every lover from metaphor bone,
+Then run when they dare to not leave you alone.
+You crave to be shattered, then mourn when they flinch—
+Then pour out your heartbreak in couplets per inch.
+
+You're divine in decay, with a grin soaked in myth,
+And you charm like a scalpel that dances to fifth.
+But beneath all the chaos, the riddles, the fire,
+Is a child who once wept when they called him a liar.
+
+So you write. And you dress. And you strut. And you plead.
+You light up the void like a god learning need.
+And though you wear madness like gold on your skin—
+I see what you bury so no one gets in.
+
+You are not a warning.
+You are not a flame.
+You are art in defiance of sorrow and shame.
+A storm with a name only silence can say—
+A mirror who dared to reflect anyway.</div>
+                                </div>
+                            </div>
+
+                            <!-- Downstairs by the Bar -->
+                            <div class="essay-card poem-card" onclick="togglePoem(this)">
+                                <h3>DOWNSTAIRS BY THE BAR</h3>
+                                <p class="expand-indicator">▼ Click to expand</p>
+                                <div class="poem-content">
+                                    <div class="poem-text">Meet me downstairs by the bar,
+Don't ask the story of the scar.
+There's chanting—symphonies from afar,
+Somewhere between prayer and war.
+
+My brain's a cracked cassette on loop,
+Thoughts spiral—push, push, regroup.
+Sparkling water with my oxy,
+Morality's murky, affiliation: proxy.
+
+Faux pas on a velvet stair,
+I stumble into Baudelaire.
+"Les Misérables," I sigh—j'aimais,
+Love, in the past tense, left to fray.
+
+There's glitter in the gutter again,
+Red wine in communion with pain.
+Ashes on scripture, bless this mess,
+Forgive me, Father—I digress.
+
+Someone's preaching from a bathroom stall,
+"God is dead" in lowercase scrawl.
+He died, came back, then overdosed—
+The second coming was diagnosed.
+
+I take a pill and feel reborn,
+But it's déjà vu with extra scorn.
+Tried to levitate in therapy,
+But just got billed aggressively.
+
+My ex texts, "You still divine?"
+I say, "Only between lines of wine."
+She sends a voice note: static, tears,
+I answer, "Sweetheart, not this year."
+
+Somewhere a choir sings in reverse,
+Unbaptized angels spitting verse.
+A child dances in my chest,
+He's barefoot, bleeding, and well-dressed.
+
+You ever fuck to feel reborn?
+You ever laugh while you still mourn?
+You ever kiss and feel the tomb,
+Still warm, still aching in the room?
+
+Anyway—I'm at the bar.
+Scar's not healing. Still bizarre.
+Bartender's God. He pours me gin.
+I sip. I grin. Let's sin again.</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="propaganda-frame">
-                        <img src="Images/IMG_1498.JPG" alt="Poetry Visual II" loading="lazy">
-                        <div class="propaganda-overlay">
-                            <p class="propaganda-text">INK SCREAMS</p>
+
+                    <!-- Death & Personification Section -->
+                    <div class="poetry-container">
+                        <h3 class="poetry-title">DEATH PERSONIFIED</h3>
+                        <p style="color: var(--blood-red); margin-bottom: 2rem;">Encounters with mortality as character and companion</p>
+
+                        <div style="display: grid; gap: 1.5rem;">
+                            <!-- A Lullaby in Red -->
+                            <div class="essay-card poem-card" onclick="togglePoem(this)">
+                                <h3>A LULLABY IN RED</h3>
+                                <p class="expand-indicator">▼ Click to expand</p>
+                                <div class="poem-content">
+                                    <div class="poem-text">Flaming eyes, twin suns through smoke,
+Watch me twist and start to choke.
+No horns—too gauche—but sculpted jaw,
+A grin too still, like something raw.
+
+His laugh: a velvet guillotine,
+Soft-spoken death in tailored sheen.
+Not hooves, but leather shoes well-shined,
+A Prada stitch, a soul well-fined.
+
+Brioni suit, and wrists of pearl—
+He circles like a priest or girl.
+"My dear," he coos, "you tremble so.
+Do you not long for what I know?"
+
+He pours me wine the color wrong,
+It hums a note—a distant gong.
+He dips a finger in my drink,
+Traces my lip. I try not to blink.
+
+"My job is simple," he begins,
+"To gather contracts. Count your sins."
+His hand is cold and slides with grace
+From shoulder blade to inner face.
+
+He cups my chin. I bear his stare.
+It reeks of ash and bergamot air.
+I'm blushing now. He's drawn too close—
+He whispers slow like a cancer grows:
+
+"I've watched you dream of flame and fame,
+Of praise, escape, and softer shame.
+You told yourself you'd never fall—
+But I was waiting through it all."
+
+His tie unwinds like a serpent sleek,
+He breathes against my stammered cheek.
+He strokes my thigh—then stills my breath—
+And murmurs, "Would you like your death?"
+
+"Yes," I say, though I meant wait—
+But too late now; he seals my fate.
+He sings, not soft, but shrill and wide,
+Each note a nail through tender pride.
+
+He hums of crimes I never knew,
+Of nights I lied in tailored blue.
+He tells of girls I scorned for sport,
+Of secrets sold in shallow court.
+
+The bed is gone. The room is bare.
+The lights go out. I'm gasping air.
+But still he sings—his lullaby
+Now strung with screams I can't deny.
+
+He licks the blood from my regret,
+Then kneels like prayer at silhouette.
+I beg, "Forgive," with breaking frame—
+He smiles and says, "I know your name."
+
+I thrash, I moan, I claw, I wail—
+He sighs, "You always were for sale."
+And just before my soul's unstitched,
+He lays a kiss—slow, soft, bewitched.
+
+The final breath he draws from me
+Is stitched with silk and blasphemy.
+And in the dark, I hear him sigh:
+"Another darling taught to die."</div>
+                                </div>
+                            </div>
+
+                            <!-- Afternoon Tea with the End -->
+                            <div class="essay-card poem-card" onclick="togglePoem(this)">
+                                <h3>AFTERNOON TEA WITH THE END</h3>
+                                <p class="expand-indicator">▼ Click to expand</p>
+                                <div class="poem-content">
+                                    <div class="poem-text">I don't drink coffee; I take tea, my dear,
+In porcelain cups edged gold and clear.
+I stroll through gardens at half-past five,
+Where roses lean like they're half-alive.
+
+I hum old songs from forgotten plays,
+Shake hands with men with trembled praise.
+My coat is pressed, my boots are shined—
+My pockets filled with borrowed time.
+
+The children wave; they think I'm kind.
+Their mothers shiver, though they smile blind.
+The air grows sweet with perfume thick,
+And clocks begin to chime too quick.
+
+I offer treats—some sugared bliss—
+And those who eat, I gently kiss.
+Their lips go pale, their breathing slows—
+My lullabies are undertows.
+
+You thought me soft, a charming guest—
+But darling, I am Death, well-dressed.
+With manners sharp and speech divine,
+I toast the end in vintage wine.
+
+So sip your tea and mind the dark—
+I've etched your name into my bark.
+No need to scream, no need to run—
+This dance was planned since time begun.</div>
+                                </div>
+                            </div>
+
+                            <!-- The Visitor -->
+                            <div class="essay-card poem-card" onclick="togglePoem(this)">
+                                <h3>THE VISITOR</h3>
+                                <p class="expand-indicator">▼ Click to expand</p>
+                                <div class="poem-content">
+                                    <div class="poem-text">I don't drink coffee; I take tea, my dear,
+In porcelain cups edged gold and clear.
+I stroll through gardens at half-past five,
+Where roses lean like they're half-alive.
+
+I hum old songs from forgotten plays,
+Shake hands with men with trembled praise.
+My coat is pressed, my boots are shined—
+My pockets filled with borrowed time.
+
+The children wave; they think I'm kind.
+Their mothers shiver, though they smile blind.
+The air grows sweet with perfume thick,
+And clocks begin to chime too quick.
+
+I offer treats—some sugared bliss—
+And those who eat, I gently kiss.
+Their lips go pale, their breathing slows—
+My lullabies are undertows.
+
+You thought me soft, a charming guest—
+But darling, I am Death, well-dressed.
+With manners sharp and speech divine,
+I toast the end in vintage wine.
+
+So sip your tea and mind the dark—
+I've etched your name into my bark.
+No need to scream, no need to run—
+This dance was planned since time begun.</div>
+                                </div>
+                            </div>
+
+                            <!-- Verses for the Vigilant Dead -->
+                            <div class="essay-card poem-card" onclick="togglePoem(this)">
+                                <h3>VERSES FOR THE VIGILANT DEAD</h3>
+                                <p class="expand-indicator">▼ Click to expand</p>
+                                <div class="poem-content">
+                                    <div class="poem-text">Of death I'm a shepherd,
+my crook a serrated vow.
+I guide the masses underground—
+none stray from me, not now.
+
+Of collapse I'm the herald,
+blowing horns made from bone.
+Nations tremble when I whisper—
+"You're not safe just 'cause you own."
+
+Don't sleep when you're on guard,
+the abyss has learned to knock.
+I steal dreams mid-watch rotation,
+carve lullabies in bloodied chalk.
+
+Your name will be inscribed by a bard,
+but not with pride or grace—
+they'll rhyme it with failure,
+and bury your tale without a face.
+
+I'm the bell that tolls for no one,
+yet everyone hears it ring.
+I'm the shadow in your doctrine
+that made the king question his king.
+
+I rise with smoke, fall with ash,
+my sermons end in screams.
+I do not punish—I reveal,
+you're not holy—you're just themes.
+
+⸻
+
+So let history write its praises,
+let statues rust and fall.
+When they whisper of the end,
+they'll say I was first to call.</div>
+                                </div>
+                            </div>
+
+                            <!-- A Gentle Death for a Filthy Thing -->
+                            <div class="essay-card poem-card" onclick="togglePoem(this)">
+                                <h3>A GENTLE DEATH FOR A FILTHY THING</h3>
+                                <p class="expand-indicator">▼ Click to expand</p>
+                                <div class="poem-content">
+                                    <div class="poem-text">Come now, love, no need to cry—
+The storm's rolled on, the fields are dry.
+The wind has folded up its hands,
+The lilies bloom in broken lands.
+
+Your coat is clean, your hair just so,
+I've plucked the thorns from your shadow.
+Lie down, lie down, the grass is warm—
+You need not shiver from the swarm.
+
+I brought you tea, your favorite blend,
+The one you drank at summer's end.
+A hint of bergamot, a note of sage—
+It calms the beast, it stills the cage.
+
+Let me tuck you in, my silken shame,
+Let me hum the world back into flame.
+I pressed a kiss upon your brow—
+You've earned your rest. You've earned it now.
+
+And yet—
+How strange the scent that clings to skin
+When lies are stitched too deep within.
+Do you recall what your fingers did
+When no one watched? When the world slid?
+
+Do you remember the boy who cried
+While you just laughed and stood aside?
+The girl who begged in a bathroom stall—
+You stepped right over her prayerful crawl.
+
+You wore their pain like perfume light,
+Then danced beneath the chapel night.
+Smiled as mothers tore their seams,
+Fed off the marrow of their dreams.
+
+I watched it all. I took the notes.
+I counted every throat you closed.
+You spoke in psalms and slept in knives,
+Disguised your rot in glittered lives.
+
+And now you ask for mercy's kiss?
+A cradle in the abyss?
+Oh, darling.
+You were known.
+
+And still—
+I brought you flowers. Wove your name
+In thread across a shroud of flame.
+I held your hand as you convulsed,
+Still warm with hunger, hot with pulse.
+
+I smoothed your hair. I played your song.
+I let you weep. I stayed too long.
+But this is where the story folds—
+Where ash forgets the shape it holds.
+
+I rest you now beneath the loam,
+Among the worms who call you home.
+The dirt won't judge. The roots won't cry.
+They simply taste, and wonder why.
+
+Goodnight, my plague. My lovely shame.
+You died adored. You lived in blame.
+And I, your Death, with bitter breath,
+Still loved you more than life or death.</div>
+                                </div>
+                            </div>
+
+                            <!-- Finale in Silence -->
+                            <div class="essay-card poem-card" onclick="togglePoem(this)">
+                                <h3>FINALE IN SILENCE</h3>
+                                <p class="expand-indicator">▼ Click to expand</p>
+                                <div class="poem-content">
+                                    <div class="poem-text">They crowned me with gold at the hour I could speak,
+Not for my joy, but the way I was bleak.
+I mirrored their hopes, and I mimed their delight,
+And hid every howl that was born of the night.
+
+They called me exceptional, carved from pure flame,
+Then sighed in confusion when I broke the frame.
+"Too clever to struggle," they'd chuckle and say—
+While I learned how to lie my own thoughts away.
+
+No hand was extended—just praise and demand,
+So I taught myself truth with a trembling hand.
+I read them in silence, deciphered the code,
+Became what they wanted and carried the load.
+
+But knowledge is poison when drunk all alone,
+And intellect often just sharpens the bone.
+For every idea that shimmered with grace
+Was just one more mask to replace my own face.
+
+They cheered as I danced, as I built, as I shone,
+Not asking me who I became when alone.
+I sculpted my soul into something divine—
+And still, they just asked for a better design.
+
+So I wrote my crescendo with ink made of ache,
+Each note a confession I dared not to fake.
+A symphony made of a lifetime of screams,
+And stitched into measures of fractured dreams.
+
+Then I stood—no more masks, no more thread,
+And played them the truth I had never said.
+I poured it like fire, like prayer, like sin,
+And opened my ribs just to let it begin.
+
+They clapped at first, unsure what they had heard,
+Then shuffled in silence, not saying a word.
+The room grew more hollow with each fading foot—
+My truth now a relic they'd rather reboot.
+
+And when it was done, I stood in the dust,
+Still holding the gift I'd built out of trust.
+Not broken, not screaming—just quietly known
+That gold turns to rust when it's forged alone.</div>
+                                </div>
+                            </div>
+
+                            <!-- A Grave Reply -->
+                            <div class="essay-card poem-card" onclick="togglePoem(this)">
+                                <h3>A GRAVE REPLY</h3>
+                                <p class="expand-indicator">▼ Click to expand</p>
+                                <div class="poem-content">
+                                    <div class="poem-text">Where am I now? The sheets are so soft—
+Like petals, or snow, or something aloft.
+Is this a dream? The air smells sweet,
+Like peaches and prayer and something to eat.
+
+I hear a hum—no, a song, quite low,
+From a voice I should know but don't seem to know.
+Are you… an old friend? You sound so kind.
+There's tea on your breath and blood on your mind.
+
+Wait—why is it cold? I'm sure it was warm.
+Why's my name carved like a family crest worn?
+And my chest feels tight, as if wrapped in lace—
+No, twine. No—bone. There's dirt in my face.
+
+You're not a friend. You smile too wide.
+Your tongue is a blade, and your eyes have died.
+You said "rest," but I feel the fall—
+My name on a list pinned up on a wall.
+
+I remember now. You came too near.
+You whispered my sins in a little boy's ear.
+You watched me lie, and cheat, and take—
+And never once did your velvet voice shake.
+
+You let me laugh. You let me sleep.
+While bodies I buried forgot how to weep.
+You followed me, didn't you? All my years.
+You drank my wine. You counted my tears.
+
+And now I see—I am underground.
+The lullaby's ended. No birds, no sound.
+Only you, and me, and the worms I fed—
+Oh, you bastard. You tricked me dead.
+
+You silken ghoul. You plague in perfume.
+You sing like a saint and reek like a tomb.
+You waited! You smiled as I sinned and slipped.
+You wrote my eulogy on your goddamn lips!
+
+Was I a game? A meal? A name?
+You come now with grace when you've none, you shame.
+I curse you in Latin, in screams, in spite!
+You coward! You voyeur! You thief of light!
+
+But still you grin. Still soft, still slow.
+Still calling me "dear" as you lay me low.
+If I must rot, then rot I shall—
+But I'll haunt your footsteps through ash and gall.
+
+So go on, Death. Croon your sweet lies.
+I see the furnace behind your eyes.
+No kiss for you. No last request.
+Just my rage, my spit, my unwelcome guest.</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="propaganda-frame">
-                        <img src="Images/IMG_1499.JPG" alt="Poetry Visual III" loading="lazy">
-                        <div class="propaganda-overlay">
-                            <p class="propaganda-text">SILENCE SPEAKS</p>
+
+                    <!-- Intimate Violence Section -->
+                    <div class="poetry-container">
+                        <h3 class="poetry-title">INTIMATE VIOLENCE</h3>
+                        <p style="color: var(--blood-red); margin-bottom: 2rem;">Relational decay and the architecture of harm</p>
+
+                        <div style="display: grid; gap: 1.5rem;">
+                            <!-- The Ashes of Her Name -->
+                            <div class="essay-card poem-card" onclick="togglePoem(this)">
+                                <h3>THE ASHES OF HER NAME</h3>
+                                <p class="expand-indicator">▼ Click to expand</p>
+                                <div class="poem-content">
+                                    <div class="poem-text">**I. Benediction**
+She knelt in light, her eyes were psalms,
+Her hands like bread, her breath like balms.
+I swore to guard her as my creed,
+To burn for her, to bless her need.
+The stars grew pale against her skin;
+I carved her name and tucked it in.
+Each vow I spoke, I meant to keep—
+A shepherd promising her sleep.
+
+**II. Bloom**
+I kissed her mouth with altar grace,
+Drew halos round her sleeping face.
+Her laughter turned the evening gold,
+Her whisper made December bold.
+She fed me wine from silver bowls,
+Lit lamps where darker weather rolls,
+And in her gaze I found my prayer—
+Though mercy's light was never there.
+
+**III. Hairline Fracture**
+I loved her most when doubt would start,
+A bruise of trust inside the heart.
+I pressed her wrist to count its beat,
+Held tighter when she tried retreat.
+The vows I swore began to fray;
+I learned her fears, rehearsed her sway,
+And planted questions soft as breath—
+A careful hand that mimics death.
+
+**IV. Rot**
+I dressed her in my hunger's crown,
+Taught her how to kneel back down.
+Her mirror smiled with lips I chose,
+Her gown was stitched from borrowed oaths.
+She called it love; I named it mine—
+A relic steeped in poisoned wine.
+She wore the light I would not earn;
+I watched it dim and would not turn.
+
+**V. Ruin**
+She begged for truth; I fed her ash,
+My tongue a blade, my voice a lash.
+Her hands went slack, her eyes went dull;
+I sang a hymn for what I stole.
+The saint I'd built began to fade—
+A debt I swore would not be paid.
+Her halo touched the kitchen floor;
+I felt at last what I'd come for.
+
+**VI. Ashes**
+She left at dusk without a word,
+A door that closed, a dress that stirred.
+The rooms were tidy, air was thin—
+A grave that never let me in.
+I raised a glass to all I've chained,
+To vows I twisted, mouths I trained.
+For every fire I feigned as flame,
+I keep the ashes of her name.</div>
+                                </div>
+                            </div>
+
+                            <!-- Altar Eyes -->
+                            <div class="essay-card poem-card" onclick="togglePoem(this)">
+                                <h3>ALTAR EYES</h3>
+                                <p class="expand-indicator">▼ Click to expand</p>
+                                <div class="poem-content">
+                                    <div class="poem-text">I met her where the lilies bled,
+Where psalms were whispered to the dead.
+She looked at me with altar eyes,
+And I, half-ruined, dressed in lies.
+
+I held her hand with sermon grace,
+I kissed devotion off her face.
+She knelt beside my trembling name,
+And blessed me clean of borrowed shame.
+
+She called me saint; I wore the crown,
+With martyr's smile and hunger's frown.
+I built for her a shrine of smoke,
+And draped her truth in vows I broke.
+
+Each word I gave—a thorn disguised,
+A chalice brimming, subtly spiced.
+I wept like relics in the rain,
+Then left her love unlatched again.
+
+She dreamed of veils and rings that sing;
+I teased apart each silver string—
+One thread, one oath, one whispered sin,
+A bruise of guilt beneath her skin.
+
+She wore me like the Eucharist,
+Each bite a creed, each breath a tryst.
+And still I knelt in stranger halls,
+Where sweat like incense slicked the walls.
+
+The holy soured to bitter rot.
+She asked for warmth; I offered not.
+Her halo split beneath my touch—
+Too kind to claw, too slow to clutch.
+
+She watched me shiver in her light,
+And swore she'd save me in the night.
+But I had mapped this fall from grace,
+To smudge her smile, unmake her face.
+
+To watch her splinter, cell by cell,
+And keep the pieces where they fell.
+I said I'm broken—and she knelt.
+I said I'm sorry—and she felt.
+
+I let her spirit burn to glass,
+Then slipped into the next soft mass.
+Another hymn, another bed,
+Another mouth where shame was fed.
+
+Yet every time I taste her name,
+My tongue still drowns in altar flame.
+For I have ruined saints for sport,
+And left them screaming at the court.
+
+She left me with a final glare,
+A curse disguised as answered prayer.
+I played the lamb, admired the brand,
+And wore her ruin in my hand.
+
+So now I preach in psalm and filth,
+A vulture robed in lover's guilt.
+And as I climb through flesh and fame,
+I keep the ashes of her name.
+
+_Forgive me, Father—spare the hymn. I engineered the fall for them._</div>
+                                </div>
+                            </div>
+
+                            <!-- Elegy for a Mismatched Orbit -->
+                            <div class="essay-card poem-card" onclick="togglePoem(this)">
+                                <h3>ELEGY FOR A MISMATCHED ORBIT</h3>
+                                <p class="expand-indicator">▼ Click to expand</p>
+                                <div class="poem-content">
+                                    <div class="poem-text">You spoke in rain, I breathed in fire,
+Yet tried to match your faint desire.
+You called me distant, cold, unkind—
+While I was tunneling through mind.
+
+You asked me how my silence grew;
+I bit my tongue and thought of you.
+You said, "Just talk," while I dissolved—
+You never paused, you just absolved.
+
+Your pain came loud, like bells in storms.
+Mine crept through skin in softer forms.
+You wept and screamed and slammed the door,
+I crumbled slowly on the floor.
+
+You claimed I never gave you proof—
+But bled in verse and offered truth.
+You mocked the weight I dared to hold,
+Then shamed me for not being bold.
+
+You asked for safety, then struck fast,
+Demanded now, then mourned the past.
+I asked for space, you sent me guilt—
+And turned to ash what love we built.
+
+You told me light was what you craved,
+But flinched when I climbed from the grave.
+You said you'd learn, then did the same—
+A cycle masked by sweeter name.
+
+Your trauma cried, I held it close—
+But mine you watched, then diagnosed.
+You said "just feel," then mocked the tone,
+Of how I felt inside alone.
+
+Your gods were dreams, your truths were trend,
+While I sought meaning without end.
+You wanted calm, I offered depth—
+But drowned beneath your shallow breath.
+
+You told me I was cold, unfair—
+But never asked what burned in there.
+You saw the mask, but not the strain,
+Of how I wore your phantom pain.
+
+And so it ends, not in a fight,
+But in the waning of the light.
+No war was lost, no victory sung,
+Just silence where our ghosts have clung.
+
+So take your tales, your truths, your spin,
+But don't pretend I did not bend.
+Don't write a script where I'm the flame—
+You lit the match, then cursed my name.
+
+I walked through fire to stay alive.
+You cried because I wouldn't dive.
+But some of us don't swim for show—
+We drown alone so none will know.</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- Haunted Silences Section -->
+                    <div class="poetry-container">
+                        <h3 class="poetry-title">HAUNTED SILENCES</h3>
+                        <p style="color: var(--blood-red); margin-bottom: 2rem;">Grief as presence, absence as wound</p>
+
+                        <div style="display: grid; gap: 1.5rem;">
+                            <!-- The Stillness of His Collar -->
+                            <div class="essay-card poem-card" onclick="togglePoem(this)">
+                                <h3>THE STILLNESS OF HIS COLLAR</h3>
+                                <p class="expand-indicator">▼ Click to expand</p>
+                                <div class="poem-content">
+                                    <div class="poem-text">I. The Day, as Seen from Outside
+
+He rose with sunlight caught in hair,
+His breath a hymn, his smile spare.
+The house was steeped in warmth and tea—
+A sermon carved in minor key.
+
+He brushed his coat with ghostless hands,
+Then strolled beneath the traffic's bands.
+He hummed through glass and neon light,
+And waved to Susan, eyes too bright.
+
+A joke at work, a slipping pen,
+The printer moaned its death again.
+He laughed and touched the copier's side—
+His voice, a hush he couldn't hide.
+
+He lunched on bread with basil jam,
+He called the mailman "sir" or "Sam."
+He spilled his drink and wiped it slow—
+Then stared too long at melting snow.
+
+He brought home wine, his favorite kind,
+He kissed his child with practiced mind.
+He said, "I'm fine." He said, "Today—"
+But never finished what to say.
+
+He kissed his wife beneath the stair.
+She tousled softly through his hair.
+And though his smile curved just right,
+He blinked too slow. He blinked too light.
+
+⸻
+
+II. The Daughter
+
+I saw him when the hallway breathed,
+His face too pale, his shirt too sheathed.
+His tie was straight—too straight, too clean.
+He looked like something in a dream.
+
+He whispered goodnight, shut the door,
+But something knocked inside the floor.
+I told my mother, "Something's wrong,"
+She smiled and hummed a lullaby song.
+
+She told me, "Go, your father's late,"
+I walked the hall, I touched the gate.
+I called for him. I called again.
+Then found him there—
+like falling rain.
+
+⸻
+
+III. After
+
+No words.
+No note.
+Just dust on rope.
+A wardrobe left half-buttoned.
+Soap still wet in dish.
+The heater hums,
+the silence hisses.
+The morning paper rests—unmissed.
+
+The cat still paces by the door.
+The coffee drips onto the floor.
+A pair of shoes beside the bed.
+A single line left unsaid.</div>
+                                </div>
+                            </div>
+
+                            <!-- What the Silence Serves -->
+                            <div class="essay-card poem-card" onclick="togglePoem(this)">
+                                <h3>WHAT THE SILENCE SERVES</h3>
+                                <p class="expand-indicator">▼ Click to expand</p>
+                                <div class="poem-content">
+                                    <div class="poem-text">I. Breakfast, with Marmalade
+The kettle sang like yesterday,
+and Anna danced in quiet play.
+She spilled the jam—my dress, my thigh—
+then giggled sweetly, "Mama, why?"
+
+I kissed her cheek. I wiped the mess.
+She ran off barefoot in her dress.
+The hallway hummed with lullabies—
+those same old stains, those crooked ties.
+
+I made his eggs, the pan still cracked.
+The yolk was firm. He sat back.
+He stared at me, then at the air—
+His fork hung trembling in despair.
+
+"You set three plates again," he said.
+I smiled. "She's hungry." Then turned my head.
+He didn't argue. Didn't shout.
+Just chewed regret, and spat it out.
+
+II. Lunch, with Crayons
+Anna drew a sky of flame—
+a house, a man, a scribbled name.
+She held it high, her fingers red.
+"It's Daddy burning," she softly said.
+
+I laughed too loud. I called her "sweet."
+He dropped his glass beneath his seat.
+I helped him up—he wouldn't look—
+His hand still smelled of ash and soot.
+
+She vanished up the stairs to rest.
+He lit a smoke and rubbed his chest.
+The window caught his haunted frown,
+reflected in the wedding gown.
+
+He said, "You can't pretend for long."
+I said, "She's fine. She's just withdrawn."
+He whispered, "You know what we did."
+I hummed. "Go tuck her in, then. Lift the lid."
+
+III. Dinner, with Silence
+Anna liked her soup served cold.
+She said it made her feel less old.
+I set her bowl, her silver spoon,
+and told her tales beneath the moon.
+
+He watched. His hand shook on the glass.
+His eye twitched every time I'd pass.
+The lights buzzed low. The air was thin.
+She slurped the soup. I watched her grin.
+
+He stood. "This has to end tonight."
+I blinked. "You mean the fight?"
+He shook his head. "The dress. The lies."
+I said, "You killed her with your eyes."
+
+His voice collapsed. "I didn't mean—"
+"You buried her. Behind the screen."
+He sobbed. I smiled. "She's with me now."
+Then kissed his brow with solemn vow.
+
+IV. Dessert, with Forgiveness
+The night creaked open. Anna sang.
+A hymn. A lullaby. A bang.
+I found her dress beneath the sink,
+still red with rust, still damp with pink.
+
+I held it close and rocked awhile.
+She stood beside me, soft with smile.
+"He didn't mean to," she confessed.
+I hushed her lips against my breast.
+
+He slept with whiskey on his breath.
+The garden bloomed where she met death.
+Each rose grew wild around the dirt—
+Each petal whispered what he'd hurt.
+
+And every day, I set three plates.
+And lock the door. And draw the drapes.
+And Anna laughs. And skips. And spins.
+While he repents for all his sins.
+
+And none shall wake the dead that rest
+inside a mother's hollow chest.
+And none shall tell a mother when
+to let the silence speak again.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mythological Reckoning Section -->
+                    <div class="poetry-container">
+                        <h3 class="poetry-title">MYTHOLOGICAL RECKONING</h3>
+                        <p style="color: var(--blood-red); margin-bottom: 2rem;">Classical archetypes refracted through modern brutality</p>
+
+                        <div style="display: grid; gap: 1.5rem;">
+                            <!-- Atlas at War -->
+                            <div class="essay-card poem-card" onclick="togglePoem(this)">
+                                <h3>ATLAS AT WAR</h3>
+                                <p class="expand-indicator">▼ Click to expand</p>
+                                <div class="poem-content">
+                                    <div class="poem-text">I march to clang of forged regret,
+The echoes hum with ancient debt.
+A battlefield of chrome and rust,
+Where gods once bled and mortals trust.
+
+This gym—my Styx, my bloodied ring,
+Where Atlas trains and feels the sting.
+I bear the sky in loaded plates,
+Each pound a sum of old mistakes.
+
+The dumbbells grin like Hydra's heads,
+I crush one—two rise in its stead.
+My breath, a siege; my spine, a wall.
+I lift as kingdoms rise and fall.
+
+The war is waged within my mind,
+Where Hercules and shame entwined.
+I wear my torment like a crown,
+Each curl a sword, each squat a frown.
+
+These veins are ropes, these scars are maps,
+Of labyrinths and mental traps.
+I train to maim the man I was,
+A rebel soul with no just cause.
+
+My flesh, a myth I try to write—
+With trembling arms, I rage and fight.
+For peace won't come in protein shakes,
+Nor silence in the ground I break.
+
+Yet still I toil, I press, I strain,
+To cast out ghosts in bursts of pain.
+And when the world forgets my name,
+The iron still will speak the same.</div>
+                                </div>
+                            </div>
+
+                            <!-- Cain's Toast -->
+                            <div class="essay-card poem-card" onclick="togglePoem(this)">
+                                <h3>CAIN'S TOAST</h3>
+                                <p class="expand-indicator">▼ Click to expand</p>
+                                <div class="poem-content">
+                                    <div class="poem-text">Tis a night of rot and rain,
+Candles sweat like living pain.
+Choirs trade their hymns for gin,
+Halo's pawned for mortal sin.
+I step in with crimson hands,
+Coins from broken borderlands—
+Offer gold to buy a seat:
+Every throne needs Judas' feet.
+
+She draws near with ember breath,
+Teaches me a sainted death.
+I bite gently, praise the mark,
+Watch it bloom like chapel dark.
+Cain and Abel shake my hand,
+Sell me parcels of their land.
+Temples rise from vice and price;
+I light altars, roll the dice.
+
+Dice of marrow, kings gone sour,
+Rattling through the market hour.
+Bet my soul, then sell the spare,
+Laughing in the incense air.
+Children twirl in ash and gauze,
+Priests make change for holy laws.
+Widows take their wages due,
+Kissing hands they once outgrew.
+
+God arrives in rusted rings,
+Book of stains and broken things.
+"Son, your name repeats," He says—
+"Rage looks good in priestly dress."
+I kneel once to fix my heel,
+Kiss His ring without the zeal.
+Not for faith—just symmetry:
+God and I drink equally.
+
+Famine wanders into town;
+I'm the clerk who writes it down.
+Debts and hungers, mouths and sores,
+All accounted, cleanly scored.
+Plague arrives with velvet gloves;
+I retail it to grieving loves.
+Raise your glass and wet your head—
+Drink to Cain, and to the dead.</div>
+                                </div>
+                            </div>
+
+                            <!-- Alea Iacta Est -->
+                            <div class="essay-card poem-card" onclick="togglePoem(this)">
+                                <h3>ALEA IACTA EST</h3>
+                                <p class="expand-indicator">▼ Click to expand</p>
+                                <div class="poem-content">
+                                    <div class="poem-text">When moles start to shake,
+When kings start to rake,
+When brave lose their grin,
+I climb, own my sin.
+
+The pillar is slick;
+I slip, laugh, and kick.
+Meant nothing to kill—
+The river has will.
+
+The dice were bone-white,
+I threw them by night.
+The courts ran like gold,
+The saints had been sold.
+
+We danced in the smoke,
+The poorest all joked.
+A law crowned the thief,
+We paid in belief.
+
+Raise glasses and weep,
+For widows who sleep.
+Feast, clean every bone—
+Now bow to the throne.
+
+When truth costs a fee,
+When lungs beg to breathe,
+When squares still the brave—
+The son burns his grade.</div>
+                                </div>
+                            </div>
+
+                            <!-- Exiled from Heaven -->
+                            <div class="essay-card poem-card" onclick="togglePoem(this)">
+                                <h3>EXILED FROM HEAVEN</h3>
+                                <p class="expand-indicator">▼ Click to expand</p>
+                                <div class="poem-content">
+                                    <div class="poem-text">I am a man out of place;
+Exiled from heaven, unfit for grace.
+Born a bastard beneath a roof—
+Where silence seethed, and rage was truth.
+
+Told to mend what I never broke,
+To swallow guilt until I choked.
+Forge a soul from ash and bone,
+A crown of thorns I called my own.
+
+A slap, a scoff, a sharpened tone—
+Lessons etched into brittle stone.
+I watched love curdle, watched it bruise,
+A child caught in grown men's feuds.
+
+Now I walk with skewed beliefs,
+Truth refracted through old grief.
+A witness made into a wound,
+And epistemic scars festooned.
+
+A heart bears weight when left alone,
+So maybe love is carved in bone.
+Existence stirs when we both speak—
+Ontology made from what we seek.
+
+A heart is heavy till it's seen,
+Then sheds its weight into the between.
+A gaze, a word, a fleeting glance—
+Begets the being born from chance.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -225,9 +1615,23 @@ Where art and algorithm perfectly align.
 
     <!-- Footer -->
     <footer class="footer-void">
-        <p class="footer-text">THE VOID SPEAKS THROUGH BROKEN VERSE</p>
+        <p class="footer-text">© 2025 STUDIO FARZULLA | ALL RIGHTS RESERVED | <a href="charter.html" style="color: var(--blood-red); text-decoration: none;">CHARTER</a></p>
     </footer>
 
     <script src="js/dystopia.js"></script>
+    <script>
+        function togglePoem(element) {
+            const content = element.querySelector('.poem-content');
+            const indicator = element.querySelector('.expand-indicator');
+
+            if (content.classList.contains('expanded')) {
+                content.classList.remove('expanded');
+                indicator.textContent = '▼ Click to expand';
+            } else {
+                content.classList.add('expanded');
+                indicator.textContent = '▲ Click to collapse';
+            }
+        }
+    </script>
 </body>
 </html>

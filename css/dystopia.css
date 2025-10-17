@@ -777,7 +777,7 @@ body {
 .tech-item,
 .method-list li {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: 0.75rem 0;
     border-bottom: 1px solid var(--smoke);
 }
@@ -859,6 +859,41 @@ body {
     border-left: 5px solid var(--blood-red);
     padding: 2rem;
     margin: 2rem 0;
+}
+
+/* Link & Contact Buttons */
+.link-button,
+.contact-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: var(--blood-red);
+    color: var(--pure-white);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: opacity 0.3s, transform 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.link-button:hover,
+.contact-button:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+}
+
+.link-button.disabled {
+    background: var(--smoke);
+    color: var(--ash-gray);
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.link-button.disabled:hover {
+    transform: none;
+    opacity: 0.5;
 }
 
 /* Timeline */
